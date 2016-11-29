@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication3
+﻿namespace AutoDatabase
 {
 	partial class MainForm
 	{

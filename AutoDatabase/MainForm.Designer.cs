@@ -28,7 +28,6 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.RegistrateClientTab = new System.Windows.Forms.TabPage();
 			this.BuyPartsTab = new System.Windows.Forms.TabPage();
@@ -41,13 +40,18 @@
 			this.DataEditTab = new System.Windows.Forms.TabPage();
 			this.SystemLogTab = new System.Windows.Forms.TabPage();
 			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-			this.timer1 = new System.Windows.Forms.Timer(this.components);
+			this.textBoxAdresas = new System.Windows.Forms.TextBox();
+			this.textBoxTelefonas = new System.Windows.Forms.TextBox();
 			this.tabControl1.SuspendLayout();
+			this.RegistrateClientTab.SuspendLayout();
 			this.SystemLogTab.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tabControl1
 			// 
+			this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.tabControl1.Controls.Add(this.RegistrateClientTab);
 			this.tabControl1.Controls.Add(this.BuyPartsTab);
 			this.tabControl1.Controls.Add(this.JobsTab);
@@ -61,15 +65,17 @@
 			this.tabControl1.Location = new System.Drawing.Point(-1, 1);
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(857, 561);
+			this.tabControl1.Size = new System.Drawing.Size(857, 551);
 			this.tabControl1.TabIndex = 0;
 			// 
 			// RegistrateClientTab
 			// 
+			this.RegistrateClientTab.Controls.Add(this.textBoxTelefonas);
+			this.RegistrateClientTab.Controls.Add(this.textBoxAdresas);
 			this.RegistrateClientTab.Location = new System.Drawing.Point(4, 22);
 			this.RegistrateClientTab.Name = "RegistrateClientTab";
 			this.RegistrateClientTab.Padding = new System.Windows.Forms.Padding(3);
-			this.RegistrateClientTab.Size = new System.Drawing.Size(849, 535);
+			this.RegistrateClientTab.Size = new System.Drawing.Size(849, 525);
 			this.RegistrateClientTab.TabIndex = 0;
 			this.RegistrateClientTab.Text = "Registruoti klientą";
 			this.RegistrateClientTab.UseVisualStyleBackColor = true;
@@ -175,6 +181,20 @@
 			this.richTextBox1.Text = "2016-11-09  16:03 Vartotojas Darbuotojas1 prisijungė į sistemą\n2016-11-09  16:04 " +
     "Užregistruotas naujas klientas Vardenis Pavardenis, Valst. Nr. AAA000\n\n";
 			// 
+			// textBoxAdresas
+			// 
+			this.textBoxAdresas.Location = new System.Drawing.Point(73, 70);
+			this.textBoxAdresas.Name = "textBoxAdresas";
+			this.textBoxAdresas.Size = new System.Drawing.Size(224, 20);
+			this.textBoxAdresas.TabIndex = 0;
+			// 
+			// textBoxTelefonas
+			// 
+			this.textBoxTelefonas.Location = new System.Drawing.Point(73, 107);
+			this.textBoxTelefonas.Name = "textBoxTelefonas";
+			this.textBoxTelefonas.Size = new System.Drawing.Size(224, 20);
+			this.textBoxTelefonas.TabIndex = 1;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -184,6 +204,8 @@
 			this.Name = "MainForm";
 			this.Text = "Mechanikas";
 			this.tabControl1.ResumeLayout(false);
+			this.RegistrateClientTab.ResumeLayout(false);
+			this.RegistrateClientTab.PerformLayout();
 			this.SystemLogTab.ResumeLayout(false);
 			this.ResumeLayout(false);
 
@@ -203,7 +225,8 @@
 		private System.Windows.Forms.TabPage JobsTab;
 		private System.Windows.Forms.TabPage SystemLogTab;
 		private System.Windows.Forms.RichTextBox richTextBox1;
-		private System.Windows.Forms.Timer timer1;
+		private System.Windows.Forms.TextBox textBoxTelefonas;
+		private System.Windows.Forms.TextBox textBoxAdresas;
 	}
 }
 

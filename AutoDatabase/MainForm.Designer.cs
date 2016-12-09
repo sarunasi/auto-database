@@ -30,6 +30,9 @@
 		{
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.RegistrateClientTab = new System.Windows.Forms.TabPage();
+			this.buttonRegisterClient = new System.Windows.Forms.Button();
+			this.textBoxTelefonas = new System.Windows.Forms.TextBox();
+			this.textBoxAdresas = new System.Windows.Forms.TextBox();
 			this.BuyPartsTab = new System.Windows.Forms.TabPage();
 			this.JobsTab = new System.Windows.Forms.TabPage();
 			this.EmployeesTab = new System.Windows.Forms.TabPage();
@@ -40,10 +43,12 @@
 			this.DataEditTab = new System.Windows.Forms.TabPage();
 			this.SystemLogTab = new System.Windows.Forms.TabPage();
 			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-			this.textBoxAdresas = new System.Windows.Forms.TextBox();
-			this.textBoxTelefonas = new System.Windows.Forms.TextBox();
+			this.textBoxDarbuotojasVardas = new System.Windows.Forms.TextBox();
+			this.textBoxDarbuotojasPavarde = new System.Windows.Forms.TextBox();
+			this.buttonAddEmployee = new System.Windows.Forms.Button();
 			this.tabControl1.SuspendLayout();
 			this.RegistrateClientTab.SuspendLayout();
+			this.EmployeesTab.SuspendLayout();
 			this.SystemLogTab.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -70,6 +75,7 @@
 			// 
 			// RegistrateClientTab
 			// 
+			this.RegistrateClientTab.Controls.Add(this.buttonRegisterClient);
 			this.RegistrateClientTab.Controls.Add(this.textBoxTelefonas);
 			this.RegistrateClientTab.Controls.Add(this.textBoxAdresas);
 			this.RegistrateClientTab.Location = new System.Drawing.Point(4, 22);
@@ -80,12 +86,36 @@
 			this.RegistrateClientTab.Text = "Registruoti klientą";
 			this.RegistrateClientTab.UseVisualStyleBackColor = true;
 			// 
+			// buttonRegisterClient
+			// 
+			this.buttonRegisterClient.Location = new System.Drawing.Point(114, 166);
+			this.buttonRegisterClient.Name = "buttonRegisterClient";
+			this.buttonRegisterClient.Size = new System.Drawing.Size(123, 35);
+			this.buttonRegisterClient.TabIndex = 2;
+			this.buttonRegisterClient.Text = "Registruoti";
+			this.buttonRegisterClient.UseVisualStyleBackColor = true;
+			this.buttonRegisterClient.Click += new System.EventHandler(this.buttonRegisterClient_Click);
+			// 
+			// textBoxTelefonas
+			// 
+			this.textBoxTelefonas.Location = new System.Drawing.Point(73, 107);
+			this.textBoxTelefonas.Name = "textBoxTelefonas";
+			this.textBoxTelefonas.Size = new System.Drawing.Size(224, 20);
+			this.textBoxTelefonas.TabIndex = 1;
+			// 
+			// textBoxAdresas
+			// 
+			this.textBoxAdresas.Location = new System.Drawing.Point(73, 70);
+			this.textBoxAdresas.Name = "textBoxAdresas";
+			this.textBoxAdresas.Size = new System.Drawing.Size(224, 20);
+			this.textBoxAdresas.TabIndex = 0;
+			// 
 			// BuyPartsTab
 			// 
 			this.BuyPartsTab.Location = new System.Drawing.Point(4, 22);
 			this.BuyPartsTab.Name = "BuyPartsTab";
 			this.BuyPartsTab.Padding = new System.Windows.Forms.Padding(3);
-			this.BuyPartsTab.Size = new System.Drawing.Size(849, 535);
+			this.BuyPartsTab.Size = new System.Drawing.Size(849, 525);
 			this.BuyPartsTab.TabIndex = 1;
 			this.BuyPartsTab.Text = "Pirkti detales";
 			this.BuyPartsTab.UseVisualStyleBackColor = true;
@@ -95,17 +125,20 @@
 			this.JobsTab.Location = new System.Drawing.Point(4, 22);
 			this.JobsTab.Name = "JobsTab";
 			this.JobsTab.Padding = new System.Windows.Forms.Padding(3);
-			this.JobsTab.Size = new System.Drawing.Size(849, 535);
+			this.JobsTab.Size = new System.Drawing.Size(849, 525);
 			this.JobsTab.TabIndex = 9;
 			this.JobsTab.Text = "Darbai";
 			this.JobsTab.UseVisualStyleBackColor = true;
 			// 
 			// EmployeesTab
 			// 
+			this.EmployeesTab.Controls.Add(this.buttonAddEmployee);
+			this.EmployeesTab.Controls.Add(this.textBoxDarbuotojasPavarde);
+			this.EmployeesTab.Controls.Add(this.textBoxDarbuotojasVardas);
 			this.EmployeesTab.Location = new System.Drawing.Point(4, 22);
 			this.EmployeesTab.Name = "EmployeesTab";
 			this.EmployeesTab.Padding = new System.Windows.Forms.Padding(3);
-			this.EmployeesTab.Size = new System.Drawing.Size(849, 535);
+			this.EmployeesTab.Size = new System.Drawing.Size(849, 525);
 			this.EmployeesTab.TabIndex = 4;
 			this.EmployeesTab.Text = "Darbuotojai";
 			this.EmployeesTab.UseVisualStyleBackColor = true;
@@ -115,7 +148,7 @@
 			this.PartsForClientTab.Location = new System.Drawing.Point(4, 22);
 			this.PartsForClientTab.Name = "PartsForClientTab";
 			this.PartsForClientTab.Padding = new System.Windows.Forms.Padding(3);
-			this.PartsForClientTab.Size = new System.Drawing.Size(849, 535);
+			this.PartsForClientTab.Size = new System.Drawing.Size(849, 525);
 			this.PartsForClientTab.TabIndex = 5;
 			this.PartsForClientTab.Text = "Detalės klientui";
 			this.PartsForClientTab.UseVisualStyleBackColor = true;
@@ -125,7 +158,7 @@
 			this.DocumentsTab.Location = new System.Drawing.Point(4, 22);
 			this.DocumentsTab.Name = "DocumentsTab";
 			this.DocumentsTab.Padding = new System.Windows.Forms.Padding(3);
-			this.DocumentsTab.Size = new System.Drawing.Size(849, 535);
+			this.DocumentsTab.Size = new System.Drawing.Size(849, 525);
 			this.DocumentsTab.TabIndex = 6;
 			this.DocumentsTab.Text = "Dokumentai";
 			this.DocumentsTab.UseVisualStyleBackColor = true;
@@ -135,7 +168,7 @@
 			this.SearchTab.Location = new System.Drawing.Point(4, 22);
 			this.SearchTab.Name = "SearchTab";
 			this.SearchTab.Padding = new System.Windows.Forms.Padding(3);
-			this.SearchTab.Size = new System.Drawing.Size(849, 535);
+			this.SearchTab.Size = new System.Drawing.Size(849, 525);
 			this.SearchTab.TabIndex = 7;
 			this.SearchTab.Text = "Paieška";
 			this.SearchTab.UseVisualStyleBackColor = true;
@@ -145,7 +178,7 @@
 			this.DataEntryTab.Location = new System.Drawing.Point(4, 22);
 			this.DataEntryTab.Name = "DataEntryTab";
 			this.DataEntryTab.Padding = new System.Windows.Forms.Padding(3);
-			this.DataEntryTab.Size = new System.Drawing.Size(849, 535);
+			this.DataEntryTab.Size = new System.Drawing.Size(849, 525);
 			this.DataEntryTab.TabIndex = 8;
 			this.DataEntryTab.Text = "Duomenų įvedimas";
 			this.DataEntryTab.UseVisualStyleBackColor = true;
@@ -155,7 +188,7 @@
 			this.DataEditTab.Location = new System.Drawing.Point(4, 22);
 			this.DataEditTab.Name = "DataEditTab";
 			this.DataEditTab.Padding = new System.Windows.Forms.Padding(3);
-			this.DataEditTab.Size = new System.Drawing.Size(849, 535);
+			this.DataEditTab.Size = new System.Drawing.Size(849, 525);
 			this.DataEditTab.TabIndex = 3;
 			this.DataEditTab.Text = "Redaguoti duomenis";
 			this.DataEditTab.UseVisualStyleBackColor = true;
@@ -166,7 +199,7 @@
 			this.SystemLogTab.Location = new System.Drawing.Point(4, 22);
 			this.SystemLogTab.Name = "SystemLogTab";
 			this.SystemLogTab.Padding = new System.Windows.Forms.Padding(3);
-			this.SystemLogTab.Size = new System.Drawing.Size(849, 535);
+			this.SystemLogTab.Size = new System.Drawing.Size(849, 525);
 			this.SystemLogTab.TabIndex = 10;
 			this.SystemLogTab.Text = "Sistemos žurnalas";
 			this.SystemLogTab.UseVisualStyleBackColor = true;
@@ -181,19 +214,29 @@
 			this.richTextBox1.Text = "2016-11-09  16:03 Vartotojas Darbuotojas1 prisijungė į sistemą\n2016-11-09  16:04 " +
     "Užregistruotas naujas klientas Vardenis Pavardenis, Valst. Nr. AAA000\n\n";
 			// 
-			// textBoxAdresas
+			// textBoxDarbuotojasVardas
 			// 
-			this.textBoxAdresas.Location = new System.Drawing.Point(73, 70);
-			this.textBoxAdresas.Name = "textBoxAdresas";
-			this.textBoxAdresas.Size = new System.Drawing.Size(224, 20);
-			this.textBoxAdresas.TabIndex = 0;
+			this.textBoxDarbuotojasVardas.Location = new System.Drawing.Point(109, 86);
+			this.textBoxDarbuotojasVardas.Name = "textBoxDarbuotojasVardas";
+			this.textBoxDarbuotojasVardas.Size = new System.Drawing.Size(180, 20);
+			this.textBoxDarbuotojasVardas.TabIndex = 0;
 			// 
-			// textBoxTelefonas
+			// textBoxDarbuotojasPavarde
 			// 
-			this.textBoxTelefonas.Location = new System.Drawing.Point(73, 107);
-			this.textBoxTelefonas.Name = "textBoxTelefonas";
-			this.textBoxTelefonas.Size = new System.Drawing.Size(224, 20);
-			this.textBoxTelefonas.TabIndex = 1;
+			this.textBoxDarbuotojasPavarde.Location = new System.Drawing.Point(109, 125);
+			this.textBoxDarbuotojasPavarde.Name = "textBoxDarbuotojasPavarde";
+			this.textBoxDarbuotojasPavarde.Size = new System.Drawing.Size(180, 20);
+			this.textBoxDarbuotojasPavarde.TabIndex = 1;
+			// 
+			// buttonAddEmployee
+			// 
+			this.buttonAddEmployee.Location = new System.Drawing.Point(140, 178);
+			this.buttonAddEmployee.Name = "buttonAddEmployee";
+			this.buttonAddEmployee.Size = new System.Drawing.Size(112, 38);
+			this.buttonAddEmployee.TabIndex = 2;
+			this.buttonAddEmployee.Text = "Prideti darbuotoja";
+			this.buttonAddEmployee.UseVisualStyleBackColor = true;
+			this.buttonAddEmployee.Click += new System.EventHandler(this.buttonAddEmployee_Click);
 			// 
 			// MainForm
 			// 
@@ -206,6 +249,8 @@
 			this.tabControl1.ResumeLayout(false);
 			this.RegistrateClientTab.ResumeLayout(false);
 			this.RegistrateClientTab.PerformLayout();
+			this.EmployeesTab.ResumeLayout(false);
+			this.EmployeesTab.PerformLayout();
 			this.SystemLogTab.ResumeLayout(false);
 			this.ResumeLayout(false);
 
@@ -227,6 +272,10 @@
 		private System.Windows.Forms.RichTextBox richTextBox1;
 		private System.Windows.Forms.TextBox textBoxTelefonas;
 		private System.Windows.Forms.TextBox textBoxAdresas;
+		private System.Windows.Forms.Button buttonRegisterClient;
+		private System.Windows.Forms.Button buttonAddEmployee;
+		private System.Windows.Forms.TextBox textBoxDarbuotojasPavarde;
+		private System.Windows.Forms.TextBox textBoxDarbuotojasVardas;
 	}
 }
 

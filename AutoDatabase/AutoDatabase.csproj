@@ -61,6 +61,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoShopDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutoShopDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeTable.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -82,6 +87,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="AutoShopDataSet.xsc">
+      <DependentUpon>AutoShopDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AutoShopDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AutoShopDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AutoShopDataSet.xss">
+      <DependentUpon>AutoShopDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

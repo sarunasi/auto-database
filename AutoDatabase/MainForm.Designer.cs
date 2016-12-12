@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.RegistrateClientTab = new System.Windows.Forms.TabPage();
 			this.buttonRegisterClient = new System.Windows.Forms.Button();
@@ -36,6 +37,9 @@
 			this.BuyPartsTab = new System.Windows.Forms.TabPage();
 			this.JobsTab = new System.Windows.Forms.TabPage();
 			this.EmployeesTab = new System.Windows.Forms.TabPage();
+			this.buttonAddEmployee = new System.Windows.Forms.Button();
+			this.textBoxDarbuotojasPavarde = new System.Windows.Forms.TextBox();
+			this.textBoxDarbuotojasVardas = new System.Windows.Forms.TextBox();
 			this.PartsForClientTab = new System.Windows.Forms.TabPage();
 			this.DocumentsTab = new System.Windows.Forms.TabPage();
 			this.SearchTab = new System.Windows.Forms.TabPage();
@@ -43,13 +47,20 @@
 			this.DataEditTab = new System.Windows.Forms.TabPage();
 			this.SystemLogTab = new System.Windows.Forms.TabPage();
 			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-			this.textBoxDarbuotojasVardas = new System.Windows.Forms.TextBox();
-			this.textBoxDarbuotojasPavarde = new System.Windows.Forms.TextBox();
-			this.buttonAddEmployee = new System.Windows.Forms.Button();
+			this.autoShopDataSet = new AutoDatabase.AutoShopDataSet();
+			this.darbuotojasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.darbuotojasTableAdapter = new AutoDatabase.AutoShopDataSetTableAdapters.DarbuotojasTableAdapter();
+			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.vardasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.pavardeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.tabControl1.SuspendLayout();
 			this.RegistrateClientTab.SuspendLayout();
 			this.EmployeesTab.SuspendLayout();
 			this.SystemLogTab.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.autoShopDataSet)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.darbuotojasBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// tabControl1
@@ -132,6 +143,7 @@
 			// 
 			// EmployeesTab
 			// 
+			this.EmployeesTab.Controls.Add(this.dataGridView1);
 			this.EmployeesTab.Controls.Add(this.buttonAddEmployee);
 			this.EmployeesTab.Controls.Add(this.textBoxDarbuotojasPavarde);
 			this.EmployeesTab.Controls.Add(this.textBoxDarbuotojasVardas);
@@ -142,6 +154,30 @@
 			this.EmployeesTab.TabIndex = 4;
 			this.EmployeesTab.Text = "Darbuotojai";
 			this.EmployeesTab.UseVisualStyleBackColor = true;
+			// 
+			// buttonAddEmployee
+			// 
+			this.buttonAddEmployee.Location = new System.Drawing.Point(140, 178);
+			this.buttonAddEmployee.Name = "buttonAddEmployee";
+			this.buttonAddEmployee.Size = new System.Drawing.Size(112, 38);
+			this.buttonAddEmployee.TabIndex = 2;
+			this.buttonAddEmployee.Text = "Prideti darbuotoja";
+			this.buttonAddEmployee.UseVisualStyleBackColor = true;
+			this.buttonAddEmployee.Click += new System.EventHandler(this.buttonAddEmployee_Click);
+			// 
+			// textBoxDarbuotojasPavarde
+			// 
+			this.textBoxDarbuotojasPavarde.Location = new System.Drawing.Point(109, 125);
+			this.textBoxDarbuotojasPavarde.Name = "textBoxDarbuotojasPavarde";
+			this.textBoxDarbuotojasPavarde.Size = new System.Drawing.Size(180, 20);
+			this.textBoxDarbuotojasPavarde.TabIndex = 1;
+			// 
+			// textBoxDarbuotojasVardas
+			// 
+			this.textBoxDarbuotojasVardas.Location = new System.Drawing.Point(109, 86);
+			this.textBoxDarbuotojasVardas.Name = "textBoxDarbuotojasVardas";
+			this.textBoxDarbuotojasVardas.Size = new System.Drawing.Size(180, 20);
+			this.textBoxDarbuotojasVardas.TabIndex = 0;
 			// 
 			// PartsForClientTab
 			// 
@@ -214,29 +250,59 @@
 			this.richTextBox1.Text = "2016-11-09  16:03 Vartotojas Darbuotojas1 prisijungė į sistemą\n2016-11-09  16:04 " +
     "Užregistruotas naujas klientas Vardenis Pavardenis, Valst. Nr. AAA000\n\n";
 			// 
-			// textBoxDarbuotojasVardas
+			// autoShopDataSet
 			// 
-			this.textBoxDarbuotojasVardas.Location = new System.Drawing.Point(109, 86);
-			this.textBoxDarbuotojasVardas.Name = "textBoxDarbuotojasVardas";
-			this.textBoxDarbuotojasVardas.Size = new System.Drawing.Size(180, 20);
-			this.textBoxDarbuotojasVardas.TabIndex = 0;
+			this.autoShopDataSet.DataSetName = "AutoShopDataSet";
+			this.autoShopDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
 			// 
-			// textBoxDarbuotojasPavarde
+			// darbuotojasBindingSource
 			// 
-			this.textBoxDarbuotojasPavarde.Location = new System.Drawing.Point(109, 125);
-			this.textBoxDarbuotojasPavarde.Name = "textBoxDarbuotojasPavarde";
-			this.textBoxDarbuotojasPavarde.Size = new System.Drawing.Size(180, 20);
-			this.textBoxDarbuotojasPavarde.TabIndex = 1;
+			this.darbuotojasBindingSource.DataMember = "Darbuotojas";
+			this.darbuotojasBindingSource.DataSource = this.autoShopDataSet;
 			// 
-			// buttonAddEmployee
+			// darbuotojasTableAdapter
 			// 
-			this.buttonAddEmployee.Location = new System.Drawing.Point(140, 178);
-			this.buttonAddEmployee.Name = "buttonAddEmployee";
-			this.buttonAddEmployee.Size = new System.Drawing.Size(112, 38);
-			this.buttonAddEmployee.TabIndex = 2;
-			this.buttonAddEmployee.Text = "Prideti darbuotoja";
-			this.buttonAddEmployee.UseVisualStyleBackColor = true;
-			this.buttonAddEmployee.Click += new System.EventHandler(this.buttonAddEmployee_Click);
+			this.darbuotojasTableAdapter.ClearBeforeFill = true;
+			// 
+			// dataGridView1
+			// 
+			this.dataGridView1.AllowUserToAddRows = false;
+			this.dataGridView1.AllowUserToDeleteRows = false;
+			this.dataGridView1.AllowUserToResizeColumns = false;
+			this.dataGridView1.AllowUserToResizeRows = false;
+			this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.dataGridView1.AutoGenerateColumns = false;
+			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.vardasDataGridViewTextBoxColumn,
+            this.pavardeDataGridViewTextBoxColumn});
+			this.dataGridView1.DataSource = this.darbuotojasBindingSource;
+			this.dataGridView1.Location = new System.Drawing.Point(313, 28);
+			this.dataGridView1.Name = "dataGridView1";
+			this.dataGridView1.Size = new System.Drawing.Size(493, 327);
+			this.dataGridView1.TabIndex = 4;
+			// 
+			// idDataGridViewTextBoxColumn
+			// 
+			this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+			this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+			this.idDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// vardasDataGridViewTextBoxColumn
+			// 
+			this.vardasDataGridViewTextBoxColumn.DataPropertyName = "Vardas";
+			this.vardasDataGridViewTextBoxColumn.HeaderText = "Vardas";
+			this.vardasDataGridViewTextBoxColumn.Name = "vardasDataGridViewTextBoxColumn";
+			// 
+			// pavardeDataGridViewTextBoxColumn
+			// 
+			this.pavardeDataGridViewTextBoxColumn.DataPropertyName = "Pavarde";
+			this.pavardeDataGridViewTextBoxColumn.HeaderText = "Pavarde";
+			this.pavardeDataGridViewTextBoxColumn.Name = "pavardeDataGridViewTextBoxColumn";
 			// 
 			// MainForm
 			// 
@@ -246,12 +312,16 @@
 			this.Controls.Add(this.tabControl1);
 			this.Name = "MainForm";
 			this.Text = "Mechanikas";
+			this.Load += new System.EventHandler(this.MainForm_Load);
 			this.tabControl1.ResumeLayout(false);
 			this.RegistrateClientTab.ResumeLayout(false);
 			this.RegistrateClientTab.PerformLayout();
 			this.EmployeesTab.ResumeLayout(false);
 			this.EmployeesTab.PerformLayout();
 			this.SystemLogTab.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.autoShopDataSet)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.darbuotojasBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -276,6 +346,13 @@
 		private System.Windows.Forms.Button buttonAddEmployee;
 		private System.Windows.Forms.TextBox textBoxDarbuotojasPavarde;
 		private System.Windows.Forms.TextBox textBoxDarbuotojasVardas;
+		private AutoShopDataSet autoShopDataSet;
+		private System.Windows.Forms.BindingSource darbuotojasBindingSource;
+		private AutoShopDataSetTableAdapters.DarbuotojasTableAdapter darbuotojasTableAdapter;
+		private System.Windows.Forms.DataGridView dataGridView1;
+		private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn vardasDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn pavardeDataGridViewTextBoxColumn;
 	}
 }
 

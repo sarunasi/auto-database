@@ -14,7 +14,7 @@ namespace AutoDatabase
 		private string connectionString;
 		SqlDataAdapter dataAdapter;
 		DataSet dataSet;
-		public string TableName { get; private set; } = "Darbuotojas";
+		public string TableName { get; private set; } = "Employee";
 
 		public EmployeeTable(string connectionString, DataSet dataSet)
 		{
@@ -24,7 +24,7 @@ namespace AutoDatabase
 			var connection = new SqlConnection(connectionString);
 			using (connection)
 			{
-				dataAdapter = new SqlDataAdapter("SELECT * FROM Darbuotojas", connection);
+				dataAdapter = new SqlDataAdapter("SELECT * FROM Employee", connection);
 				dataAdapter.Fill(dataSet, TableName);
 				
 			}
@@ -36,14 +36,14 @@ namespace AutoDatabase
 
 		public void Insert(string name, string surname)
 		{
-			var cmd = new SqlCommand("Insert INTO Darbuotojas (Vardas, Pavarde) values (@Vardas, @Pavarde)");
-			cmd.Parameters.Add(new SqlParameter("@Vardas", SqlDbType.NVarChar, 50, "Vardas"));
-			cmd.Parameters.Add(new SqlParameter("@Pavarde", SqlDbType.NVarChar, 50, "Pavarde"));
+			var cmd = new SqlCommand("Insert INTO Employee (Name, Surname) values (@Name, @Surname)");
+			cmd.Parameters.Add(new SqlParameter("@Name", SqlDbType.NVarChar, 50, "Name"));
+			cmd.Parameters.Add(new SqlParameter("@Surname", SqlDbType.NVarChar, 50, "Surname"));
 			dataAdapter.InsertCommand = cmd;
 
 			DataRow newRow = dataSet.Tables[TableName].NewRow();
-			newRow["Vardas"] = name;
-			newRow["Pavarde"] = surname;
+			newRow["Name"] = name;
+			newRow["Surname"] = surname;
 
 			dataSet.Tables[TableName].Rows.Add(newRow);
 
@@ -56,19 +56,37 @@ namespace AutoDatabase
 			
 		}
 
+		public void Delete(string idString)
+		{
+			var cmd = new SqlCommand("DELETE FROM Employee WHERE Id = @Id");
+			cmd.Parameters.Add(new SqlParameter("@Id", SqlDbType.Int, 50, "Id"));
+			dataAdapter.DeleteCommand = cmd;
+
+			int id = int.Parse(idString);
+
+			dataSet.Tables[TableName].Rows.Find(id).Delete();
+
+			var connection = new SqlConnection(connectionString);
+			using (connection)
+			{
+				dataAdapter.DeleteCommand.Connection = connection;
+				dataAdapter.Update(dataSet, TableName);
+			}
+		}
+
 		public void Update(string idString, string name, string surname)
 		{
-			var cmd = new SqlCommand("UPDATE Darbuotojas SET Vardas = @Vardas, Pavarde = @Pavarde WHERE Id = @Id");
-			cmd.Parameters.Add(new SqlParameter("@Vardas", SqlDbType.NVarChar, 50, "Vardas"));
-			cmd.Parameters.Add(new SqlParameter("@Pavarde", SqlDbType.NVarChar, 50, "Pavarde"));
+			var cmd = new SqlCommand("UPDATE Employee SET Vardas = @Vardas, Pavarde = @Surname WHERE Id = @Id");
+			cmd.Parameters.Add(new SqlParameter("@Name", SqlDbType.NVarChar, 50, "Name"));
+			cmd.Parameters.Add(new SqlParameter("@Surname", SqlDbType.NVarChar, 50, "Surname"));
 			cmd.Parameters.Add(new SqlParameter("@Id", SqlDbType.Int, 50,  "Id"));
 			dataAdapter.UpdateCommand = cmd;
 
 
 			int id = int.Parse(idString);
 			
-			dataSet.Tables[TableName].Rows.Find(id)["Vardas"] = name;
-			dataSet.Tables[TableName].Rows.Find(id)["Pavarde"] = surname;
+			dataSet.Tables[TableName].Rows.Find(id)["Name"] = name;
+			dataSet.Tables[TableName].Rows.Find(id)["Surname"] = surname;
 
 			var connection = new SqlConnection(connectionString);
 			using (connection)

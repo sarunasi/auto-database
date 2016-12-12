@@ -48,5 +48,17 @@ namespace AutoDatabase
 			this.carTableAdapter.Fill(this.autoShopDataSet.Car);
 
 		}
+
+		private void buttonSelectPerson_Click(object sender, EventArgs e)
+		{
+			textClient1.Text = "Vardas";
+			textClient2.Text = "Pavarde";
+		}
+
+		private void buttonSelectCompany_Click(object sender, EventArgs e)
+		{
+			textClient1.Text = "Pavadinimas";
+			textClient2.Text = "Kodas";
+		}
 	}
 }

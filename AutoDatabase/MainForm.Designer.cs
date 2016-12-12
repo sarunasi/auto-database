@@ -31,12 +31,26 @@
 			this.components = new System.ComponentModel.Container();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.RegistrateClientTab = new System.Windows.Forms.TabPage();
+			this.textClient1 = new System.Windows.Forms.TextBox();
+			this.textClient2 = new System.Windows.Forms.TextBox();
+			this.textBoxClient1 = new System.Windows.Forms.TextBox();
+			this.textBoxClient2 = new System.Windows.Forms.TextBox();
+			this.textBox2 = new System.Windows.Forms.TextBox();
+			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.buttonSelectPerson = new System.Windows.Forms.Button();
+			this.buttonSelectCompany = new System.Windows.Forms.Button();
 			this.buttonRegisterClient = new System.Windows.Forms.Button();
 			this.textBoxTelefonas = new System.Windows.Forms.TextBox();
 			this.textBoxAdresas = new System.Windows.Forms.TextBox();
 			this.BuyPartsTab = new System.Windows.Forms.TabPage();
 			this.JobsTab = new System.Windows.Forms.TabPage();
 			this.EmployeesTab = new System.Windows.Forms.TabPage();
+			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.surnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.autoShopDataSet = new AutoDatabase.AutoShopDataSet();
 			this.comboBox1 = new System.Windows.Forms.ComboBox();
 			this.listBox1 = new System.Windows.Forms.ListBox();
 			this.buttonDeleteEmployee = new System.Windows.Forms.Button();
@@ -55,25 +69,19 @@
 			this.DataEditTab = new System.Windows.Forms.TabPage();
 			this.SystemLogTab = new System.Windows.Forms.TabPage();
 			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-			this.autoShopDataSet = new AutoDatabase.AutoShopDataSet();
 			this.autoShopDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.carBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.carTableAdapter = new AutoDatabase.AutoShopDataSetTableAdapters.CarTableAdapter();
-			this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.employeeTableAdapter = new AutoDatabase.AutoShopDataSetTableAdapters.EmployeeTableAdapter();
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
-			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.surnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.tabControl1.SuspendLayout();
 			this.RegistrateClientTab.SuspendLayout();
 			this.EmployeesTab.SuspendLayout();
-			this.SystemLogTab.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.autoShopDataSet)).BeginInit();
+			this.SystemLogTab.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.autoShopDataSetBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.carBindingSource)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// tabControl1
@@ -99,6 +107,14 @@
 			// 
 			// RegistrateClientTab
 			// 
+			this.RegistrateClientTab.Controls.Add(this.textClient1);
+			this.RegistrateClientTab.Controls.Add(this.textClient2);
+			this.RegistrateClientTab.Controls.Add(this.textBoxClient1);
+			this.RegistrateClientTab.Controls.Add(this.textBoxClient2);
+			this.RegistrateClientTab.Controls.Add(this.textBox2);
+			this.RegistrateClientTab.Controls.Add(this.textBox1);
+			this.RegistrateClientTab.Controls.Add(this.buttonSelectPerson);
+			this.RegistrateClientTab.Controls.Add(this.buttonSelectCompany);
 			this.RegistrateClientTab.Controls.Add(this.buttonRegisterClient);
 			this.RegistrateClientTab.Controls.Add(this.textBoxTelefonas);
 			this.RegistrateClientTab.Controls.Add(this.textBoxAdresas);
@@ -110,9 +126,87 @@
 			this.RegistrateClientTab.Text = "Registruoti klientą";
 			this.RegistrateClientTab.UseVisualStyleBackColor = true;
 			// 
+			// textClient1
+			// 
+			this.textClient1.BackColor = System.Drawing.SystemColors.Window;
+			this.textClient1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textClient1.Location = new System.Drawing.Point(192, 165);
+			this.textClient1.Name = "textClient1";
+			this.textClient1.ReadOnly = true;
+			this.textClient1.Size = new System.Drawing.Size(67, 13);
+			this.textClient1.TabIndex = 10;
+			this.textClient1.Text = "Vardas";
+			// 
+			// textClient2
+			// 
+			this.textClient2.BackColor = System.Drawing.SystemColors.Window;
+			this.textClient2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textClient2.Location = new System.Drawing.Point(192, 191);
+			this.textClient2.Name = "textClient2";
+			this.textClient2.ReadOnly = true;
+			this.textClient2.Size = new System.Drawing.Size(67, 13);
+			this.textClient2.TabIndex = 9;
+			this.textClient2.Text = "Pavarde";
+			// 
+			// textBoxClient1
+			// 
+			this.textBoxClient1.Location = new System.Drawing.Point(265, 162);
+			this.textBoxClient1.Name = "textBoxClient1";
+			this.textBoxClient1.Size = new System.Drawing.Size(224, 20);
+			this.textBoxClient1.TabIndex = 8;
+			// 
+			// textBoxClient2
+			// 
+			this.textBoxClient2.Location = new System.Drawing.Point(265, 188);
+			this.textBoxClient2.Name = "textBoxClient2";
+			this.textBoxClient2.Size = new System.Drawing.Size(224, 20);
+			this.textBoxClient2.TabIndex = 7;
+			// 
+			// textBox2
+			// 
+			this.textBox2.BackColor = System.Drawing.SystemColors.Window;
+			this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox2.Location = new System.Drawing.Point(192, 243);
+			this.textBox2.Name = "textBox2";
+			this.textBox2.ReadOnly = true;
+			this.textBox2.Size = new System.Drawing.Size(67, 13);
+			this.textBox2.TabIndex = 6;
+			this.textBox2.Text = "Telefonas";
+			// 
+			// textBox1
+			// 
+			this.textBox1.BackColor = System.Drawing.SystemColors.Window;
+			this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox1.Location = new System.Drawing.Point(192, 217);
+			this.textBox1.Name = "textBox1";
+			this.textBox1.ReadOnly = true;
+			this.textBox1.Size = new System.Drawing.Size(67, 13);
+			this.textBox1.TabIndex = 5;
+			this.textBox1.Text = "Adresas";
+			// 
+			// buttonSelectPerson
+			// 
+			this.buttonSelectPerson.Location = new System.Drawing.Point(72, 64);
+			this.buttonSelectPerson.Name = "buttonSelectPerson";
+			this.buttonSelectPerson.Size = new System.Drawing.Size(91, 37);
+			this.buttonSelectPerson.TabIndex = 4;
+			this.buttonSelectPerson.Text = "Asmuo";
+			this.buttonSelectPerson.UseVisualStyleBackColor = true;
+			this.buttonSelectPerson.Click += new System.EventHandler(this.buttonSelectPerson_Click);
+			// 
+			// buttonSelectCompany
+			// 
+			this.buttonSelectCompany.Location = new System.Drawing.Point(607, 64);
+			this.buttonSelectCompany.Name = "buttonSelectCompany";
+			this.buttonSelectCompany.Size = new System.Drawing.Size(91, 37);
+			this.buttonSelectCompany.TabIndex = 3;
+			this.buttonSelectCompany.Text = "Imone";
+			this.buttonSelectCompany.UseVisualStyleBackColor = true;
+			this.buttonSelectCompany.Click += new System.EventHandler(this.buttonSelectCompany_Click);
+			// 
 			// buttonRegisterClient
 			// 
-			this.buttonRegisterClient.Location = new System.Drawing.Point(114, 166);
+			this.buttonRegisterClient.Location = new System.Drawing.Point(313, 266);
 			this.buttonRegisterClient.Name = "buttonRegisterClient";
 			this.buttonRegisterClient.Size = new System.Drawing.Size(123, 35);
 			this.buttonRegisterClient.TabIndex = 2;
@@ -121,14 +215,14 @@
 			// 
 			// textBoxTelefonas
 			// 
-			this.textBoxTelefonas.Location = new System.Drawing.Point(73, 107);
+			this.textBoxTelefonas.Location = new System.Drawing.Point(265, 240);
 			this.textBoxTelefonas.Name = "textBoxTelefonas";
 			this.textBoxTelefonas.Size = new System.Drawing.Size(224, 20);
 			this.textBoxTelefonas.TabIndex = 1;
 			// 
 			// textBoxAdresas
 			// 
-			this.textBoxAdresas.Location = new System.Drawing.Point(73, 70);
+			this.textBoxAdresas.Location = new System.Drawing.Point(265, 214);
 			this.textBoxAdresas.Name = "textBoxAdresas";
 			this.textBoxAdresas.Size = new System.Drawing.Size(224, 20);
 			this.textBoxAdresas.TabIndex = 0;
@@ -175,6 +269,54 @@
 			this.EmployeesTab.Text = "Darbuotojai";
 			this.EmployeesTab.UseVisualStyleBackColor = true;
 			// 
+			// dataGridView1
+			// 
+			this.dataGridView1.AllowUserToAddRows = false;
+			this.dataGridView1.AllowUserToDeleteRows = false;
+			this.dataGridView1.AutoGenerateColumns = false;
+			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.surnameDataGridViewTextBoxColumn});
+			this.dataGridView1.DataSource = this.employeeBindingSource;
+			this.dataGridView1.Location = new System.Drawing.Point(331, 28);
+			this.dataGridView1.Name = "dataGridView1";
+			this.dataGridView1.ReadOnly = true;
+			this.dataGridView1.Size = new System.Drawing.Size(271, 316);
+			this.dataGridView1.TabIndex = 13;
+			// 
+			// idDataGridViewTextBoxColumn
+			// 
+			this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+			this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+			this.idDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// nameDataGridViewTextBoxColumn
+			// 
+			this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+			this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+			this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+			this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// surnameDataGridViewTextBoxColumn
+			// 
+			this.surnameDataGridViewTextBoxColumn.DataPropertyName = "Surname";
+			this.surnameDataGridViewTextBoxColumn.HeaderText = "Surname";
+			this.surnameDataGridViewTextBoxColumn.Name = "surnameDataGridViewTextBoxColumn";
+			this.surnameDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// employeeBindingSource
+			// 
+			this.employeeBindingSource.DataMember = "Employee";
+			this.employeeBindingSource.DataSource = this.autoShopDataSet;
+			// 
+			// autoShopDataSet
+			// 
+			this.autoShopDataSet.DataSetName = "AutoShopDataSet";
+			this.autoShopDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+			// 
 			// comboBox1
 			// 
 			this.comboBox1.DataSource = this.employeeBindingSource;
@@ -183,7 +325,6 @@
 			this.comboBox1.Name = "comboBox1";
 			this.comboBox1.Size = new System.Drawing.Size(121, 21);
 			this.comboBox1.TabIndex = 12;
-			this.comboBox1.Text = "System.Data.DataViewManagerListItemTypeDescriptor";
 			// 
 			// listBox1
 			// 
@@ -339,11 +480,6 @@
 			this.richTextBox1.Text = "2016-11-09  16:03 Vartotojas Darbuotojas1 prisijungė į sistemą\n2016-11-09  16:04 " +
     "Užregistruotas naujas klientas Vardenis Pavardenis, Valst. Nr. AAA000\n\n";
 			// 
-			// autoShopDataSet
-			// 
-			this.autoShopDataSet.DataSetName = "AutoShopDataSet";
-			this.autoShopDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-			// 
 			// autoShopDataSetBindingSource
 			// 
 			this.autoShopDataSetBindingSource.DataSource = this.autoShopDataSet;
@@ -358,52 +494,9 @@
 			// 
 			this.carTableAdapter.ClearBeforeFill = true;
 			// 
-			// employeeBindingSource
-			// 
-			this.employeeBindingSource.DataMember = "Employee";
-			this.employeeBindingSource.DataSource = this.autoShopDataSet;
-			// 
 			// employeeTableAdapter
 			// 
 			this.employeeTableAdapter.ClearBeforeFill = true;
-			// 
-			// dataGridView1
-			// 
-			this.dataGridView1.AllowUserToAddRows = false;
-			this.dataGridView1.AllowUserToDeleteRows = false;
-			this.dataGridView1.AutoGenerateColumns = false;
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.surnameDataGridViewTextBoxColumn});
-			this.dataGridView1.DataSource = this.employeeBindingSource;
-			this.dataGridView1.Location = new System.Drawing.Point(331, 28);
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.ReadOnly = true;
-			this.dataGridView1.Size = new System.Drawing.Size(271, 316);
-			this.dataGridView1.TabIndex = 13;
-			// 
-			// idDataGridViewTextBoxColumn
-			// 
-			this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-			this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-			this.idDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// nameDataGridViewTextBoxColumn
-			// 
-			this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-			this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-			this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-			this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// surnameDataGridViewTextBoxColumn
-			// 
-			this.surnameDataGridViewTextBoxColumn.DataPropertyName = "Surname";
-			this.surnameDataGridViewTextBoxColumn.HeaderText = "Surname";
-			this.surnameDataGridViewTextBoxColumn.Name = "surnameDataGridViewTextBoxColumn";
-			this.surnameDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// MainForm
 			// 
@@ -419,12 +512,12 @@
 			this.RegistrateClientTab.PerformLayout();
 			this.EmployeesTab.ResumeLayout(false);
 			this.EmployeesTab.PerformLayout();
-			this.SystemLogTab.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.autoShopDataSet)).EndInit();
+			this.SystemLogTab.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.autoShopDataSetBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.carBindingSource)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -467,6 +560,14 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn surnameDataGridViewTextBoxColumn;
+		private System.Windows.Forms.TextBox textBox2;
+		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.Button buttonSelectPerson;
+		private System.Windows.Forms.Button buttonSelectCompany;
+		private System.Windows.Forms.TextBox textClient1;
+		private System.Windows.Forms.TextBox textClient2;
+		private System.Windows.Forms.TextBox textBoxClient1;
+		private System.Windows.Forms.TextBox textBoxClient2;
 	}
 }
 

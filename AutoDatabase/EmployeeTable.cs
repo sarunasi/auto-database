@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AutoDatabase
 {
@@ -25,7 +26,11 @@ namespace AutoDatabase
 			{
 				dataAdapter = new SqlDataAdapter("SELECT * FROM Darbuotojas", connection);
 				dataAdapter.Fill(dataSet, TableName);
+				
 			}
+			DataColumn[] keys = new DataColumn[1];
+			keys[0] = dataSet.Tables[TableName].Columns[0];
+			dataSet.Tables[TableName].PrimaryKey = keys;
 
 		}
 
@@ -49,6 +54,28 @@ namespace AutoDatabase
 				dataAdapter.Update(dataSet, TableName);
 			}
 			
+		}
+
+		public void Update(string idString, string name, string surname)
+		{
+			var cmd = new SqlCommand("UPDATE Darbuotojas SET Vardas = @Vardas, Pavarde = @Pavarde WHERE Id = @Id");
+			cmd.Parameters.Add(new SqlParameter("@Vardas", SqlDbType.NVarChar, 50, "Vardas"));
+			cmd.Parameters.Add(new SqlParameter("@Pavarde", SqlDbType.NVarChar, 50, "Pavarde"));
+			cmd.Parameters.Add(new SqlParameter("@Id", SqlDbType.Int, 50,  "Id"));
+			dataAdapter.UpdateCommand = cmd;
+
+
+			int id = int.Parse(idString);
+			
+			dataSet.Tables[TableName].Rows.Find(id)["Vardas"] = name;
+			dataSet.Tables[TableName].Rows.Find(id)["Pavarde"] = surname;
+
+			var connection = new SqlConnection(connectionString);
+			using (connection)
+			{
+				dataAdapter.UpdateCommand.Connection = connection;
+				dataAdapter.Update(dataSet, TableName);
+			}
 		}
 	}
 }

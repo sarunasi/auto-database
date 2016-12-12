@@ -40,5 +40,14 @@ namespace AutoDatabase
 		{
 			employees.Delete(textBoxDeleteEmployeeId.Text);
 		}
+
+		private void MainForm_Load(object sender, EventArgs e)
+		{
+			// TODO: This line of code loads data into the 'autoShopDataSet.Employee' table. You can move, or remove it, as needed.
+			this.employeeTableAdapter.Fill(this.autoShopDataSet.Employee);
+			// TODO: This line of code loads data into the 'autoShopDataSet.Car' table. You can move, or remove it, as needed.
+			this.carTableAdapter.Fill(this.autoShopDataSet.Car);
+
+		}
 	}
 }

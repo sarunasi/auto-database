@@ -28,9 +28,9 @@ namespace AutoDatabase
 				dataAdapter.Fill(dataSet, TableName);
 				
 			}
-			DataColumn[] keys = new DataColumn[1];
-			keys[0] = dataSet.Tables[TableName].Columns[0];
-			dataSet.Tables[TableName].PrimaryKey = keys;
+			//DataColumn[] keys = new DataColumn[1];
+			//keys[0] = dataSet.Tables[TableName].Columns[0];
+			//dataSet.Tables[TableName].PrimaryKey = keys;
 
 		}
 
@@ -84,7 +84,7 @@ namespace AutoDatabase
 
 
 			int id = int.Parse(idString);
-			
+
 			dataSet.Tables[TableName].Rows.Find(id)["Name"] = name;
 			dataSet.Tables[TableName].Rows.Find(id)["Surname"] = surname;
 

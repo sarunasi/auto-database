@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.RegistrateClientTab = new System.Windows.Forms.TabPage();
 			this.buttonRegisterClient = new System.Windows.Forms.Button();
@@ -54,10 +55,25 @@
 			this.DataEditTab = new System.Windows.Forms.TabPage();
 			this.SystemLogTab = new System.Windows.Forms.TabPage();
 			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+			this.autoShopDataSet = new AutoDatabase.AutoShopDataSet();
+			this.autoShopDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.carBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.carTableAdapter = new AutoDatabase.AutoShopDataSetTableAdapters.CarTableAdapter();
+			this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.employeeTableAdapter = new AutoDatabase.AutoShopDataSetTableAdapters.EmployeeTableAdapter();
+			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.surnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.tabControl1.SuspendLayout();
 			this.RegistrateClientTab.SuspendLayout();
 			this.EmployeesTab.SuspendLayout();
 			this.SystemLogTab.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.autoShopDataSet)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.autoShopDataSetBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.carBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// tabControl1
@@ -139,6 +155,7 @@
 			// 
 			// EmployeesTab
 			// 
+			this.EmployeesTab.Controls.Add(this.dataGridView1);
 			this.EmployeesTab.Controls.Add(this.comboBox1);
 			this.EmployeesTab.Controls.Add(this.listBox1);
 			this.EmployeesTab.Controls.Add(this.buttonDeleteEmployee);
@@ -160,20 +177,24 @@
 			// 
 			// comboBox1
 			// 
+			this.comboBox1.DataSource = this.employeeBindingSource;
 			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Location = new System.Drawing.Point(665, 377);
+			this.comboBox1.Location = new System.Drawing.Point(678, 377);
 			this.comboBox1.Name = "comboBox1";
 			this.comboBox1.Size = new System.Drawing.Size(121, 21);
 			this.comboBox1.TabIndex = 12;
-			this.comboBox1.ValueMember = "Id";
+			this.comboBox1.Text = "System.Data.DataViewManagerListItemTypeDescriptor";
 			// 
 			// listBox1
 			// 
+			this.listBox1.DataSource = this.employeeBindingSource;
+			this.listBox1.DisplayMember = "Name";
 			this.listBox1.FormattingEnabled = true;
 			this.listBox1.Location = new System.Drawing.Point(625, 28);
 			this.listBox1.Name = "listBox1";
 			this.listBox1.Size = new System.Drawing.Size(192, 316);
 			this.listBox1.TabIndex = 11;
+			this.listBox1.ValueMember = "Surname";
 			// 
 			// buttonDeleteEmployee
 			// 
@@ -318,6 +339,72 @@
 			this.richTextBox1.Text = "2016-11-09  16:03 Vartotojas Darbuotojas1 prisijungė į sistemą\n2016-11-09  16:04 " +
     "Užregistruotas naujas klientas Vardenis Pavardenis, Valst. Nr. AAA000\n\n";
 			// 
+			// autoShopDataSet
+			// 
+			this.autoShopDataSet.DataSetName = "AutoShopDataSet";
+			this.autoShopDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+			// 
+			// autoShopDataSetBindingSource
+			// 
+			this.autoShopDataSetBindingSource.DataSource = this.autoShopDataSet;
+			this.autoShopDataSetBindingSource.Position = 0;
+			// 
+			// carBindingSource
+			// 
+			this.carBindingSource.DataMember = "Car";
+			this.carBindingSource.DataSource = this.autoShopDataSet;
+			// 
+			// carTableAdapter
+			// 
+			this.carTableAdapter.ClearBeforeFill = true;
+			// 
+			// employeeBindingSource
+			// 
+			this.employeeBindingSource.DataMember = "Employee";
+			this.employeeBindingSource.DataSource = this.autoShopDataSet;
+			// 
+			// employeeTableAdapter
+			// 
+			this.employeeTableAdapter.ClearBeforeFill = true;
+			// 
+			// dataGridView1
+			// 
+			this.dataGridView1.AllowUserToAddRows = false;
+			this.dataGridView1.AllowUserToDeleteRows = false;
+			this.dataGridView1.AutoGenerateColumns = false;
+			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.surnameDataGridViewTextBoxColumn});
+			this.dataGridView1.DataSource = this.employeeBindingSource;
+			this.dataGridView1.Location = new System.Drawing.Point(331, 28);
+			this.dataGridView1.Name = "dataGridView1";
+			this.dataGridView1.ReadOnly = true;
+			this.dataGridView1.Size = new System.Drawing.Size(271, 316);
+			this.dataGridView1.TabIndex = 13;
+			// 
+			// idDataGridViewTextBoxColumn
+			// 
+			this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+			this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+			this.idDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// nameDataGridViewTextBoxColumn
+			// 
+			this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+			this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+			this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+			this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// surnameDataGridViewTextBoxColumn
+			// 
+			this.surnameDataGridViewTextBoxColumn.DataPropertyName = "Surname";
+			this.surnameDataGridViewTextBoxColumn.HeaderText = "Surname";
+			this.surnameDataGridViewTextBoxColumn.Name = "surnameDataGridViewTextBoxColumn";
+			this.surnameDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -326,12 +413,18 @@
 			this.Controls.Add(this.tabControl1);
 			this.Name = "MainForm";
 			this.Text = "Mechanikas";
+			this.Load += new System.EventHandler(this.MainForm_Load);
 			this.tabControl1.ResumeLayout(false);
 			this.RegistrateClientTab.ResumeLayout(false);
 			this.RegistrateClientTab.PerformLayout();
 			this.EmployeesTab.ResumeLayout(false);
 			this.EmployeesTab.PerformLayout();
 			this.SystemLogTab.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.autoShopDataSet)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.autoShopDataSetBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.carBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -364,6 +457,16 @@
 		private System.Windows.Forms.TextBox textBoxDeleteEmployeeId;
 		private System.Windows.Forms.ComboBox comboBox1;
 		private System.Windows.Forms.ListBox listBox1;
+		private System.Windows.Forms.BindingSource autoShopDataSetBindingSource;
+		private AutoShopDataSet autoShopDataSet;
+		private System.Windows.Forms.BindingSource carBindingSource;
+		private AutoShopDataSetTableAdapters.CarTableAdapter carTableAdapter;
+		private System.Windows.Forms.BindingSource employeeBindingSource;
+		private AutoShopDataSetTableAdapters.EmployeeTableAdapter employeeTableAdapter;
+		private System.Windows.Forms.DataGridView dataGridView1;
+		private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn surnameDataGridViewTextBoxColumn;
 	}
 }
 

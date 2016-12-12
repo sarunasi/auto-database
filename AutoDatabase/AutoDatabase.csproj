@@ -72,20 +72,56 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutoModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AutoModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AutoModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutoModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="AutoShopDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AutoShopDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Car.cs">
+      <DependentUpon>AutoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Client.cs">
+      <DependentUpon>AutoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Company.cs">
+      <DependentUpon>AutoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs">
+      <DependentUpon>AutoModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeTable.cs" />
+    <Compile Include="Job.cs">
+      <DependentUpon>AutoModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Person.cs">
+      <DependentUpon>AutoModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service.cs">
+      <DependentUpon>AutoModel.tt</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,6 +134,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EntityDeploy Include="AutoModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AutoModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="AutoModel.edmx.diagram">
+      <DependentUpon>AutoModel.edmx</DependentUpon>
+    </None>
     <None Include="AutoShopDataSet.xsc">
       <DependentUpon>AutoShopDataSet.xsd</DependentUpon>
     </None>
@@ -124,6 +167,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AutoModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AutoModel.edmx</DependentUpon>
+      <LastGenOutput>AutoModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="AutoModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AutoModel.edmx</DependentUpon>
+      <LastGenOutput>AutoModel.cs</LastGenOutput>
+    </Content>
     <Content Include="AutoShop.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

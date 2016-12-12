@@ -24,7 +24,6 @@ namespace AutoDatabase
 
 		}
 
-
 		private void buttonAddEmployee_Click(object sender, EventArgs e)
 		{
 			employees.Insert(textBoxInsertEmployeeName.Text, textBoxInsertEmployeeSurname.Text);

@@ -101,6 +101,12 @@
 			this.listBoxEmployees = new System.Windows.Forms.ListBox();
 			this.buttonAddEmployeeToJob = new System.Windows.Forms.Button();
 			this.listBoxJobEmployees = new System.Windows.Forms.ListBox();
+			this.textBox3 = new System.Windows.Forms.TextBox();
+			this.textBox4 = new System.Windows.Forms.TextBox();
+			this.textBox7 = new System.Windows.Forms.TextBox();
+			this.textBox9 = new System.Windows.Forms.TextBox();
+			this.textBox17 = new System.Windows.Forms.TextBox();
+			this.textBox18 = new System.Windows.Forms.TextBox();
 			this.tabControl.SuspendLayout();
 			this.RegistrateClientTab.SuspendLayout();
 			this.tabAddCar.SuspendLayout();
@@ -534,6 +540,12 @@
 			// 
 			// EmployeesTab
 			// 
+			this.EmployeesTab.Controls.Add(this.textBox18);
+			this.EmployeesTab.Controls.Add(this.textBox17);
+			this.EmployeesTab.Controls.Add(this.textBox9);
+			this.EmployeesTab.Controls.Add(this.textBox3);
+			this.EmployeesTab.Controls.Add(this.textBox4);
+			this.EmployeesTab.Controls.Add(this.textBox7);
 			this.EmployeesTab.Controls.Add(this.buttonDeleteEmployee);
 			this.EmployeesTab.Controls.Add(this.textBoxDeleteEmployeeId);
 			this.EmployeesTab.Controls.Add(this.textBoxUpdateEmployeeId);
@@ -587,7 +599,7 @@
 			// 
 			// buttonUpdateEmployee
 			// 
-			this.buttonUpdateEmployee.Location = new System.Drawing.Point(140, 377);
+			this.buttonUpdateEmployee.Location = new System.Drawing.Point(140, 361);
 			this.buttonUpdateEmployee.Name = "buttonUpdateEmployee";
 			this.buttonUpdateEmployee.Size = new System.Drawing.Size(112, 38);
 			this.buttonUpdateEmployee.TabIndex = 7;
@@ -611,7 +623,7 @@
 			// 
 			// buttonAddEmployee
 			// 
-			this.buttonAddEmployee.Location = new System.Drawing.Point(140, 178);
+			this.buttonAddEmployee.Location = new System.Drawing.Point(140, 138);
 			this.buttonAddEmployee.Name = "buttonAddEmployee";
 			this.buttonAddEmployee.Size = new System.Drawing.Size(112, 38);
 			this.buttonAddEmployee.TabIndex = 2;
@@ -621,7 +633,7 @@
 			// 
 			// textBoxInsertEmployeeSurname
 			// 
-			this.textBoxInsertEmployeeSurname.Location = new System.Drawing.Point(109, 125);
+			this.textBoxInsertEmployeeSurname.Location = new System.Drawing.Point(109, 112);
 			this.textBoxInsertEmployeeSurname.Name = "textBoxInsertEmployeeSurname";
 			this.textBoxInsertEmployeeSurname.Size = new System.Drawing.Size(180, 20);
 			this.textBoxInsertEmployeeSurname.TabIndex = 1;
@@ -796,6 +808,73 @@
 			this.listBoxJobEmployees.Size = new System.Drawing.Size(206, 199);
 			this.listBoxJobEmployees.TabIndex = 10;
 			// 
+			// textBox3
+			// 
+			this.textBox3.BackColor = System.Drawing.SystemColors.Window;
+			this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox3.Location = new System.Drawing.Point(36, 86);
+			this.textBox3.Name = "textBox3";
+			this.textBox3.ReadOnly = true;
+			this.textBox3.Size = new System.Drawing.Size(67, 13);
+			this.textBox3.TabIndex = 13;
+			this.textBox3.Text = "Vardas";
+			// 
+			// textBox4
+			// 
+			this.textBox4.BackColor = System.Drawing.SystemColors.Window;
+			this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox4.Location = new System.Drawing.Point(36, 112);
+			this.textBox4.Name = "textBox4";
+			this.textBox4.ReadOnly = true;
+			this.textBox4.Size = new System.Drawing.Size(67, 13);
+			this.textBox4.TabIndex = 12;
+			this.textBox4.Text = "Pavarde";
+			// 
+			// textBox7
+			// 
+			this.textBox7.BackColor = System.Drawing.SystemColors.Window;
+			this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox7.Location = new System.Drawing.Point(36, 286);
+			this.textBox7.Name = "textBox7";
+			this.textBox7.ReadOnly = true;
+			this.textBox7.Size = new System.Drawing.Size(67, 13);
+			this.textBox7.TabIndex = 11;
+			this.textBox7.Text = "Id";
+			this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
+			// 
+			// textBox9
+			// 
+			this.textBox9.BackColor = System.Drawing.SystemColors.Window;
+			this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox9.Location = new System.Drawing.Point(36, 312);
+			this.textBox9.Name = "textBox9";
+			this.textBox9.ReadOnly = true;
+			this.textBox9.Size = new System.Drawing.Size(67, 13);
+			this.textBox9.TabIndex = 14;
+			this.textBox9.Text = "Vardas";
+			// 
+			// textBox17
+			// 
+			this.textBox17.BackColor = System.Drawing.SystemColors.Window;
+			this.textBox17.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox17.Location = new System.Drawing.Point(36, 335);
+			this.textBox17.Name = "textBox17";
+			this.textBox17.ReadOnly = true;
+			this.textBox17.Size = new System.Drawing.Size(67, 13);
+			this.textBox17.TabIndex = 15;
+			this.textBox17.Text = "Pavarde";
+			// 
+			// textBox18
+			// 
+			this.textBox18.BackColor = System.Drawing.SystemColors.Window;
+			this.textBox18.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox18.Location = new System.Drawing.Point(385, 89);
+			this.textBox18.Name = "textBox18";
+			this.textBox18.ReadOnly = true;
+			this.textBox18.Size = new System.Drawing.Size(35, 13);
+			this.textBox18.TabIndex = 16;
+			this.textBox18.Text = "Id";
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -898,6 +977,12 @@
 		private System.Windows.Forms.TextBox textBox5;
 		private System.Windows.Forms.TextBox textBox6;
 		private System.Windows.Forms.TextBox textBox8;
+		private System.Windows.Forms.TextBox textBox17;
+		private System.Windows.Forms.TextBox textBox9;
+		private System.Windows.Forms.TextBox textBox3;
+		private System.Windows.Forms.TextBox textBox4;
+		private System.Windows.Forms.TextBox textBox7;
+		private System.Windows.Forms.TextBox textBox18;
 	}
 }
 

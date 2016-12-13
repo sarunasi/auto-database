@@ -77,7 +77,7 @@ namespace AutoDatabase
 
 		public void Update(string idString, string name, string surname)
 		{
-			var cmd = new SqlCommand("UPDATE Employee SET Vardas = @Vardas, Pavarde = @Surname WHERE Id = @Id");
+			var cmd = new SqlCommand("UPDATE Employee SET Name = @Name, Surname = @Surname WHERE Id = @Id");
 			cmd.Parameters.Add(new SqlParameter("@Name", SqlDbType.NVarChar, 50, "Name"));
 			cmd.Parameters.Add(new SqlParameter("@Surname", SqlDbType.NVarChar, 50, "Surname"));
 			cmd.Parameters.Add(new SqlParameter("@Id", SqlDbType.Int, 50,  "Id"));
@@ -93,6 +93,7 @@ namespace AutoDatabase
 			using (connection)
 			{
 				dataAdapter.UpdateCommand.Connection = connection;
+				//dataAdapter.UpdateCommand.ExecuteNonQuery();
 				dataAdapter.Update(dataSet, TableName);
 			}
 		}

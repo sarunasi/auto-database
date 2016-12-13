@@ -62,7 +62,7 @@ namespace AutoDatabase
 			using (var context = new AutoShopEntities())
 			{
 				var results = (from c in context.Employees
-							   select new { Id = c.Id, Row = c.Name + "    " + c.Surname }).ToList();
+							   select new { Id = c.Id, Row = c.Id + "  " + c.Name + "    " + c.Surname }).ToList();
 
 				listBoxEmployees.DataSource = results;
 				listBoxEmployees.DisplayMember = "Row";
@@ -117,17 +117,20 @@ namespace AutoDatabase
 		private void buttonAddEmployee_Click(object sender, EventArgs e)
 		{
 			employees.Insert(textBoxInsertEmployeeName.Text, textBoxInsertEmployeeSurname.Text);
+			populateListBoxEmployees();
 
 		}
 
 		private void buttonUpdateEmployee_Click(object sender, EventArgs e)
 		{
 			employees.Update(textBoxUpdateEmployeeId.Text, textBoxUpdateEmployeeName.Text, textBoxUpdateEmployeeSurname.Text);
+			populateListBoxEmployees();
 		}
 
 		private void buttonDeleteEmployee_Click(object sender, EventArgs e)
 		{
 			employees.Delete(textBoxDeleteEmployeeId.Text);
+			populateListBoxEmployees();
 		}
 
 		private void MainForm_Load(object sender, EventArgs e)
@@ -394,6 +397,11 @@ namespace AutoDatabase
 		private void listBoxCarJobs_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			populateListBoxJobEmployees();
+		}
+
+		private void textBox7_TextChanged(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

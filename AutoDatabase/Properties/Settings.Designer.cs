@@ -26,8 +26,8 @@ namespace AutoDatabase.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\'C:\\Users\\Sarunas\\Documents\\V" +
-            "isual Studio 2015\\Projects\\AutoDatabase\\AutoDatabase\\AutoShop.mdf\';Integrated Se" +
-            "curity=True")]
+            "isual Studio 2015\\Projects\\AutoDatabase\\AutoDatabase\\bin\\Debug\\AutoShop.mdf\';Int" +
+            "egrated Security=True")]
         public string connectionString {
             get {
                 return ((string)(this["connectionString"]));

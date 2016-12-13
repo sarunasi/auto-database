@@ -725,6 +725,7 @@
 			this.buttonCarArrived.TabIndex = 21;
 			this.buttonCarArrived.Text = "Automobilis Atvyko";
 			this.buttonCarArrived.UseVisualStyleBackColor = true;
+			this.buttonCarArrived.Click += new System.EventHandler(this.buttonCarArrived_Click);
 			// 
 			// button1
 			// 
@@ -734,6 +735,7 @@
 			this.button1.TabIndex = 22;
 			this.button1.Text = "Automobilis Isvyko";
 			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
 			// 
 			// MainForm
 			// 

@@ -23,7 +23,7 @@ namespace AutoDatabase
 			employees = new EmployeeTable(Properties.Settings.Default.connectionString, dataSet);
 
 			populateListBoxClient();
-			populateListBoxCars();
+			populateListBoxArrivedCars();
 			populateListBoxServices();
 
 
@@ -50,11 +50,12 @@ namespace AutoDatabase
 			}
 		}
 
-		private void populateListBoxCars()
+		private void populateListBoxArrivedCars()
 		{
 			using (var context = new AutoShopEntities())
 			{
 				var results = (from c in context.Cars
+							   where c.Arrived == true
 							   select new { VIN = c.VIN, NumberPlate = c.NumberPlate, Row = c.NumberPlate + "    " + c.VIN }).ToList();
 
 				listBoxArrivedCars.DataSource = results;
@@ -202,7 +203,7 @@ namespace AutoDatabase
 				context.SaveChanges();
 			}
 
-			populateListBoxCars();
+			populateListBoxArrivedCars();
 			populateListBoxClientCars();
 		}
 
@@ -260,6 +261,34 @@ namespace AutoDatabase
 				listBoxClientCars.DisplayMember = "Row";
 				listBoxClientCars.ValueMember = "VIN";
 			}
+		}
+
+		private void buttonCarArrived_Click(object sender, EventArgs e)
+		{
+			using (var context = new AutoShopEntities())
+			{
+				var car = context.Cars.FirstOrDefault(x => x.VIN == (string)listBoxClientCars.SelectedValue);
+				car.Arrived = true;
+
+				context.SaveChanges();
+			}
+
+			populateListBoxArrivedCars();
+
+		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			using (var context = new AutoShopEntities())
+			{
+				var car = context.Cars.FirstOrDefault(x => x.VIN == (string)listBoxClientCars.SelectedValue);
+				car.Arrived = false;
+
+				context.SaveChanges();
+			}
+
+			populateListBoxArrivedCars();
+
 		}
 	}
 }

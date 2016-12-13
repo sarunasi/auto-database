@@ -29,12 +29,8 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.tabControl = new System.Windows.Forms.TabControl();
 			this.RegistrateClientTab = new System.Windows.Forms.TabPage();
-			this.dataGridViewClients = new System.Windows.Forms.DataGridView();
 			this.textClient1 = new System.Windows.Forms.TextBox();
 			this.textClient2 = new System.Windows.Forms.TextBox();
 			this.textBoxClient1 = new System.Windows.Forms.TextBox();
@@ -95,9 +91,9 @@
 			this.textBox3 = new System.Windows.Forms.TextBox();
 			this.buttonAddServiceToCar = new System.Windows.Forms.Button();
 			this.listBoxCarJobs = new System.Windows.Forms.ListBox();
+			this.buttonFinishJob = new System.Windows.Forms.Button();
 			this.tabControl.SuspendLayout();
 			this.RegistrateClientTab.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridViewClients)).BeginInit();
 			this.tabAddCar.SuspendLayout();
 			this.JobsTab.SuspendLayout();
 			this.EmployeesTab.SuspendLayout();
@@ -127,7 +123,6 @@
 			// 
 			// RegistrateClientTab
 			// 
-			this.RegistrateClientTab.Controls.Add(this.dataGridViewClients);
 			this.RegistrateClientTab.Controls.Add(this.textClient1);
 			this.RegistrateClientTab.Controls.Add(this.textClient2);
 			this.RegistrateClientTab.Controls.Add(this.textBoxClient1);
@@ -146,41 +141,6 @@
 			this.RegistrateClientTab.TabIndex = 0;
 			this.RegistrateClientTab.Text = "Registruoti klientą";
 			this.RegistrateClientTab.UseVisualStyleBackColor = true;
-			// 
-			// dataGridViewClients
-			// 
-			this.dataGridViewClients.AllowUserToAddRows = false;
-			this.dataGridViewClients.AllowUserToDeleteRows = false;
-			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dataGridViewClients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-			this.dataGridViewClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.dataGridViewClients.DefaultCellStyle = dataGridViewCellStyle5;
-			this.dataGridViewClients.Location = new System.Drawing.Point(418, 40);
-			this.dataGridViewClients.Name = "dataGridViewClients";
-			this.dataGridViewClients.ReadOnly = true;
-			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dataGridViewClients.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-			this.dataGridViewClients.Size = new System.Drawing.Size(350, 252);
-			this.dataGridViewClients.TabIndex = 11;
 			// 
 			// textClient1
 			// 
@@ -456,6 +416,7 @@
 			// 
 			// JobsTab
 			// 
+			this.JobsTab.Controls.Add(this.buttonFinishJob);
 			this.JobsTab.Controls.Add(this.listBoxCarJobs);
 			this.JobsTab.Controls.Add(this.buttonAddServiceToCar);
 			this.JobsTab.Controls.Add(this.textBox3);
@@ -715,6 +676,7 @@
 			this.buttonAddServiceToCar.TabIndex = 4;
 			this.buttonAddServiceToCar.Text = "Prideti darba";
 			this.buttonAddServiceToCar.UseVisualStyleBackColor = true;
+			this.buttonAddServiceToCar.Click += new System.EventHandler(this.buttonAddServiceToCar_Click);
 			// 
 			// listBoxCarJobs
 			// 
@@ -723,6 +685,16 @@
 			this.listBoxCarJobs.Name = "listBoxCarJobs";
 			this.listBoxCarJobs.Size = new System.Drawing.Size(206, 433);
 			this.listBoxCarJobs.TabIndex = 5;
+			// 
+			// buttonFinishJob
+			// 
+			this.buttonFinishJob.Location = new System.Drawing.Point(477, 181);
+			this.buttonFinishJob.Name = "buttonFinishJob";
+			this.buttonFinishJob.Size = new System.Drawing.Size(87, 36);
+			this.buttonFinishJob.TabIndex = 6;
+			this.buttonFinishJob.Text = "BaigtiDarba";
+			this.buttonFinishJob.UseVisualStyleBackColor = true;
+			this.buttonFinishJob.Click += new System.EventHandler(this.buttonFinishJob_Click);
 			// 
 			// MainForm
 			// 
@@ -736,7 +708,6 @@
 			this.tabControl.ResumeLayout(false);
 			this.RegistrateClientTab.ResumeLayout(false);
 			this.RegistrateClientTab.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridViewClients)).EndInit();
 			this.tabAddCar.ResumeLayout(false);
 			this.tabAddCar.PerformLayout();
 			this.JobsTab.ResumeLayout(false);
@@ -791,7 +762,6 @@
 		private System.Windows.Forms.TextBox textClient2;
 		private System.Windows.Forms.TextBox textBoxClient1;
 		private System.Windows.Forms.TextBox textBoxClient2;
-		private System.Windows.Forms.DataGridView dataGridViewClients;
 		private AutoShopDataSetTableAdapters.ClientTableAdapter clientTableAdapter;
 		private AutoShopDataSetTableAdapters.PersonTableAdapter personTableAdapter;
 		private System.Windows.Forms.BindingSource clientBindingSource;
@@ -817,6 +787,7 @@
 		private System.Windows.Forms.Button buttonAddServiceToCar;
 		private System.Windows.Forms.TextBox textBox3;
 		private System.Windows.Forms.ListBox listBoxServices;
+		private System.Windows.Forms.Button buttonFinishJob;
 	}
 }
 

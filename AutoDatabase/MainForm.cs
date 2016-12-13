@@ -169,11 +169,11 @@ namespace AutoDatabase
 			{
 				var results = (from c in context.Jobs
 							   where c.Car_VIN == carVIN
-						   select new { Id = c.Id, Row = c.Service.Name + "    " + c.Hours }).ToList();
+						   select new { Id = c.Id, Row = c.Service.Name + "    " + c.Hours + "   " + c.Finished }).ToList();
 
 			listBoxCarJobs.DataSource = results;
-			listBoxCars.DisplayMember = "Row";
-			listBoxClients.ValueMember = "Id";
+			listBoxCarJobs.DisplayMember = "Row";
+			listBoxCarJobs.ValueMember = "Id";
 			}
 		}
 
@@ -201,6 +201,39 @@ namespace AutoDatabase
 			populateListBoxCars();
 		}
 
-		
+		private void buttonAddServiceToCar_Click(object sender, EventArgs e)
+		{
+			string carVin = (string)listBoxCars.SelectedValue;
+			int serviceId = (int)listBoxServices.SelectedValue;
+
+			var job = new Job
+			{
+				Service_Id = serviceId,
+				Car_VIN = carVin,
+				Start = System.DateTime.Now,
+				Hours = 2,		//TODO fix
+				Finished = false
+			};
+
+			using (var context = new AutoShopEntities())
+			{
+				context.Jobs.Add(job);
+				context.SaveChanges();
+			}
+
+			populateListBoxJobs((string)listBoxCars.SelectedValue);
+		}
+
+		private void buttonFinishJob_Click(object sender, EventArgs e)
+		{
+			using (var context = new AutoShopEntities())
+			{
+				var job = context.Jobs.FirstOrDefault(x => x.Id == (int)listBoxCarJobs.SelectedValue);
+				job.Finished = true;
+
+				context.SaveChanges();
+			}
+			populateListBoxJobs((string)listBoxCars.SelectedValue);
+		}
 	}
 }

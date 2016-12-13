@@ -42,6 +42,8 @@ namespace AutoDatabase
 
 		private void MainForm_Load(object sender, EventArgs e)
 		{
+			// TODO: This line of code loads data into the 'autoShopDataSet.Client' table. You can move, or remove it, as needed.
+			this.clientTableAdapter.Fill(this.autoShopDataSet.Client);
 			// TODO: This line of code loads data into the 'autoShopDataSet.Employee' table. You can move, or remove it, as needed.
 			this.employeeTableAdapter.Fill(this.autoShopDataSet.Employee);
 			// TODO: This line of code loads data into the 'autoShopDataSet.Car' table. You can move, or remove it, as needed.
@@ -59,6 +61,31 @@ namespace AutoDatabase
 		{
 			textClient1.Text = "Pavadinimas";
 			textClient2.Text = "Kodas";
+		}
+
+		private void buttonRegisterClient_Click(object sender, EventArgs e)
+		{
+			using (var context = new AutoShopEntities())
+			{
+				var client = new Client()
+				{
+					Adress = textBoxAddress.Text,
+					Telephone = textBoxTelephone.Text
+				};
+
+				var employee = new Employee()
+				{
+					Name = "Zezima",
+					Surname = "Aboutskas"
+				};
+
+				context.Employees.Add(employee);
+				context.Clients.Add(client);
+				context.SaveChanges();
+				this.clientTableAdapter.Fill(this.autoShopDataSet.Client);
+
+			}
+
 		}
 	}
 }

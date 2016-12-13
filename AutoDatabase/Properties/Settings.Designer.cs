@@ -33,5 +33,16 @@ namespace AutoDatabase.Properties {
                 return ((string)(this["connectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\'C:\\Users\\Sarunas\\Documents\\V" +
+            "isual Studio 2015\\Projects\\AutoDatabase\\AutoDatabase\\AutoShop.mdf\';Integrated Se" +
+            "curity=True")]
+        public string Entities {
+            get {
+                return ((string)(this["Entities"]));
+            }
+        }
     }
 }

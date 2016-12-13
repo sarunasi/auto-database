@@ -178,10 +178,10 @@
       <LastGenOutput>AutoModel.cs</LastGenOutput>
     </Content>
     <Content Include="AutoShop.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="AutoShop_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>AutoShop.mdf</DependentUpon>
     </Content>
   </ItemGroup>

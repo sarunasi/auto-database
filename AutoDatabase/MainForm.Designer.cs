@@ -40,8 +40,8 @@
 			this.buttonSelectPerson = new System.Windows.Forms.Button();
 			this.buttonSelectCompany = new System.Windows.Forms.Button();
 			this.buttonRegisterClient = new System.Windows.Forms.Button();
-			this.textBoxTelefonas = new System.Windows.Forms.TextBox();
-			this.textBoxAdresas = new System.Windows.Forms.TextBox();
+			this.textBoxTelephone = new System.Windows.Forms.TextBox();
+			this.textBoxAddress = new System.Windows.Forms.TextBox();
 			this.BuyPartsTab = new System.Windows.Forms.TabPage();
 			this.JobsTab = new System.Windows.Forms.TabPage();
 			this.EmployeesTab = new System.Windows.Forms.TabPage();
@@ -73,6 +73,14 @@
 			this.carBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.carTableAdapter = new AutoDatabase.AutoShopDataSetTableAdapters.CarTableAdapter();
 			this.employeeTableAdapter = new AutoDatabase.AutoShopDataSetTableAdapters.EmployeeTableAdapter();
+			this.dataGridView2 = new System.Windows.Forms.DataGridView();
+			this.autoShopDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+			this.autoShopDataSetBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+			this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.clientTableAdapter = new AutoDatabase.AutoShopDataSetTableAdapters.ClientTableAdapter();
+			this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.adressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.telephoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.tabControl1.SuspendLayout();
 			this.RegistrateClientTab.SuspendLayout();
 			this.EmployeesTab.SuspendLayout();
@@ -82,6 +90,10 @@
 			this.SystemLogTab.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.autoShopDataSetBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.carBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.autoShopDataSetBindingSource1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.autoShopDataSetBindingSource2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// tabControl1
@@ -102,11 +114,12 @@
 			this.tabControl1.Location = new System.Drawing.Point(-1, 1);
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(857, 551);
+			this.tabControl1.Size = new System.Drawing.Size(1005, 674);
 			this.tabControl1.TabIndex = 0;
 			// 
 			// RegistrateClientTab
 			// 
+			this.RegistrateClientTab.Controls.Add(this.dataGridView2);
 			this.RegistrateClientTab.Controls.Add(this.textClient1);
 			this.RegistrateClientTab.Controls.Add(this.textClient2);
 			this.RegistrateClientTab.Controls.Add(this.textBoxClient1);
@@ -116,12 +129,12 @@
 			this.RegistrateClientTab.Controls.Add(this.buttonSelectPerson);
 			this.RegistrateClientTab.Controls.Add(this.buttonSelectCompany);
 			this.RegistrateClientTab.Controls.Add(this.buttonRegisterClient);
-			this.RegistrateClientTab.Controls.Add(this.textBoxTelefonas);
-			this.RegistrateClientTab.Controls.Add(this.textBoxAdresas);
+			this.RegistrateClientTab.Controls.Add(this.textBoxTelephone);
+			this.RegistrateClientTab.Controls.Add(this.textBoxAddress);
 			this.RegistrateClientTab.Location = new System.Drawing.Point(4, 22);
 			this.RegistrateClientTab.Name = "RegistrateClientTab";
 			this.RegistrateClientTab.Padding = new System.Windows.Forms.Padding(3);
-			this.RegistrateClientTab.Size = new System.Drawing.Size(849, 525);
+			this.RegistrateClientTab.Size = new System.Drawing.Size(997, 648);
 			this.RegistrateClientTab.TabIndex = 0;
 			this.RegistrateClientTab.Text = "Registruoti klientą";
 			this.RegistrateClientTab.UseVisualStyleBackColor = true;
@@ -212,20 +225,21 @@
 			this.buttonRegisterClient.TabIndex = 2;
 			this.buttonRegisterClient.Text = "Registruoti";
 			this.buttonRegisterClient.UseVisualStyleBackColor = true;
+			this.buttonRegisterClient.Click += new System.EventHandler(this.buttonRegisterClient_Click);
 			// 
-			// textBoxTelefonas
+			// textBoxTelephone
 			// 
-			this.textBoxTelefonas.Location = new System.Drawing.Point(265, 240);
-			this.textBoxTelefonas.Name = "textBoxTelefonas";
-			this.textBoxTelefonas.Size = new System.Drawing.Size(224, 20);
-			this.textBoxTelefonas.TabIndex = 1;
+			this.textBoxTelephone.Location = new System.Drawing.Point(265, 240);
+			this.textBoxTelephone.Name = "textBoxTelephone";
+			this.textBoxTelephone.Size = new System.Drawing.Size(224, 20);
+			this.textBoxTelephone.TabIndex = 1;
 			// 
-			// textBoxAdresas
+			// textBoxAddress
 			// 
-			this.textBoxAdresas.Location = new System.Drawing.Point(265, 214);
-			this.textBoxAdresas.Name = "textBoxAdresas";
-			this.textBoxAdresas.Size = new System.Drawing.Size(224, 20);
-			this.textBoxAdresas.TabIndex = 0;
+			this.textBoxAddress.Location = new System.Drawing.Point(265, 214);
+			this.textBoxAddress.Name = "textBoxAddress";
+			this.textBoxAddress.Size = new System.Drawing.Size(224, 20);
+			this.textBoxAddress.TabIndex = 0;
 			// 
 			// BuyPartsTab
 			// 
@@ -498,11 +512,68 @@
 			// 
 			this.employeeTableAdapter.ClearBeforeFill = true;
 			// 
+			// dataGridView2
+			// 
+			this.dataGridView2.AllowUserToAddRows = false;
+			this.dataGridView2.AllowUserToDeleteRows = false;
+			this.dataGridView2.AutoGenerateColumns = false;
+			this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn1,
+            this.adressDataGridViewTextBoxColumn,
+            this.telephoneDataGridViewTextBoxColumn});
+			this.dataGridView2.DataSource = this.clientBindingSource;
+			this.dataGridView2.Location = new System.Drawing.Point(597, 205);
+			this.dataGridView2.Name = "dataGridView2";
+			this.dataGridView2.ReadOnly = true;
+			this.dataGridView2.Size = new System.Drawing.Size(350, 252);
+			this.dataGridView2.TabIndex = 11;
+			// 
+			// autoShopDataSetBindingSource1
+			// 
+			this.autoShopDataSetBindingSource1.DataSource = this.autoShopDataSet;
+			this.autoShopDataSetBindingSource1.Position = 0;
+			// 
+			// autoShopDataSetBindingSource2
+			// 
+			this.autoShopDataSetBindingSource2.DataSource = this.autoShopDataSet;
+			this.autoShopDataSetBindingSource2.Position = 0;
+			// 
+			// clientBindingSource
+			// 
+			this.clientBindingSource.DataMember = "Client";
+			this.clientBindingSource.DataSource = this.autoShopDataSetBindingSource;
+			// 
+			// clientTableAdapter
+			// 
+			this.clientTableAdapter.ClearBeforeFill = true;
+			// 
+			// idDataGridViewTextBoxColumn1
+			// 
+			this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+			this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
+			this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+			this.idDataGridViewTextBoxColumn1.ReadOnly = true;
+			// 
+			// adressDataGridViewTextBoxColumn
+			// 
+			this.adressDataGridViewTextBoxColumn.DataPropertyName = "Adress";
+			this.adressDataGridViewTextBoxColumn.HeaderText = "Adress";
+			this.adressDataGridViewTextBoxColumn.Name = "adressDataGridViewTextBoxColumn";
+			this.adressDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// telephoneDataGridViewTextBoxColumn
+			// 
+			this.telephoneDataGridViewTextBoxColumn.DataPropertyName = "Telephone";
+			this.telephoneDataGridViewTextBoxColumn.HeaderText = "Telephone";
+			this.telephoneDataGridViewTextBoxColumn.Name = "telephoneDataGridViewTextBoxColumn";
+			this.telephoneDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(856, 564);
+			this.ClientSize = new System.Drawing.Size(1004, 687);
 			this.Controls.Add(this.tabControl1);
 			this.Name = "MainForm";
 			this.Text = "Mechanikas";
@@ -518,6 +589,10 @@
 			this.SystemLogTab.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.autoShopDataSetBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.carBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.autoShopDataSetBindingSource1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.autoShopDataSetBindingSource2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -536,8 +611,8 @@
 		private System.Windows.Forms.TabPage JobsTab;
 		private System.Windows.Forms.TabPage SystemLogTab;
 		private System.Windows.Forms.RichTextBox richTextBox1;
-		private System.Windows.Forms.TextBox textBoxTelefonas;
-		private System.Windows.Forms.TextBox textBoxAdresas;
+		private System.Windows.Forms.TextBox textBoxTelephone;
+		private System.Windows.Forms.TextBox textBoxAddress;
 		private System.Windows.Forms.Button buttonRegisterClient;
 		private System.Windows.Forms.Button buttonAddEmployee;
 		private System.Windows.Forms.TextBox textBoxInsertEmployeeSurname;
@@ -568,6 +643,14 @@
 		private System.Windows.Forms.TextBox textClient2;
 		private System.Windows.Forms.TextBox textBoxClient1;
 		private System.Windows.Forms.TextBox textBoxClient2;
+		private System.Windows.Forms.DataGridView dataGridView2;
+		private System.Windows.Forms.BindingSource autoShopDataSetBindingSource1;
+		private System.Windows.Forms.BindingSource autoShopDataSetBindingSource2;
+		private System.Windows.Forms.BindingSource clientBindingSource;
+		private AutoShopDataSetTableAdapters.ClientTableAdapter clientTableAdapter;
+		private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+		private System.Windows.Forms.DataGridViewTextBoxColumn adressDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn telephoneDataGridViewTextBoxColumn;
 	}
 }
 

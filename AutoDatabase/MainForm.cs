@@ -25,6 +25,8 @@ namespace AutoDatabase
 			populateListBoxClient();
 			populateListBoxArrivedCars();
 			populateListBoxServices();
+			populateListBoxEmployees();
+			populateListBoxJobEmployees();
 
 
 			using (var context = new AutoShopEntities())
@@ -34,6 +36,39 @@ namespace AutoDatabase
 			}
 
 			errorProvider.SetError(textBoxCarRun, "Wat you doin m8");
+		}
+
+		private void populateListBoxJobEmployees()
+		{
+			using (var context = new AutoShopEntities())
+			{
+				if (listBoxCarJobs.SelectedValue != null)
+				{
+					var results = (from e in context.Employees
+								   where e.Jobs.Any(j => j.Id == (int)listBoxCarJobs.SelectedValue)
+								   select new { Id = e.Id, Row = e.Name + "    " + e.Surname }).ToList();
+
+					listBoxJobEmployees.DataSource = results;
+					listBoxJobEmployees.DisplayMember = "Row";
+					listBoxJobEmployees.ValueMember = "Id";
+
+				}
+
+			}
+		}
+
+		private void populateListBoxEmployees()
+		{
+			using (var context = new AutoShopEntities())
+			{
+				var results = (from c in context.Employees
+							   select new { Id = c.Id, Row = c.Name + "    " + c.Surname }).ToList();
+
+				listBoxEmployees.DataSource = results;
+				listBoxEmployees.DisplayMember = "Row";
+				listBoxEmployees.ValueMember = "Id";
+
+			}
 		}
 
 		private void populateListBoxServices()
@@ -295,6 +330,13 @@ namespace AutoDatabase
 				{
 					car.Arrived = false;
 
+					foreach(Job job in car.Jobs)
+					{
+						job.Employees.Clear();
+
+						
+					}
+					
 					context.Jobs.RemoveRange(car.Jobs);
 					context.SaveChanges();
 				}
@@ -333,6 +375,25 @@ namespace AutoDatabase
 			}
 
 			populateListBoxArrivedCars();
+		}
+
+		private void buttonAddEmployeeToJob_Click(object sender, EventArgs e)
+		{
+			using (var context = new AutoShopEntities())
+			{
+				var employee = context.Employees.FirstOrDefault(x => x.Id == (int)listBoxEmployees.SelectedValue);
+				var job = context.Jobs.FirstOrDefault(x => x.Id == (int)listBoxCarJobs.SelectedValue);
+
+				job.Employees.Add(employee);
+
+				context.SaveChanges();
+			}
+			populateListBoxJobEmployees();
+		}
+
+		private void listBoxCarJobs_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			populateListBoxJobEmployees();
 		}
 	}
 }

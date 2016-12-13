@@ -29,9 +29,9 @@ namespace AutoDatabase
 				
 			}
 			//dataAdapter.Dispose();
-			//DataColumn[] keys = new DataColumn[1];
-			//keys[0] = dataSet.Tables[TableName].Columns[0];
-			//dataSet.Tables[TableName].PrimaryKey = keys;
+			DataColumn[] keys = new DataColumn[1];
+			keys[0] = dataSet.Tables[TableName].Columns[0];
+			dataSet.Tables[TableName].PrimaryKey = keys;
 
 		}
 

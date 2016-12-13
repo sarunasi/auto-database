@@ -63,20 +63,15 @@
 			this.textBoxCarPlate = new System.Windows.Forms.TextBox();
 			this.textBoxCarVIN = new System.Windows.Forms.TextBox();
 			this.JobsTab = new System.Windows.Forms.TabPage();
+			this.buttonDeleteJob = new System.Windows.Forms.Button();
 			this.buttonFinishJob = new System.Windows.Forms.Button();
 			this.listBoxCarJobs = new System.Windows.Forms.ListBox();
 			this.buttonAddJobToCar = new System.Windows.Forms.Button();
 			this.listBoxServices = new System.Windows.Forms.ListBox();
 			this.listBoxArrivedCars = new System.Windows.Forms.ListBox();
 			this.EmployeesTab = new System.Windows.Forms.TabPage();
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
-			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.surnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.autoShopDataSet = new AutoDatabase.AutoShopDataSet();
-			this.comboBox1 = new System.Windows.Forms.ComboBox();
-			this.listBox1 = new System.Windows.Forms.ListBox();
 			this.buttonDeleteEmployee = new System.Windows.Forms.Button();
 			this.textBoxDeleteEmployeeId = new System.Windows.Forms.TextBox();
 			this.textBoxUpdateEmployeeId = new System.Windows.Forms.TextBox();
@@ -100,13 +95,17 @@
 			this.personTableAdapter = new AutoDatabase.AutoShopDataSetTableAdapters.PersonTableAdapter();
 			this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-			this.buttonDeleteJob = new System.Windows.Forms.Button();
+			this.textBox8 = new System.Windows.Forms.TextBox();
+			this.textBox5 = new System.Windows.Forms.TextBox();
+			this.textBox6 = new System.Windows.Forms.TextBox();
+			this.listBoxEmployees = new System.Windows.Forms.ListBox();
+			this.buttonAddEmployeeToJob = new System.Windows.Forms.Button();
+			this.listBoxJobEmployees = new System.Windows.Forms.ListBox();
 			this.tabControl.SuspendLayout();
 			this.RegistrateClientTab.SuspendLayout();
 			this.tabAddCar.SuspendLayout();
 			this.JobsTab.SuspendLayout();
 			this.EmployeesTab.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.autoShopDataSet)).BeginInit();
 			this.tabAddServices.SuspendLayout();
@@ -460,6 +459,9 @@
 			// 
 			// JobsTab
 			// 
+			this.JobsTab.Controls.Add(this.listBoxJobEmployees);
+			this.JobsTab.Controls.Add(this.buttonAddEmployeeToJob);
+			this.JobsTab.Controls.Add(this.listBoxEmployees);
 			this.JobsTab.Controls.Add(this.buttonDeleteJob);
 			this.JobsTab.Controls.Add(this.buttonFinishJob);
 			this.JobsTab.Controls.Add(this.listBoxCarJobs);
@@ -474,9 +476,19 @@
 			this.JobsTab.Text = "Darbai";
 			this.JobsTab.UseVisualStyleBackColor = true;
 			// 
+			// buttonDeleteJob
+			// 
+			this.buttonDeleteJob.Location = new System.Drawing.Point(477, 421);
+			this.buttonDeleteJob.Name = "buttonDeleteJob";
+			this.buttonDeleteJob.Size = new System.Drawing.Size(87, 33);
+			this.buttonDeleteJob.TabIndex = 7;
+			this.buttonDeleteJob.Text = "Istrinti Darba";
+			this.buttonDeleteJob.UseVisualStyleBackColor = true;
+			this.buttonDeleteJob.Click += new System.EventHandler(this.buttonDeleteJob_Click);
+			// 
 			// buttonFinishJob
 			// 
-			this.buttonFinishJob.Location = new System.Drawing.Point(477, 181);
+			this.buttonFinishJob.Location = new System.Drawing.Point(477, 264);
 			this.buttonFinishJob.Name = "buttonFinishJob";
 			this.buttonFinishJob.Size = new System.Drawing.Size(87, 36);
 			this.buttonFinishJob.TabIndex = 6;
@@ -491,6 +503,7 @@
 			this.listBoxCarJobs.Name = "listBoxCarJobs";
 			this.listBoxCarJobs.Size = new System.Drawing.Size(206, 433);
 			this.listBoxCarJobs.TabIndex = 5;
+			this.listBoxCarJobs.SelectedIndexChanged += new System.EventHandler(this.listBoxCarJobs_SelectedIndexChanged);
 			// 
 			// buttonAddJobToCar
 			// 
@@ -507,7 +520,7 @@
 			this.listBoxServices.FormattingEnabled = true;
 			this.listBoxServices.Location = new System.Drawing.Point(924, 21);
 			this.listBoxServices.Name = "listBoxServices";
-			this.listBoxServices.Size = new System.Drawing.Size(206, 433);
+			this.listBoxServices.Size = new System.Drawing.Size(206, 199);
 			this.listBoxServices.TabIndex = 2;
 			// 
 			// listBoxArrivedCars
@@ -521,9 +534,6 @@
 			// 
 			// EmployeesTab
 			// 
-			this.EmployeesTab.Controls.Add(this.dataGridView1);
-			this.EmployeesTab.Controls.Add(this.comboBox1);
-			this.EmployeesTab.Controls.Add(this.listBox1);
 			this.EmployeesTab.Controls.Add(this.buttonDeleteEmployee);
 			this.EmployeesTab.Controls.Add(this.textBoxDeleteEmployeeId);
 			this.EmployeesTab.Controls.Add(this.textBoxUpdateEmployeeId);
@@ -541,44 +551,6 @@
 			this.EmployeesTab.Text = "Darbuotojai";
 			this.EmployeesTab.UseVisualStyleBackColor = true;
 			// 
-			// dataGridView1
-			// 
-			this.dataGridView1.AllowUserToAddRows = false;
-			this.dataGridView1.AllowUserToDeleteRows = false;
-			this.dataGridView1.AutoGenerateColumns = false;
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.surnameDataGridViewTextBoxColumn});
-			this.dataGridView1.DataSource = this.employeeBindingSource;
-			this.dataGridView1.Location = new System.Drawing.Point(331, 28);
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.ReadOnly = true;
-			this.dataGridView1.Size = new System.Drawing.Size(271, 316);
-			this.dataGridView1.TabIndex = 13;
-			// 
-			// idDataGridViewTextBoxColumn
-			// 
-			this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-			this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-			this.idDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// nameDataGridViewTextBoxColumn
-			// 
-			this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-			this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-			this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-			this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// surnameDataGridViewTextBoxColumn
-			// 
-			this.surnameDataGridViewTextBoxColumn.DataPropertyName = "Surname";
-			this.surnameDataGridViewTextBoxColumn.HeaderText = "Surname";
-			this.surnameDataGridViewTextBoxColumn.Name = "surnameDataGridViewTextBoxColumn";
-			this.surnameDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
 			// employeeBindingSource
 			// 
 			this.employeeBindingSource.DataMember = "Employee";
@@ -589,29 +561,9 @@
 			this.autoShopDataSet.DataSetName = "AutoShopDataSet";
 			this.autoShopDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
 			// 
-			// comboBox1
-			// 
-			this.comboBox1.DataSource = this.employeeBindingSource;
-			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Location = new System.Drawing.Point(678, 377);
-			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(121, 21);
-			this.comboBox1.TabIndex = 12;
-			// 
-			// listBox1
-			// 
-			this.listBox1.DataSource = this.employeeBindingSource;
-			this.listBox1.DisplayMember = "Name";
-			this.listBox1.FormattingEnabled = true;
-			this.listBox1.Location = new System.Drawing.Point(625, 28);
-			this.listBox1.Name = "listBox1";
-			this.listBox1.Size = new System.Drawing.Size(192, 316);
-			this.listBox1.TabIndex = 11;
-			this.listBox1.ValueMember = "Surname";
-			// 
 			// buttonDeleteEmployee
 			// 
-			this.buttonDeleteEmployee.Location = new System.Drawing.Point(471, 421);
+			this.buttonDeleteEmployee.Location = new System.Drawing.Point(460, 112);
 			this.buttonDeleteEmployee.Name = "buttonDeleteEmployee";
 			this.buttonDeleteEmployee.Size = new System.Drawing.Size(112, 38);
 			this.buttonDeleteEmployee.TabIndex = 10;
@@ -621,7 +573,7 @@
 			// 
 			// textBoxDeleteEmployeeId
 			// 
-			this.textBoxDeleteEmployeeId.Location = new System.Drawing.Point(439, 395);
+			this.textBoxDeleteEmployeeId.Location = new System.Drawing.Point(426, 86);
 			this.textBoxDeleteEmployeeId.Name = "textBoxDeleteEmployeeId";
 			this.textBoxDeleteEmployeeId.Size = new System.Drawing.Size(180, 20);
 			this.textBoxDeleteEmployeeId.TabIndex = 9;
@@ -683,6 +635,9 @@
 			// 
 			// tabAddServices
 			// 
+			this.tabAddServices.Controls.Add(this.textBox5);
+			this.tabAddServices.Controls.Add(this.textBox6);
+			this.tabAddServices.Controls.Add(this.textBox8);
 			this.tabAddServices.Controls.Add(this.buttonAddService);
 			this.tabAddServices.Controls.Add(this.textBoxServiceDefaultHours);
 			this.tabAddServices.Controls.Add(this.textBoxServicePrice);
@@ -782,15 +737,64 @@
 			// 
 			this.errorProvider.ContainerControl = this;
 			// 
-			// buttonDeleteJob
+			// textBox8
 			// 
-			this.buttonDeleteJob.Location = new System.Drawing.Point(477, 328);
-			this.buttonDeleteJob.Name = "buttonDeleteJob";
-			this.buttonDeleteJob.Size = new System.Drawing.Size(87, 33);
-			this.buttonDeleteJob.TabIndex = 7;
-			this.buttonDeleteJob.Text = "Istrinti Darba";
-			this.buttonDeleteJob.UseVisualStyleBackColor = true;
-			this.buttonDeleteJob.Click += new System.EventHandler(this.buttonDeleteJob_Click);
+			this.textBox8.BackColor = System.Drawing.SystemColors.Window;
+			this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox8.Location = new System.Drawing.Point(158, 127);
+			this.textBox8.Name = "textBox8";
+			this.textBox8.ReadOnly = true;
+			this.textBox8.Size = new System.Drawing.Size(95, 13);
+			this.textBox8.TabIndex = 17;
+			this.textBox8.Text = "Trukme valandomis";
+			// 
+			// textBox5
+			// 
+			this.textBox5.BackColor = System.Drawing.SystemColors.Window;
+			this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox5.Location = new System.Drawing.Point(158, 75);
+			this.textBox5.Name = "textBox5";
+			this.textBox5.ReadOnly = true;
+			this.textBox5.Size = new System.Drawing.Size(95, 13);
+			this.textBox5.TabIndex = 20;
+			this.textBox5.Text = "Pavadinimas";
+			// 
+			// textBox6
+			// 
+			this.textBox6.BackColor = System.Drawing.SystemColors.Window;
+			this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox6.Location = new System.Drawing.Point(158, 101);
+			this.textBox6.Name = "textBox6";
+			this.textBox6.ReadOnly = true;
+			this.textBox6.Size = new System.Drawing.Size(95, 13);
+			this.textBox6.TabIndex = 19;
+			this.textBox6.Text = "Valandine kaina";
+			// 
+			// listBoxEmployees
+			// 
+			this.listBoxEmployees.FormattingEnabled = true;
+			this.listBoxEmployees.Location = new System.Drawing.Point(924, 249);
+			this.listBoxEmployees.Name = "listBoxEmployees";
+			this.listBoxEmployees.Size = new System.Drawing.Size(206, 212);
+			this.listBoxEmployees.TabIndex = 8;
+			// 
+			// buttonAddEmployeeToJob
+			// 
+			this.buttonAddEmployeeToJob.Location = new System.Drawing.Point(814, 249);
+			this.buttonAddEmployeeToJob.Name = "buttonAddEmployeeToJob";
+			this.buttonAddEmployeeToJob.Size = new System.Drawing.Size(90, 40);
+			this.buttonAddEmployeeToJob.TabIndex = 9;
+			this.buttonAddEmployeeToJob.Text = "Prideti Darbuotoja";
+			this.buttonAddEmployeeToJob.UseVisualStyleBackColor = true;
+			this.buttonAddEmployeeToJob.Click += new System.EventHandler(this.buttonAddEmployeeToJob_Click);
+			// 
+			// listBoxJobEmployees
+			// 
+			this.listBoxJobEmployees.FormattingEnabled = true;
+			this.listBoxJobEmployees.Location = new System.Drawing.Point(477, 21);
+			this.listBoxJobEmployees.Name = "listBoxJobEmployees";
+			this.listBoxJobEmployees.Size = new System.Drawing.Size(206, 199);
+			this.listBoxJobEmployees.TabIndex = 10;
 			// 
 			// MainForm
 			// 
@@ -809,7 +813,6 @@
 			this.JobsTab.ResumeLayout(false);
 			this.EmployeesTab.ResumeLayout(false);
 			this.EmployeesTab.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.autoShopDataSet)).EndInit();
 			this.tabAddServices.ResumeLayout(false);
@@ -842,16 +845,10 @@
 		private System.Windows.Forms.TextBox textBoxUpdateEmployeeId;
 		private System.Windows.Forms.Button buttonDeleteEmployee;
 		private System.Windows.Forms.TextBox textBoxDeleteEmployeeId;
-		private System.Windows.Forms.ComboBox comboBox1;
-		private System.Windows.Forms.ListBox listBox1;
 		private AutoShopDataSet autoShopDataSet;
 		private AutoShopDataSetTableAdapters.CarTableAdapter carTableAdapter;
 		private System.Windows.Forms.BindingSource employeeBindingSource;
 		private AutoShopDataSetTableAdapters.EmployeeTableAdapter employeeTableAdapter;
-		private System.Windows.Forms.DataGridView dataGridView1;
-		private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn surnameDataGridViewTextBoxColumn;
 		private System.Windows.Forms.TextBox textBox2;
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.Button buttonSelectPerson;
@@ -895,6 +892,12 @@
 		private System.Windows.Forms.TextBox textBoxServicePrice;
 		private System.Windows.Forms.TextBox textBoxServiceName;
 		private System.Windows.Forms.Button buttonDeleteJob;
+		private System.Windows.Forms.ListBox listBoxJobEmployees;
+		private System.Windows.Forms.Button buttonAddEmployeeToJob;
+		private System.Windows.Forms.ListBox listBoxEmployees;
+		private System.Windows.Forms.TextBox textBox5;
+		private System.Windows.Forms.TextBox textBox6;
+		private System.Windows.Forms.TextBox textBox8;
 	}
 }
 

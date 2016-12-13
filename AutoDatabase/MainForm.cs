@@ -207,22 +207,26 @@ namespace AutoDatabase
 			populateListBoxClientCars();
 		}
 
-		private void buttonAddServiceToCar_Click(object sender, EventArgs e)
+		private void buttonAddJobToCar_Click(object sender, EventArgs e)
 		{
 			string carVin = (string)listBoxArrivedCars.SelectedValue;
 			int serviceId = (int)listBoxServices.SelectedValue;
 
-			var job = new Job
-			{
-				Service_Id = serviceId,
-				Car_VIN = carVin,
-				Start = System.DateTime.Now,
-				Hours = 2,		//TODO fix
-				Finished = false
-			};
-
 			using (var context = new AutoShopEntities())
 			{
+				double hours = (from c in context.Services
+								where c.Id == serviceId
+								select c.Default_hours).FirstOrDefault();
+
+				var job = new Job
+				{
+					Service_Id = serviceId,
+					Car_VIN = carVin,
+					Start = System.DateTime.Now,
+					Hours = hours,
+					Finished = false
+				};
+
 				context.Jobs.Add(job);
 				context.SaveChanges();
 			}
@@ -277,18 +281,58 @@ namespace AutoDatabase
 
 		}
 
-		private void button1_Click(object sender, EventArgs e)
+		private void buttonCarLeft_Click(object sender, EventArgs e)
 		{
 			using (var context = new AutoShopEntities())
 			{
 				var car = context.Cars.FirstOrDefault(x => x.VIN == (string)listBoxClientCars.SelectedValue);
-				car.Arrived = false;
 
-				context.SaveChanges();
+				if (car.Jobs.Any(job => job.Finished == false))
+				{
+					MessageBox.Show("Automobilis turi neuzbaigtu darbu");
+				}
+				else
+				{
+					car.Arrived = false;
+
+					context.Jobs.RemoveRange(car.Jobs);
+					context.SaveChanges();
+				}
+				
 			}
 
 			populateListBoxArrivedCars();
 
+		}
+
+		private void buttonAddService_Click(object sender, EventArgs e)
+		{
+			var service = new Service
+			{
+				Name = textBoxServiceName.Text,
+				Price = double.Parse(textBoxServicePrice.Text),
+				Default_hours = double.Parse(textBoxServiceDefaultHours.Text)
+			};
+
+			using (var context = new AutoShopEntities())
+			{
+				context.Services.Add(service);
+				context.SaveChanges();
+			}
+			populateListBoxServices();
+		}
+
+		private void buttonDeleteJob_Click(object sender, EventArgs e)
+		{
+			using (var context = new AutoShopEntities())
+			{
+				var job = context.Jobs.FirstOrDefault(x => x.Id == (int)listBoxCarJobs.SelectedValue);
+
+				context.Jobs.Remove(job);
+				context.SaveChanges();
+			}
+
+			populateListBoxArrivedCars();
 		}
 	}
 }

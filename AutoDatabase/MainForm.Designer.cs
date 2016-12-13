@@ -43,6 +43,9 @@
 			this.textBoxTelephone = new System.Windows.Forms.TextBox();
 			this.textBoxAddress = new System.Windows.Forms.TextBox();
 			this.tabAddCar = new System.Windows.Forms.TabPage();
+			this.buttonCarLeft = new System.Windows.Forms.Button();
+			this.buttonCarArrived = new System.Windows.Forms.Button();
+			this.listBoxClientCars = new System.Windows.Forms.ListBox();
 			this.listBoxClients = new System.Windows.Forms.ListBox();
 			this.buttonAddNewCar = new System.Windows.Forms.Button();
 			this.textBox16 = new System.Windows.Forms.TextBox();
@@ -60,6 +63,10 @@
 			this.textBoxCarPlate = new System.Windows.Forms.TextBox();
 			this.textBoxCarVIN = new System.Windows.Forms.TextBox();
 			this.JobsTab = new System.Windows.Forms.TabPage();
+			this.buttonFinishJob = new System.Windows.Forms.Button();
+			this.listBoxCarJobs = new System.Windows.Forms.ListBox();
+			this.buttonAddJobToCar = new System.Windows.Forms.Button();
+			this.listBoxServices = new System.Windows.Forms.ListBox();
 			this.listBoxArrivedCars = new System.Windows.Forms.ListBox();
 			this.EmployeesTab = new System.Windows.Forms.TabPage();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -79,6 +86,11 @@
 			this.buttonAddEmployee = new System.Windows.Forms.Button();
 			this.textBoxInsertEmployeeSurname = new System.Windows.Forms.TextBox();
 			this.textBoxInsertEmployeeName = new System.Windows.Forms.TextBox();
+			this.tabAddServices = new System.Windows.Forms.TabPage();
+			this.buttonAddService = new System.Windows.Forms.Button();
+			this.textBoxServiceDefaultHours = new System.Windows.Forms.TextBox();
+			this.textBoxServicePrice = new System.Windows.Forms.TextBox();
+			this.textBoxServiceName = new System.Windows.Forms.TextBox();
 			this.SearchTab = new System.Windows.Forms.TabPage();
 			this.SystemLogTab = new System.Windows.Forms.TabPage();
 			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
@@ -87,15 +99,8 @@
 			this.clientTableAdapter = new AutoDatabase.AutoShopDataSetTableAdapters.ClientTableAdapter();
 			this.personTableAdapter = new AutoDatabase.AutoShopDataSetTableAdapters.PersonTableAdapter();
 			this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.listBoxServices = new System.Windows.Forms.ListBox();
-			this.textBox3 = new System.Windows.Forms.TextBox();
-			this.buttonAddServiceToCar = new System.Windows.Forms.Button();
-			this.listBoxCarJobs = new System.Windows.Forms.ListBox();
-			this.buttonFinishJob = new System.Windows.Forms.Button();
 			this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-			this.listBoxClientCars = new System.Windows.Forms.ListBox();
-			this.buttonCarArrived = new System.Windows.Forms.Button();
-			this.button1 = new System.Windows.Forms.Button();
+			this.buttonDeleteJob = new System.Windows.Forms.Button();
 			this.tabControl.SuspendLayout();
 			this.RegistrateClientTab.SuspendLayout();
 			this.tabAddCar.SuspendLayout();
@@ -104,6 +109,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.autoShopDataSet)).BeginInit();
+			this.tabAddServices.SuspendLayout();
 			this.SystemLogTab.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -118,6 +124,7 @@
 			this.tabControl.Controls.Add(this.tabAddCar);
 			this.tabControl.Controls.Add(this.JobsTab);
 			this.tabControl.Controls.Add(this.EmployeesTab);
+			this.tabControl.Controls.Add(this.tabAddServices);
 			this.tabControl.Controls.Add(this.SearchTab);
 			this.tabControl.Controls.Add(this.SystemLogTab);
 			this.tabControl.Location = new System.Drawing.Point(-1, 1);
@@ -251,7 +258,7 @@
 			// 
 			// tabAddCar
 			// 
-			this.tabAddCar.Controls.Add(this.button1);
+			this.tabAddCar.Controls.Add(this.buttonCarLeft);
 			this.tabAddCar.Controls.Add(this.buttonCarArrived);
 			this.tabAddCar.Controls.Add(this.listBoxClientCars);
 			this.tabAddCar.Controls.Add(this.listBoxClients);
@@ -277,6 +284,34 @@
 			this.tabAddCar.TabIndex = 11;
 			this.tabAddCar.Text = "Prideti Automobili";
 			this.tabAddCar.UseVisualStyleBackColor = true;
+			// 
+			// buttonCarLeft
+			// 
+			this.buttonCarLeft.Location = new System.Drawing.Point(927, 232);
+			this.buttonCarLeft.Name = "buttonCarLeft";
+			this.buttonCarLeft.Size = new System.Drawing.Size(141, 38);
+			this.buttonCarLeft.TabIndex = 22;
+			this.buttonCarLeft.Text = "Automobilis Isvyko";
+			this.buttonCarLeft.UseVisualStyleBackColor = true;
+			this.buttonCarLeft.Click += new System.EventHandler(this.buttonCarLeft_Click);
+			// 
+			// buttonCarArrived
+			// 
+			this.buttonCarArrived.Location = new System.Drawing.Point(927, 128);
+			this.buttonCarArrived.Name = "buttonCarArrived";
+			this.buttonCarArrived.Size = new System.Drawing.Size(141, 38);
+			this.buttonCarArrived.TabIndex = 21;
+			this.buttonCarArrived.Text = "Automobilis Atvyko";
+			this.buttonCarArrived.UseVisualStyleBackColor = true;
+			this.buttonCarArrived.Click += new System.EventHandler(this.buttonCarArrived_Click);
+			// 
+			// listBoxClientCars
+			// 
+			this.listBoxClientCars.FormattingEnabled = true;
+			this.listBoxClientCars.Location = new System.Drawing.Point(693, 30);
+			this.listBoxClientCars.Name = "listBoxClientCars";
+			this.listBoxClientCars.Size = new System.Drawing.Size(215, 381);
+			this.listBoxClientCars.TabIndex = 20;
 			// 
 			// listBoxClients
 			// 
@@ -425,10 +460,10 @@
 			// 
 			// JobsTab
 			// 
+			this.JobsTab.Controls.Add(this.buttonDeleteJob);
 			this.JobsTab.Controls.Add(this.buttonFinishJob);
 			this.JobsTab.Controls.Add(this.listBoxCarJobs);
-			this.JobsTab.Controls.Add(this.buttonAddServiceToCar);
-			this.JobsTab.Controls.Add(this.textBox3);
+			this.JobsTab.Controls.Add(this.buttonAddJobToCar);
 			this.JobsTab.Controls.Add(this.listBoxServices);
 			this.JobsTab.Controls.Add(this.listBoxArrivedCars);
 			this.JobsTab.Location = new System.Drawing.Point(4, 22);
@@ -438,6 +473,42 @@
 			this.JobsTab.TabIndex = 9;
 			this.JobsTab.Text = "Darbai";
 			this.JobsTab.UseVisualStyleBackColor = true;
+			// 
+			// buttonFinishJob
+			// 
+			this.buttonFinishJob.Location = new System.Drawing.Point(477, 181);
+			this.buttonFinishJob.Name = "buttonFinishJob";
+			this.buttonFinishJob.Size = new System.Drawing.Size(87, 36);
+			this.buttonFinishJob.TabIndex = 6;
+			this.buttonFinishJob.Text = "BaigtiDarba";
+			this.buttonFinishJob.UseVisualStyleBackColor = true;
+			this.buttonFinishJob.Click += new System.EventHandler(this.buttonFinishJob_Click);
+			// 
+			// listBoxCarJobs
+			// 
+			this.listBoxCarJobs.FormattingEnabled = true;
+			this.listBoxCarJobs.Location = new System.Drawing.Point(249, 21);
+			this.listBoxCarJobs.Name = "listBoxCarJobs";
+			this.listBoxCarJobs.Size = new System.Drawing.Size(206, 433);
+			this.listBoxCarJobs.TabIndex = 5;
+			// 
+			// buttonAddJobToCar
+			// 
+			this.buttonAddJobToCar.Location = new System.Drawing.Point(814, 46);
+			this.buttonAddJobToCar.Name = "buttonAddJobToCar";
+			this.buttonAddJobToCar.Size = new System.Drawing.Size(90, 40);
+			this.buttonAddJobToCar.TabIndex = 4;
+			this.buttonAddJobToCar.Text = "Prideti darba";
+			this.buttonAddJobToCar.UseVisualStyleBackColor = true;
+			this.buttonAddJobToCar.Click += new System.EventHandler(this.buttonAddJobToCar_Click);
+			// 
+			// listBoxServices
+			// 
+			this.listBoxServices.FormattingEnabled = true;
+			this.listBoxServices.Location = new System.Drawing.Point(924, 21);
+			this.listBoxServices.Name = "listBoxServices";
+			this.listBoxServices.Size = new System.Drawing.Size(206, 433);
+			this.listBoxServices.TabIndex = 2;
 			// 
 			// listBoxArrivedCars
 			// 
@@ -610,6 +681,51 @@
 			this.textBoxInsertEmployeeName.Size = new System.Drawing.Size(180, 20);
 			this.textBoxInsertEmployeeName.TabIndex = 0;
 			// 
+			// tabAddServices
+			// 
+			this.tabAddServices.Controls.Add(this.buttonAddService);
+			this.tabAddServices.Controls.Add(this.textBoxServiceDefaultHours);
+			this.tabAddServices.Controls.Add(this.textBoxServicePrice);
+			this.tabAddServices.Controls.Add(this.textBoxServiceName);
+			this.tabAddServices.Location = new System.Drawing.Point(4, 22);
+			this.tabAddServices.Name = "tabAddServices";
+			this.tabAddServices.Padding = new System.Windows.Forms.Padding(3);
+			this.tabAddServices.Size = new System.Drawing.Size(1166, 481);
+			this.tabAddServices.TabIndex = 12;
+			this.tabAddServices.Text = "Serviso paslaugos";
+			this.tabAddServices.UseVisualStyleBackColor = true;
+			// 
+			// buttonAddService
+			// 
+			this.buttonAddService.Location = new System.Drawing.Point(279, 165);
+			this.buttonAddService.Name = "buttonAddService";
+			this.buttonAddService.Size = new System.Drawing.Size(118, 35);
+			this.buttonAddService.TabIndex = 3;
+			this.buttonAddService.Text = "Prideti paslauga";
+			this.buttonAddService.UseVisualStyleBackColor = true;
+			this.buttonAddService.Click += new System.EventHandler(this.buttonAddService_Click);
+			// 
+			// textBoxServiceDefaultHours
+			// 
+			this.textBoxServiceDefaultHours.Location = new System.Drawing.Point(259, 124);
+			this.textBoxServiceDefaultHours.Name = "textBoxServiceDefaultHours";
+			this.textBoxServiceDefaultHours.Size = new System.Drawing.Size(174, 20);
+			this.textBoxServiceDefaultHours.TabIndex = 2;
+			// 
+			// textBoxServicePrice
+			// 
+			this.textBoxServicePrice.Location = new System.Drawing.Point(259, 98);
+			this.textBoxServicePrice.Name = "textBoxServicePrice";
+			this.textBoxServicePrice.Size = new System.Drawing.Size(174, 20);
+			this.textBoxServicePrice.TabIndex = 1;
+			// 
+			// textBoxServiceName
+			// 
+			this.textBoxServiceName.Location = new System.Drawing.Point(259, 72);
+			this.textBoxServiceName.Name = "textBoxServiceName";
+			this.textBoxServiceName.Size = new System.Drawing.Size(174, 20);
+			this.textBoxServiceName.TabIndex = 0;
+			// 
 			// SearchTab
 			// 
 			this.SearchTab.Location = new System.Drawing.Point(4, 22);
@@ -662,80 +778,19 @@
 			this.clientBindingSource.DataMember = "Client";
 			this.clientBindingSource.DataSource = this.autoShopDataSet;
 			// 
-			// listBoxServices
-			// 
-			this.listBoxServices.FormattingEnabled = true;
-			this.listBoxServices.Location = new System.Drawing.Point(924, 21);
-			this.listBoxServices.Name = "listBoxServices";
-			this.listBoxServices.Size = new System.Drawing.Size(206, 433);
-			this.listBoxServices.TabIndex = 2;
-			// 
-			// textBox3
-			// 
-			this.textBox3.Location = new System.Drawing.Point(806, 21);
-			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(112, 20);
-			this.textBox3.TabIndex = 3;
-			// 
-			// buttonAddServiceToCar
-			// 
-			this.buttonAddServiceToCar.Location = new System.Drawing.Point(816, 47);
-			this.buttonAddServiceToCar.Name = "buttonAddServiceToCar";
-			this.buttonAddServiceToCar.Size = new System.Drawing.Size(90, 40);
-			this.buttonAddServiceToCar.TabIndex = 4;
-			this.buttonAddServiceToCar.Text = "Prideti darba";
-			this.buttonAddServiceToCar.UseVisualStyleBackColor = true;
-			this.buttonAddServiceToCar.Click += new System.EventHandler(this.buttonAddServiceToCar_Click);
-			// 
-			// listBoxCarJobs
-			// 
-			this.listBoxCarJobs.FormattingEnabled = true;
-			this.listBoxCarJobs.Location = new System.Drawing.Point(249, 21);
-			this.listBoxCarJobs.Name = "listBoxCarJobs";
-			this.listBoxCarJobs.Size = new System.Drawing.Size(206, 433);
-			this.listBoxCarJobs.TabIndex = 5;
-			// 
-			// buttonFinishJob
-			// 
-			this.buttonFinishJob.Location = new System.Drawing.Point(477, 181);
-			this.buttonFinishJob.Name = "buttonFinishJob";
-			this.buttonFinishJob.Size = new System.Drawing.Size(87, 36);
-			this.buttonFinishJob.TabIndex = 6;
-			this.buttonFinishJob.Text = "BaigtiDarba";
-			this.buttonFinishJob.UseVisualStyleBackColor = true;
-			this.buttonFinishJob.Click += new System.EventHandler(this.buttonFinishJob_Click);
-			// 
 			// errorProvider
 			// 
 			this.errorProvider.ContainerControl = this;
 			// 
-			// listBoxClientCars
+			// buttonDeleteJob
 			// 
-			this.listBoxClientCars.FormattingEnabled = true;
-			this.listBoxClientCars.Location = new System.Drawing.Point(693, 30);
-			this.listBoxClientCars.Name = "listBoxClientCars";
-			this.listBoxClientCars.Size = new System.Drawing.Size(215, 381);
-			this.listBoxClientCars.TabIndex = 20;
-			// 
-			// buttonCarArrived
-			// 
-			this.buttonCarArrived.Location = new System.Drawing.Point(927, 128);
-			this.buttonCarArrived.Name = "buttonCarArrived";
-			this.buttonCarArrived.Size = new System.Drawing.Size(141, 38);
-			this.buttonCarArrived.TabIndex = 21;
-			this.buttonCarArrived.Text = "Automobilis Atvyko";
-			this.buttonCarArrived.UseVisualStyleBackColor = true;
-			this.buttonCarArrived.Click += new System.EventHandler(this.buttonCarArrived_Click);
-			// 
-			// button1
-			// 
-			this.button1.Location = new System.Drawing.Point(927, 232);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(141, 38);
-			this.button1.TabIndex = 22;
-			this.button1.Text = "Automobilis Isvyko";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
+			this.buttonDeleteJob.Location = new System.Drawing.Point(477, 328);
+			this.buttonDeleteJob.Name = "buttonDeleteJob";
+			this.buttonDeleteJob.Size = new System.Drawing.Size(87, 33);
+			this.buttonDeleteJob.TabIndex = 7;
+			this.buttonDeleteJob.Text = "Istrinti Darba";
+			this.buttonDeleteJob.UseVisualStyleBackColor = true;
+			this.buttonDeleteJob.Click += new System.EventHandler(this.buttonDeleteJob_Click);
 			// 
 			// MainForm
 			// 
@@ -752,12 +807,13 @@
 			this.tabAddCar.ResumeLayout(false);
 			this.tabAddCar.PerformLayout();
 			this.JobsTab.ResumeLayout(false);
-			this.JobsTab.PerformLayout();
 			this.EmployeesTab.ResumeLayout(false);
 			this.EmployeesTab.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.autoShopDataSet)).EndInit();
+			this.tabAddServices.ResumeLayout(false);
+			this.tabAddServices.PerformLayout();
 			this.SystemLogTab.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
@@ -826,14 +882,19 @@
 		private System.Windows.Forms.ListBox listBoxArrivedCars;
 		private System.Windows.Forms.ListBox listBoxClients;
 		private System.Windows.Forms.ListBox listBoxCarJobs;
-		private System.Windows.Forms.Button buttonAddServiceToCar;
-		private System.Windows.Forms.TextBox textBox3;
+		private System.Windows.Forms.Button buttonAddJobToCar;
 		private System.Windows.Forms.ListBox listBoxServices;
 		private System.Windows.Forms.Button buttonFinishJob;
 		private System.Windows.Forms.ErrorProvider errorProvider;
 		private System.Windows.Forms.ListBox listBoxClientCars;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button buttonCarLeft;
 		private System.Windows.Forms.Button buttonCarArrived;
+		private System.Windows.Forms.TabPage tabAddServices;
+		private System.Windows.Forms.Button buttonAddService;
+		private System.Windows.Forms.TextBox textBoxServiceDefaultHours;
+		private System.Windows.Forms.TextBox textBoxServicePrice;
+		private System.Windows.Forms.TextBox textBoxServiceName;
+		private System.Windows.Forms.Button buttonDeleteJob;
 	}
 }
 

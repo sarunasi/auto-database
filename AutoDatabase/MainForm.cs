@@ -32,6 +32,8 @@ namespace AutoDatabase
 			
 
 			}
+
+			errorProvider.SetError(textBoxCarRun, "Wat you doin m8");
 		}
 
 		private void populateListBoxServices()
@@ -55,9 +57,9 @@ namespace AutoDatabase
 				var results = (from c in context.Cars
 							   select new { VIN = c.VIN, NumberPlate = c.NumberPlate, Row = c.NumberPlate + "    " + c.VIN }).ToList();
 
-				listBoxCars.DataSource = results;
-				listBoxCars.DisplayMember = "Row";
-				listBoxCars.ValueMember = "VIN";
+				listBoxArrivedCars.DataSource = results;
+				listBoxArrivedCars.DisplayMember = "Row";
+				listBoxArrivedCars.ValueMember = "VIN";
 			}
 		}
 
@@ -159,8 +161,8 @@ namespace AutoDatabase
 
 		private void listBoxCars_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			listBoxCars.ValueMember = "VIN";
-			populateListBoxJobs((string)listBoxCars.SelectedValue);
+			listBoxArrivedCars.ValueMember = "VIN";
+			populateListBoxJobs((string)listBoxArrivedCars.SelectedValue);
 		}
 
 		private void populateListBoxJobs(string carVIN)
@@ -190,6 +192,8 @@ namespace AutoDatabase
 				Year = int.Parse(textBoxCarYear.Text)
 			};
 
+			
+
 			car.Client_Id = (int)listBoxClients.SelectedValue;
 
 			using (var context = new AutoShopEntities())
@@ -199,11 +203,12 @@ namespace AutoDatabase
 			}
 
 			populateListBoxCars();
+			populateListBoxClientCars();
 		}
 
 		private void buttonAddServiceToCar_Click(object sender, EventArgs e)
 		{
-			string carVin = (string)listBoxCars.SelectedValue;
+			string carVin = (string)listBoxArrivedCars.SelectedValue;
 			int serviceId = (int)listBoxServices.SelectedValue;
 
 			var job = new Job
@@ -221,7 +226,7 @@ namespace AutoDatabase
 				context.SaveChanges();
 			}
 
-			populateListBoxJobs((string)listBoxCars.SelectedValue);
+			populateListBoxJobs((string)listBoxArrivedCars.SelectedValue);
 		}
 
 		private void buttonFinishJob_Click(object sender, EventArgs e)
@@ -233,7 +238,28 @@ namespace AutoDatabase
 
 				context.SaveChanges();
 			}
-			populateListBoxJobs((string)listBoxCars.SelectedValue);
+			populateListBoxJobs((string)listBoxArrivedCars.SelectedValue);
+		}
+
+		private void listBoxClients_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			listBoxClients.ValueMember = "Id";
+			populateListBoxClientCars();
+			
+		}
+
+		private void populateListBoxClientCars()
+		{
+			using (var context = new AutoShopEntities())
+			{
+				var results = (from c in context.Cars
+							   where c.Client_Id == (int)listBoxClients.SelectedValue
+							   select new { VIN = c.VIN, NumberPlate = c.NumberPlate, Row = c.NumberPlate + "    " + c.VIN }).ToList();
+
+				listBoxClientCars.DataSource = results;
+				listBoxClientCars.DisplayMember = "Row";
+				listBoxClientCars.ValueMember = "VIN";
+			}
 		}
 	}
 }

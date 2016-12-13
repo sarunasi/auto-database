@@ -60,7 +60,7 @@
 			this.textBoxCarPlate = new System.Windows.Forms.TextBox();
 			this.textBoxCarVIN = new System.Windows.Forms.TextBox();
 			this.JobsTab = new System.Windows.Forms.TabPage();
-			this.listBoxCars = new System.Windows.Forms.ListBox();
+			this.listBoxArrivedCars = new System.Windows.Forms.ListBox();
 			this.EmployeesTab = new System.Windows.Forms.TabPage();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -92,6 +92,10 @@
 			this.buttonAddServiceToCar = new System.Windows.Forms.Button();
 			this.listBoxCarJobs = new System.Windows.Forms.ListBox();
 			this.buttonFinishJob = new System.Windows.Forms.Button();
+			this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+			this.listBoxClientCars = new System.Windows.Forms.ListBox();
+			this.buttonCarArrived = new System.Windows.Forms.Button();
+			this.button1 = new System.Windows.Forms.Button();
 			this.tabControl.SuspendLayout();
 			this.RegistrateClientTab.SuspendLayout();
 			this.tabAddCar.SuspendLayout();
@@ -102,6 +106,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.autoShopDataSet)).BeginInit();
 			this.SystemLogTab.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// tabControl
@@ -246,6 +251,9 @@
 			// 
 			// tabAddCar
 			// 
+			this.tabAddCar.Controls.Add(this.button1);
+			this.tabAddCar.Controls.Add(this.buttonCarArrived);
+			this.tabAddCar.Controls.Add(this.listBoxClientCars);
 			this.tabAddCar.Controls.Add(this.listBoxClients);
 			this.tabAddCar.Controls.Add(this.buttonAddNewCar);
 			this.tabAddCar.Controls.Add(this.textBox16);
@@ -277,10 +285,11 @@
 			this.listBoxClients.Name = "listBoxClients";
 			this.listBoxClients.Size = new System.Drawing.Size(215, 381);
 			this.listBoxClients.TabIndex = 19;
+			this.listBoxClients.SelectedIndexChanged += new System.EventHandler(this.listBoxClients_SelectedIndexChanged);
 			// 
 			// buttonAddNewCar
 			// 
-			this.buttonAddNewCar.Location = new System.Drawing.Point(560, 242);
+			this.buttonAddNewCar.Location = new System.Drawing.Point(374, 307);
 			this.buttonAddNewCar.Name = "buttonAddNewCar";
 			this.buttonAddNewCar.Size = new System.Drawing.Size(141, 38);
 			this.buttonAddNewCar.TabIndex = 18;
@@ -292,7 +301,7 @@
 			// 
 			this.textBox16.BackColor = System.Drawing.SystemColors.Window;
 			this.textBox16.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox16.Location = new System.Drawing.Point(450, 206);
+			this.textBox16.Location = new System.Drawing.Point(264, 271);
 			this.textBox16.Name = "textBox16";
 			this.textBox16.ReadOnly = true;
 			this.textBox16.Size = new System.Drawing.Size(67, 13);
@@ -303,7 +312,7 @@
 			// 
 			this.textBox15.BackColor = System.Drawing.SystemColors.Window;
 			this.textBox15.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox15.Location = new System.Drawing.Point(450, 180);
+			this.textBox15.Location = new System.Drawing.Point(264, 245);
 			this.textBox15.Name = "textBox15";
 			this.textBox15.ReadOnly = true;
 			this.textBox15.Size = new System.Drawing.Size(67, 13);
@@ -314,7 +323,7 @@
 			// 
 			this.textBox14.BackColor = System.Drawing.SystemColors.Window;
 			this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox14.Location = new System.Drawing.Point(450, 154);
+			this.textBox14.Location = new System.Drawing.Point(264, 219);
 			this.textBox14.Name = "textBox14";
 			this.textBox14.ReadOnly = true;
 			this.textBox14.Size = new System.Drawing.Size(67, 13);
@@ -325,7 +334,7 @@
 			// 
 			this.textBox10.BackColor = System.Drawing.SystemColors.Window;
 			this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox10.Location = new System.Drawing.Point(450, 50);
+			this.textBox10.Location = new System.Drawing.Point(264, 115);
 			this.textBox10.Name = "textBox10";
 			this.textBox10.ReadOnly = true;
 			this.textBox10.Size = new System.Drawing.Size(67, 13);
@@ -336,7 +345,7 @@
 			// 
 			this.textBox11.BackColor = System.Drawing.SystemColors.Window;
 			this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox11.Location = new System.Drawing.Point(450, 76);
+			this.textBox11.Location = new System.Drawing.Point(264, 141);
 			this.textBox11.Name = "textBox11";
 			this.textBox11.ReadOnly = true;
 			this.textBox11.Size = new System.Drawing.Size(67, 13);
@@ -347,7 +356,7 @@
 			// 
 			this.textBox12.BackColor = System.Drawing.SystemColors.Window;
 			this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox12.Location = new System.Drawing.Point(450, 128);
+			this.textBox12.Location = new System.Drawing.Point(264, 193);
 			this.textBox12.Name = "textBox12";
 			this.textBox12.ReadOnly = true;
 			this.textBox12.Size = new System.Drawing.Size(67, 13);
@@ -358,7 +367,7 @@
 			// 
 			this.textBox13.BackColor = System.Drawing.SystemColors.Window;
 			this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox13.Location = new System.Drawing.Point(450, 102);
+			this.textBox13.Location = new System.Drawing.Point(264, 167);
 			this.textBox13.Name = "textBox13";
 			this.textBox13.ReadOnly = true;
 			this.textBox13.Size = new System.Drawing.Size(67, 13);
@@ -367,49 +376,49 @@
 			// 
 			// textBoxCarYear
 			// 
-			this.textBoxCarYear.Location = new System.Drawing.Point(523, 203);
+			this.textBoxCarYear.Location = new System.Drawing.Point(337, 268);
 			this.textBoxCarYear.Name = "textBoxCarYear";
 			this.textBoxCarYear.Size = new System.Drawing.Size(210, 20);
 			this.textBoxCarYear.TabIndex = 7;
 			// 
 			// textBoxCarEngine
 			// 
-			this.textBoxCarEngine.Location = new System.Drawing.Point(523, 177);
+			this.textBoxCarEngine.Location = new System.Drawing.Point(337, 242);
 			this.textBoxCarEngine.Name = "textBoxCarEngine";
 			this.textBoxCarEngine.Size = new System.Drawing.Size(210, 20);
 			this.textBoxCarEngine.TabIndex = 6;
 			// 
 			// textBoxCarRun
 			// 
-			this.textBoxCarRun.Location = new System.Drawing.Point(523, 151);
+			this.textBoxCarRun.Location = new System.Drawing.Point(337, 216);
 			this.textBoxCarRun.Name = "textBoxCarRun";
 			this.textBoxCarRun.Size = new System.Drawing.Size(210, 20);
 			this.textBoxCarRun.TabIndex = 5;
 			// 
 			// textBoxCarModel
 			// 
-			this.textBoxCarModel.Location = new System.Drawing.Point(523, 125);
+			this.textBoxCarModel.Location = new System.Drawing.Point(337, 190);
 			this.textBoxCarModel.Name = "textBoxCarModel";
 			this.textBoxCarModel.Size = new System.Drawing.Size(210, 20);
 			this.textBoxCarModel.TabIndex = 4;
 			// 
 			// textBoxCarMake
 			// 
-			this.textBoxCarMake.Location = new System.Drawing.Point(523, 99);
+			this.textBoxCarMake.Location = new System.Drawing.Point(337, 164);
 			this.textBoxCarMake.Name = "textBoxCarMake";
 			this.textBoxCarMake.Size = new System.Drawing.Size(210, 20);
 			this.textBoxCarMake.TabIndex = 3;
 			// 
 			// textBoxCarPlate
 			// 
-			this.textBoxCarPlate.Location = new System.Drawing.Point(523, 73);
+			this.textBoxCarPlate.Location = new System.Drawing.Point(337, 138);
 			this.textBoxCarPlate.Name = "textBoxCarPlate";
 			this.textBoxCarPlate.Size = new System.Drawing.Size(210, 20);
 			this.textBoxCarPlate.TabIndex = 2;
 			// 
 			// textBoxCarVIN
 			// 
-			this.textBoxCarVIN.Location = new System.Drawing.Point(523, 47);
+			this.textBoxCarVIN.Location = new System.Drawing.Point(337, 112);
 			this.textBoxCarVIN.Name = "textBoxCarVIN";
 			this.textBoxCarVIN.Size = new System.Drawing.Size(210, 20);
 			this.textBoxCarVIN.TabIndex = 1;
@@ -421,7 +430,7 @@
 			this.JobsTab.Controls.Add(this.buttonAddServiceToCar);
 			this.JobsTab.Controls.Add(this.textBox3);
 			this.JobsTab.Controls.Add(this.listBoxServices);
-			this.JobsTab.Controls.Add(this.listBoxCars);
+			this.JobsTab.Controls.Add(this.listBoxArrivedCars);
 			this.JobsTab.Location = new System.Drawing.Point(4, 22);
 			this.JobsTab.Name = "JobsTab";
 			this.JobsTab.Padding = new System.Windows.Forms.Padding(3);
@@ -430,14 +439,14 @@
 			this.JobsTab.Text = "Darbai";
 			this.JobsTab.UseVisualStyleBackColor = true;
 			// 
-			// listBoxCars
+			// listBoxArrivedCars
 			// 
-			this.listBoxCars.FormattingEnabled = true;
-			this.listBoxCars.Location = new System.Drawing.Point(25, 21);
-			this.listBoxCars.Name = "listBoxCars";
-			this.listBoxCars.Size = new System.Drawing.Size(206, 433);
-			this.listBoxCars.TabIndex = 1;
-			this.listBoxCars.SelectedIndexChanged += new System.EventHandler(this.listBoxCars_SelectedIndexChanged);
+			this.listBoxArrivedCars.FormattingEnabled = true;
+			this.listBoxArrivedCars.Location = new System.Drawing.Point(25, 21);
+			this.listBoxArrivedCars.Name = "listBoxArrivedCars";
+			this.listBoxArrivedCars.Size = new System.Drawing.Size(206, 433);
+			this.listBoxArrivedCars.TabIndex = 1;
+			this.listBoxArrivedCars.SelectedIndexChanged += new System.EventHandler(this.listBoxCars_SelectedIndexChanged);
 			// 
 			// EmployeesTab
 			// 
@@ -606,7 +615,7 @@
 			this.SearchTab.Location = new System.Drawing.Point(4, 22);
 			this.SearchTab.Name = "SearchTab";
 			this.SearchTab.Padding = new System.Windows.Forms.Padding(3);
-			this.SearchTab.Size = new System.Drawing.Size(997, 648);
+			this.SearchTab.Size = new System.Drawing.Size(1166, 481);
 			this.SearchTab.TabIndex = 7;
 			this.SearchTab.Text = "Paieška";
 			this.SearchTab.UseVisualStyleBackColor = true;
@@ -617,7 +626,7 @@
 			this.SystemLogTab.Location = new System.Drawing.Point(4, 22);
 			this.SystemLogTab.Name = "SystemLogTab";
 			this.SystemLogTab.Padding = new System.Windows.Forms.Padding(3);
-			this.SystemLogTab.Size = new System.Drawing.Size(997, 648);
+			this.SystemLogTab.Size = new System.Drawing.Size(1166, 481);
 			this.SystemLogTab.TabIndex = 10;
 			this.SystemLogTab.Text = "Sistemos žurnalas";
 			this.SystemLogTab.UseVisualStyleBackColor = true;
@@ -625,7 +634,7 @@
 			// richTextBox1
 			// 
 			this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.richTextBox1.Location = new System.Drawing.Point(8, 40);
+			this.richTextBox1.Location = new System.Drawing.Point(6, 6);
 			this.richTextBox1.Name = "richTextBox1";
 			this.richTextBox1.Size = new System.Drawing.Size(818, 490);
 			this.richTextBox1.TabIndex = 0;
@@ -696,6 +705,36 @@
 			this.buttonFinishJob.UseVisualStyleBackColor = true;
 			this.buttonFinishJob.Click += new System.EventHandler(this.buttonFinishJob_Click);
 			// 
+			// errorProvider
+			// 
+			this.errorProvider.ContainerControl = this;
+			// 
+			// listBoxClientCars
+			// 
+			this.listBoxClientCars.FormattingEnabled = true;
+			this.listBoxClientCars.Location = new System.Drawing.Point(693, 30);
+			this.listBoxClientCars.Name = "listBoxClientCars";
+			this.listBoxClientCars.Size = new System.Drawing.Size(215, 381);
+			this.listBoxClientCars.TabIndex = 20;
+			// 
+			// buttonCarArrived
+			// 
+			this.buttonCarArrived.Location = new System.Drawing.Point(927, 128);
+			this.buttonCarArrived.Name = "buttonCarArrived";
+			this.buttonCarArrived.Size = new System.Drawing.Size(141, 38);
+			this.buttonCarArrived.TabIndex = 21;
+			this.buttonCarArrived.Text = "Automobilis Atvyko";
+			this.buttonCarArrived.UseVisualStyleBackColor = true;
+			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(927, 232);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(141, 38);
+			this.button1.TabIndex = 22;
+			this.button1.Text = "Automobilis Isvyko";
+			this.button1.UseVisualStyleBackColor = true;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -719,6 +758,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.autoShopDataSet)).EndInit();
 			this.SystemLogTab.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -781,13 +821,17 @@
 		private System.Windows.Forms.TextBox textBox16;
 		private System.Windows.Forms.TextBox textBox15;
 		private System.Windows.Forms.TextBox textBox14;
-		private System.Windows.Forms.ListBox listBoxCars;
+		private System.Windows.Forms.ListBox listBoxArrivedCars;
 		private System.Windows.Forms.ListBox listBoxClients;
 		private System.Windows.Forms.ListBox listBoxCarJobs;
 		private System.Windows.Forms.Button buttonAddServiceToCar;
 		private System.Windows.Forms.TextBox textBox3;
 		private System.Windows.Forms.ListBox listBoxServices;
 		private System.Windows.Forms.Button buttonFinishJob;
+		private System.Windows.Forms.ErrorProvider errorProvider;
+		private System.Windows.Forms.ListBox listBoxClientCars;
+		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button buttonCarArrived;
 	}
 }
 

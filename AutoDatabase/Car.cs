@@ -28,6 +28,7 @@ namespace AutoDatabase
         public int Run { get; set; }
         public string Engine { get; set; }
         public int Year { get; set; }
+        public bool Arrived { get; set; }
     
         public virtual Client Client { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

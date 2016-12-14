@@ -31,6 +31,7 @@ namespace AutoDatabase
 			data.PopulateListBoxServices(listBoxServices);
 			data.PopulateListBoxEmployees(listBoxEmployees);
 			data.PopulateListBoxJobEmployees(listBoxJobEmployees, listBoxCarJobs);
+			data.PopulateTopClients(listBoxTopClients);
 
 
 		}
@@ -142,7 +143,6 @@ namespace AutoDatabase
 			data.PopulateListBoxClientCars((int)listBoxClients.SelectedValue, listBoxClientCars);
 
 		}
-
 
 
 		private void buttonCarArrived_Click(object sender, EventArgs e)

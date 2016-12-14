@@ -43,6 +43,7 @@
 			this.textBoxTelephone = new System.Windows.Forms.TextBox();
 			this.textBoxAddress = new System.Windows.Forms.TextBox();
 			this.tabAddCar = new System.Windows.Forms.TabPage();
+			this.label6 = new System.Windows.Forms.Label();
 			this.buttonPerson = new System.Windows.Forms.Button();
 			this.buttonCompany = new System.Windows.Forms.Button();
 			this.buttonCarLeft = new System.Windows.Forms.Button();
@@ -65,6 +66,10 @@
 			this.textBoxCarPlate = new System.Windows.Forms.TextBox();
 			this.textBoxCarVIN = new System.Windows.Forms.TextBox();
 			this.JobsTab = new System.Windows.Forms.TabPage();
+			this.label5 = new System.Windows.Forms.Label();
+			this.label4 = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.listBoxJobEmployees = new System.Windows.Forms.ListBox();
 			this.buttonAddEmployeeToJob = new System.Windows.Forms.Button();
@@ -103,11 +108,8 @@
 			this.SystemLogTab = new System.Windows.Forms.TabPage();
 			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
 			this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-			this.label2 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
-			this.label5 = new System.Windows.Forms.Label();
-			this.label6 = new System.Windows.Forms.Label();
+			this.listBoxTopClients = new System.Windows.Forms.ListBox();
+			this.label7 = new System.Windows.Forms.Label();
 			this.tabControl.SuspendLayout();
 			this.RegistrateClientTab.SuspendLayout();
 			this.tabAddCar.SuspendLayout();
@@ -139,6 +141,8 @@
 			// 
 			// RegistrateClientTab
 			// 
+			this.RegistrateClientTab.Controls.Add(this.label7);
+			this.RegistrateClientTab.Controls.Add(this.listBoxTopClients);
 			this.RegistrateClientTab.Controls.Add(this.textClient1);
 			this.RegistrateClientTab.Controls.Add(this.textClient2);
 			this.RegistrateClientTab.Controls.Add(this.textBoxClient1);
@@ -299,6 +303,15 @@
 			this.tabAddCar.TabIndex = 11;
 			this.tabAddCar.Text = "Prideti Automobili";
 			this.tabAddCar.UseVisualStyleBackColor = true;
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Location = new System.Drawing.Point(745, 14);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(97, 13);
+			this.label6.TabIndex = 25;
+			this.label6.Text = "Kliento automobiliai";
 			// 
 			// buttonPerson
 			// 
@@ -525,6 +538,42 @@
 			this.JobsTab.TabIndex = 9;
 			this.JobsTab.Text = "Darbai";
 			this.JobsTab.UseVisualStyleBackColor = true;
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Location = new System.Drawing.Point(968, 233);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(61, 13);
+			this.label5.TabIndex = 15;
+			this.label5.Text = "Darbuotojai";
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(968, 5);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(56, 13);
+			this.label4.TabIndex = 14;
+			this.label4.Text = "Paslaugos";
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(522, 5);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(128, 13);
+			this.label3.TabIndex = 13;
+			this.label3.Text = "Darbuotojai priskirti darbui";
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(291, 5);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(96, 13);
+			this.label2.TabIndex = 12;
+			this.label2.Text = "Darbai automobiliui";
 			// 
 			// label1
 			// 
@@ -896,50 +945,22 @@
 			// 
 			this.errorProvider.ContainerControl = this;
 			// 
-			// label2
+			// listBoxTopClients
 			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(291, 5);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(96, 13);
-			this.label2.TabIndex = 12;
-			this.label2.Text = "Darbai automobiliui";
+			this.listBoxTopClients.FormattingEnabled = true;
+			this.listBoxTopClients.Location = new System.Drawing.Point(563, 44);
+			this.listBoxTopClients.Name = "listBoxTopClients";
+			this.listBoxTopClients.Size = new System.Drawing.Size(215, 381);
+			this.listBoxTopClients.TabIndex = 20;
 			// 
-			// label3
+			// label7
 			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(522, 5);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(128, 13);
-			this.label3.TabIndex = 13;
-			this.label3.Text = "Darbuotojai priskirti darbui";
-			// 
-			// label4
-			// 
-			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(968, 5);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(56, 13);
-			this.label4.TabIndex = 14;
-			this.label4.Text = "Paslaugos";
-			// 
-			// label5
-			// 
-			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(968, 233);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(61, 13);
-			this.label5.TabIndex = 15;
-			this.label5.Text = "Darbuotojai";
-			// 
-			// label6
-			// 
-			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(745, 14);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(97, 13);
-			this.label6.TabIndex = 25;
-			this.label6.Text = "Kliento automobiliai";
+			this.label7.AutoSize = true;
+			this.label7.Location = new System.Drawing.Point(636, 28);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(74, 13);
+			this.label7.TabIndex = 21;
+			this.label7.Text = "TOP 5 klientai";
 			// 
 			// MainForm
 			// 
@@ -1047,6 +1068,8 @@
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.Label label7;
+		private System.Windows.Forms.ListBox listBoxTopClients;
 	}
 }
 

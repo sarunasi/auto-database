@@ -26,6 +26,20 @@ namespace AutoDatabase
 			}
 		}
 
+		public void PopulateTopClients(ListBox listBoxTopClients)
+		{
+			using (var context = new AutoShopEntities())
+			{
+				var results = (from c in context.People
+							   orderby c.Client.Cars.Count() descending
+							   select new { Id = c.Id, Row = c.Name + "    " + c.Surname + "  " + c.Client.Cars.Count() }).ToList().Take(5);
+
+				listBoxTopClients.DataSource = results;
+				listBoxTopClients.DisplayMember = "Row";
+				listBoxTopClients.ValueMember = "Id";
+			}
+		}
+
 		public void PopulateListBoxClients(bool selectedClientPerson, ListBox listBoxClients)
 		{
 			if (selectedClientPerson)

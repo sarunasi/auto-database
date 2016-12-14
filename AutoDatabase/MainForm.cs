@@ -163,6 +163,11 @@ namespace AutoDatabase
 
 		private void buttonRegisterClient_Click(object sender, EventArgs e)
 		{
+			textBoxClient1_Validated(this, e);
+			textBoxClient2_Validated(this, e);
+			textBoxAddress_Validated(this, e);
+			textBoxTelephone_Validated(this, e);
+
 			var client = new Client
 			{
 				Adress = textBoxAddress.Text,
@@ -410,11 +415,15 @@ namespace AutoDatabase
 			using (var context = new AutoShopEntities())
 			{
 				var employee = context.Employees.FirstOrDefault(x => x.Id == (int)listBoxEmployees.SelectedValue);
-				var job = context.Jobs.FirstOrDefault(x => x.Id == (int)listBoxCarJobs.SelectedValue);
+				if (listBoxCarJobs.SelectedValue != null)
+				{
+					var job = context.Jobs.FirstOrDefault(x => x.Id == (int)listBoxCarJobs.SelectedValue);
 
-				job.Employees.Add(employee);
+					job.Employees.Add(employee);
 
-				context.SaveChanges();
+					context.SaveChanges();
+				}
+				
 			}
 			populateListBoxJobEmployees();
 		}
@@ -439,7 +448,7 @@ namespace AutoDatabase
 		private void CheckNumbersError(TextBox textBox, Button button, string name)
 		{
 			long parsedValue;
-			if (!long.TryParse(textBox.Text, out parsedValue))
+			if (!long.TryParse(textBox.Text, out parsedValue) || textBox.Text == "")
 			{
 				errorProvider.SetError(textBox, name + " turi sudaryti skaiciai");
 				button.Enabled = false;
@@ -465,5 +474,35 @@ namespace AutoDatabase
 		{
 			CheckNumbersError(textBoxCarYear, buttonAddNewCar, "Metai");
 		}
+
+		private void textBoxClient1_Validated(object sender, EventArgs e)
+		{
+			CheckEmptyError(textBoxClient1, buttonRegisterClient, textClient1.Text);
+		}
+
+		private void textBoxClient2_Validated(object sender, EventArgs e)
+		{
+			CheckEmptyError(textBoxClient2, buttonRegisterClient, textClient2.Text);
+		}
+
+		private void CheckEmptyError(TextBox textBox, Button button, string name)
+		{
+			if (textBox.Text == "")
+			{
+				errorProvider.SetError(textBox, name + " negali buti tuscias");
+				button.Enabled = false;
+			}
+			else
+			{
+				errorProvider.SetError(textBox, "");
+				button.Enabled = true;
+			}
+		}
+
+		private void textBoxAddress_Validated(object sender, EventArgs e)
+		{
+			CheckEmptyError(textBoxAddress, buttonRegisterClient, "Adresas");
+		}
+
 	}
 }

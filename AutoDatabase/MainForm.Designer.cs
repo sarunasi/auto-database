@@ -65,6 +65,7 @@
 			this.textBoxCarPlate = new System.Windows.Forms.TextBox();
 			this.textBoxCarVIN = new System.Windows.Forms.TextBox();
 			this.JobsTab = new System.Windows.Forms.TabPage();
+			this.label1 = new System.Windows.Forms.Label();
 			this.listBoxJobEmployees = new System.Windows.Forms.ListBox();
 			this.buttonAddEmployeeToJob = new System.Windows.Forms.Button();
 			this.listBoxEmployees = new System.Windows.Forms.ListBox();
@@ -102,6 +103,11 @@
 			this.SystemLogTab = new System.Windows.Forms.TabPage();
 			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
 			this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+			this.label2 = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
+			this.label4 = new System.Windows.Forms.Label();
+			this.label5 = new System.Windows.Forms.Label();
+			this.label6 = new System.Windows.Forms.Label();
 			this.tabControl.SuspendLayout();
 			this.RegistrateClientTab.SuspendLayout();
 			this.tabAddCar.SuspendLayout();
@@ -180,6 +186,7 @@
 			this.textBoxClient1.Name = "textBoxClient1";
 			this.textBoxClient1.Size = new System.Drawing.Size(224, 20);
 			this.textBoxClient1.TabIndex = 8;
+			this.textBoxClient1.Validated += new System.EventHandler(this.textBoxClient1_Validated);
 			// 
 			// textBoxClient2
 			// 
@@ -188,6 +195,7 @@
 			this.textBoxClient2.Name = "textBoxClient2";
 			this.textBoxClient2.Size = new System.Drawing.Size(224, 20);
 			this.textBoxClient2.TabIndex = 7;
+			this.textBoxClient2.Validated += new System.EventHandler(this.textBoxClient2_Validated);
 			// 
 			// textBox2
 			// 
@@ -257,9 +265,11 @@
 			this.textBoxAddress.Name = "textBoxAddress";
 			this.textBoxAddress.Size = new System.Drawing.Size(224, 20);
 			this.textBoxAddress.TabIndex = 0;
+			this.textBoxAddress.Validated += new System.EventHandler(this.textBoxAddress_Validated);
 			// 
 			// tabAddCar
 			// 
+			this.tabAddCar.Controls.Add(this.label6);
 			this.tabAddCar.Controls.Add(this.buttonPerson);
 			this.tabAddCar.Controls.Add(this.buttonCompany);
 			this.tabAddCar.Controls.Add(this.buttonCarLeft);
@@ -493,6 +503,11 @@
 			// 
 			// JobsTab
 			// 
+			this.JobsTab.Controls.Add(this.label5);
+			this.JobsTab.Controls.Add(this.label4);
+			this.JobsTab.Controls.Add(this.label3);
+			this.JobsTab.Controls.Add(this.label2);
+			this.JobsTab.Controls.Add(this.label1);
 			this.JobsTab.Controls.Add(this.listBoxJobEmployees);
 			this.JobsTab.Controls.Add(this.buttonAddEmployeeToJob);
 			this.JobsTab.Controls.Add(this.listBoxEmployees);
@@ -509,6 +524,15 @@
 			this.JobsTab.TabIndex = 9;
 			this.JobsTab.Text = "Darbai";
 			this.JobsTab.UseVisualStyleBackColor = true;
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(85, 5);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(99, 13);
+			this.label1.TabIndex = 11;
+			this.label1.Text = "Automobiliai servise";
 			// 
 			// listBoxJobEmployees
 			// 
@@ -871,6 +895,51 @@
 			// 
 			this.errorProvider.ContainerControl = this;
 			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(291, 5);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(96, 13);
+			this.label2.TabIndex = 12;
+			this.label2.Text = "Darbai automobiliui";
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(522, 5);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(128, 13);
+			this.label3.TabIndex = 13;
+			this.label3.Text = "Darbuotojai priskirti darbui";
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(968, 5);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(56, 13);
+			this.label4.TabIndex = 14;
+			this.label4.Text = "Paslaugos";
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Location = new System.Drawing.Point(968, 233);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(61, 13);
+			this.label5.TabIndex = 15;
+			this.label5.Text = "Darbuotojai";
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Location = new System.Drawing.Point(745, 14);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(97, 13);
+			this.label6.TabIndex = 25;
+			this.label6.Text = "Kliento automobiliai";
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -886,6 +955,7 @@
 			this.tabAddCar.ResumeLayout(false);
 			this.tabAddCar.PerformLayout();
 			this.JobsTab.ResumeLayout(false);
+			this.JobsTab.PerformLayout();
 			this.EmployeesTab.ResumeLayout(false);
 			this.EmployeesTab.PerformLayout();
 			this.tabAddServices.ResumeLayout(false);
@@ -971,6 +1041,12 @@
 		private System.Windows.Forms.TextBox textBox18;
 		private System.Windows.Forms.Button buttonPerson;
 		private System.Windows.Forms.Button buttonCompany;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Label label6;
 	}
 }
 

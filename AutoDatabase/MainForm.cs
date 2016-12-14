@@ -15,27 +15,21 @@ namespace AutoDatabase
 	{
 		DataSet dataSet;
 		EmployeeTable employees;
-		
+		private bool selectedClientPerson = true;
+
 		public MainForm()
 		{
 			InitializeComponent();
 			dataSet = new DataSet();
 			employees = new EmployeeTable(Properties.Settings.Default.connectionString, dataSet);
 
-			populateListBoxClient();
+			PopulateListBoxClients();
 			populateListBoxArrivedCars();
 			populateListBoxServices();
 			populateListBoxEmployees();
 			populateListBoxJobEmployees();
 
-
-			using (var context = new AutoShopEntities())
-			{
 			
-
-			}
-
-			errorProvider.SetError(textBoxCarRun, "Wat you doin m8");
 		}
 
 		private void populateListBoxJobEmployees()
@@ -99,18 +93,35 @@ namespace AutoDatabase
 			}
 		}
 
-		private void populateListBoxClient()
+		private void PopulateListBoxClients()
 		{
-			using (var context = new AutoShopEntities())
+			if (selectedClientPerson)
 			{
-				var results = (from c in context.People
-							   select new { Id = c.Id, Row = c.Name + " " + c.Surname }).ToList();
+				using (var context = new AutoShopEntities())
+				{
+					var results = (from c in context.People
+								   select new { Id = c.Id, Row = c.Name + " " + c.Surname }).ToList();
 
-				listBoxClients.DataSource = results;
-				listBoxClients.DisplayMember = "Row";
-				listBoxClients.ValueMember = "Id";
+					listBoxClients.DataSource = results;
+					listBoxClients.DisplayMember = "Row";
+					listBoxClients.ValueMember = "Id";
 
+				}
 			}
+			else
+			{
+				using (var context = new AutoShopEntities())
+				{
+					var results = (from c in context.Companies
+								   select new { Id = c.Id, Row = c.Name + " " + c.Code }).ToList();
+
+					listBoxClients.DataSource = results;
+					listBoxClients.DisplayMember = "Row";
+					listBoxClients.ValueMember = "Id";
+
+				}
+			}
+			
 
 		}
 
@@ -135,14 +146,6 @@ namespace AutoDatabase
 
 		private void MainForm_Load(object sender, EventArgs e)
 		{
-			// TODO: This line of code loads data into the 'autoShopDataSet.Person' table. You can move, or remove it, as needed.
-			this.personTableAdapter.Fill(this.autoShopDataSet.Person);
-			// TODO: This line of code loads data into the 'autoShopDataSet.Client' table. You can move, or remove it, as needed.
-			this.clientTableAdapter.Fill(this.autoShopDataSet.Client);
-			// TODO: This line of code loads data into the 'autoShopDataSet.Employee' table. You can move, or remove it, as needed.
-			this.employeeTableAdapter.Fill(this.autoShopDataSet.Employee);
-			// TODO: This line of code loads data into the 'autoShopDataSet.Car' table. You can move, or remove it, as needed.
-			this.carTableAdapter.Fill(this.autoShopDataSet.Car);
 
 		}
 
@@ -193,8 +196,12 @@ namespace AutoDatabase
 				context.SaveChanges();
 			}
 
-			populateListBoxClient();
-			this.clientTableAdapter.Fill(this.autoShopDataSet.Client);
+			textBoxClient1.Text = "";
+			textBoxClient2.Text = "";
+			textBoxAddress.Text = "";
+			textBoxTelephone.Text = "";
+
+			PopulateListBoxClients();
 
 		}
 
@@ -240,6 +247,14 @@ namespace AutoDatabase
 				context.Cars.Add(car);
 				context.SaveChanges();
 			}
+
+			textBoxCarEngine.Text = "";
+			textBoxCarMake.Text = "";
+			textBoxCarModel.Text = "";
+			textBoxCarPlate.Text = "";
+			textBoxCarRun.Text = "";
+			textBoxCarVIN.Text = "";
+			textBoxCarYear.Text = "";
 
 			populateListBoxArrivedCars();
 			populateListBoxClientCars();
@@ -399,9 +414,46 @@ namespace AutoDatabase
 			populateListBoxJobEmployees();
 		}
 
-		private void textBox7_TextChanged(object sender, EventArgs e)
+		private void buttonPerson_Click(object sender, EventArgs e)
 		{
+			selectedClientPerson = true;
+			PopulateListBoxClients();
+		}
 
+		private void buttonCompany_Click(object sender, EventArgs e)
+		{
+			selectedClientPerson = false;
+			PopulateListBoxClients();
+		}
+
+		private void CheckNumbersError(TextBox textBox, Button button, string name)
+		{
+			long parsedValue;
+			if (!long.TryParse(textBox.Text, out parsedValue))
+			{
+				errorProvider.SetError(textBox, name + " turi sudaryti skaiciai");
+				button.Enabled = false;
+			}
+			else
+			{
+				errorProvider.SetError(textBox, "");
+				button.Enabled = true;
+			}
+		}
+
+		private void textBoxTelephone_Validated(object sender, EventArgs e)
+		{
+			CheckNumbersError(textBoxTelephone, buttonRegisterClient, "Telefonas");
+		}
+
+		private void textBoxCarRun_Validated(object sender, EventArgs e)
+		{
+			CheckNumbersError(textBoxCarRun, buttonAddNewCar, "Rida");
+		}
+
+		private void textBoxCarYear_Validated(object sender, EventArgs e)
+		{
+			CheckNumbersError(textBoxCarYear, buttonAddNewCar, "Metai");
 		}
 	}
 }

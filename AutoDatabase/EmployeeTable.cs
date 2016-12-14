@@ -28,10 +28,7 @@ namespace AutoDatabase
 				dataAdapter.Fill(dataSet, TableName);
 				
 			}
-			//dataAdapter.Dispose();
-			DataColumn[] keys = new DataColumn[1];
-			keys[0] = dataSet.Tables[TableName].Columns[0];
-			dataSet.Tables[TableName].PrimaryKey = keys;
+
 
 		}
 
@@ -48,8 +45,8 @@ namespace AutoDatabase
 
 			dataSet.Tables[TableName].Rows.Add(newRow);
 
-			var connection = new SqlConnection(connectionString);
-			using (connection)
+			
+			using (var connection = new SqlConnection(connectionString))
 			{
 				dataAdapter.InsertCommand.Connection = connection;
 				dataAdapter.Update(dataSet, TableName);
@@ -59,42 +56,36 @@ namespace AutoDatabase
 
 		public void Delete(string idString)
 		{
-			var cmd = new SqlCommand("DELETE FROM Employee WHERE Id = @Id");
-			cmd.Parameters.Add(new SqlParameter("@Id", SqlDbType.Int, 50, "Id"));
-			dataAdapter.DeleteCommand = cmd;
-
 			int id = int.Parse(idString);
 
-			dataSet.Tables[TableName].Rows.Find(id).Delete();
+			var cmd = new SqlCommand("DELETE FROM Employee WHERE Id = @Id");
+			cmd.Parameters.AddWithValue("@Id", id);
+			dataAdapter.DeleteCommand = cmd;
 
 			var connection = new SqlConnection(connectionString);
 			using (connection)
 			{
+				connection.Open();
 				dataAdapter.DeleteCommand.Connection = connection;
-				dataAdapter.Update(dataSet, TableName);
+				dataAdapter.DeleteCommand.ExecuteNonQuery();
 			}
 		}
 
 		public void Update(string idString, string name, string surname)
 		{
-			var cmd = new SqlCommand("UPDATE Employee SET Name = @Name, Surname = @Surname WHERE Id = @Id");
-			cmd.Parameters.Add(new SqlParameter("@Name", SqlDbType.NVarChar, 50, "Name"));
-			cmd.Parameters.Add(new SqlParameter("@Surname", SqlDbType.NVarChar, 50, "Surname"));
-			cmd.Parameters.Add(new SqlParameter("@Id", SqlDbType.Int, 50,  "Id"));
-			dataAdapter.UpdateCommand = cmd;
-
-
 			int id = int.Parse(idString);
-
-			dataSet.Tables[TableName].Rows.Find(id)["Name"] = name;
-			dataSet.Tables[TableName].Rows.Find(id)["Surname"] = surname;
+			var cmd = new SqlCommand("UPDATE Employee SET Name = @Name, Surname = @Surname WHERE Id = @Id");
+			cmd.Parameters.AddWithValue("@Name", name);
+			cmd.Parameters.AddWithValue("@Surname", surname);
+			cmd.Parameters.AddWithValue("@Id", id);
+			dataAdapter.UpdateCommand = cmd;
 
 			var connection = new SqlConnection(connectionString);
 			using (connection)
 			{
+				connection.Open();
 				dataAdapter.UpdateCommand.Connection = connection;
-				//dataAdapter.UpdateCommand.ExecuteNonQuery();
-				dataAdapter.Update(dataSet, TableName);
+				dataAdapter.UpdateCommand.ExecuteNonQuery();
 			}
 		}
 	}

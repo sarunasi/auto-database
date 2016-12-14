@@ -43,6 +43,8 @@
 			this.textBoxTelephone = new System.Windows.Forms.TextBox();
 			this.textBoxAddress = new System.Windows.Forms.TextBox();
 			this.tabAddCar = new System.Windows.Forms.TabPage();
+			this.buttonPerson = new System.Windows.Forms.Button();
+			this.buttonCompany = new System.Windows.Forms.Button();
 			this.buttonCarLeft = new System.Windows.Forms.Button();
 			this.buttonCarArrived = new System.Windows.Forms.Button();
 			this.listBoxClientCars = new System.Windows.Forms.ListBox();
@@ -63,6 +65,9 @@
 			this.textBoxCarPlate = new System.Windows.Forms.TextBox();
 			this.textBoxCarVIN = new System.Windows.Forms.TextBox();
 			this.JobsTab = new System.Windows.Forms.TabPage();
+			this.listBoxJobEmployees = new System.Windows.Forms.ListBox();
+			this.buttonAddEmployeeToJob = new System.Windows.Forms.Button();
+			this.listBoxEmployees = new System.Windows.Forms.ListBox();
 			this.buttonDeleteJob = new System.Windows.Forms.Button();
 			this.buttonFinishJob = new System.Windows.Forms.Button();
 			this.listBoxCarJobs = new System.Windows.Forms.ListBox();
@@ -70,8 +75,12 @@
 			this.listBoxServices = new System.Windows.Forms.ListBox();
 			this.listBoxArrivedCars = new System.Windows.Forms.ListBox();
 			this.EmployeesTab = new System.Windows.Forms.TabPage();
-			this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.autoShopDataSet = new AutoDatabase.AutoShopDataSet();
+			this.textBox18 = new System.Windows.Forms.TextBox();
+			this.textBox17 = new System.Windows.Forms.TextBox();
+			this.textBox9 = new System.Windows.Forms.TextBox();
+			this.textBox3 = new System.Windows.Forms.TextBox();
+			this.textBox4 = new System.Windows.Forms.TextBox();
+			this.textBox7 = new System.Windows.Forms.TextBox();
 			this.buttonDeleteEmployee = new System.Windows.Forms.Button();
 			this.textBoxDeleteEmployeeId = new System.Windows.Forms.TextBox();
 			this.textBoxUpdateEmployeeId = new System.Windows.Forms.TextBox();
@@ -82,6 +91,9 @@
 			this.textBoxInsertEmployeeSurname = new System.Windows.Forms.TextBox();
 			this.textBoxInsertEmployeeName = new System.Windows.Forms.TextBox();
 			this.tabAddServices = new System.Windows.Forms.TabPage();
+			this.textBox5 = new System.Windows.Forms.TextBox();
+			this.textBox6 = new System.Windows.Forms.TextBox();
+			this.textBox8 = new System.Windows.Forms.TextBox();
 			this.buttonAddService = new System.Windows.Forms.Button();
 			this.textBoxServiceDefaultHours = new System.Windows.Forms.TextBox();
 			this.textBoxServicePrice = new System.Windows.Forms.TextBox();
@@ -89,34 +101,14 @@
 			this.SearchTab = new System.Windows.Forms.TabPage();
 			this.SystemLogTab = new System.Windows.Forms.TabPage();
 			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-			this.carTableAdapter = new AutoDatabase.AutoShopDataSetTableAdapters.CarTableAdapter();
-			this.employeeTableAdapter = new AutoDatabase.AutoShopDataSetTableAdapters.EmployeeTableAdapter();
-			this.clientTableAdapter = new AutoDatabase.AutoShopDataSetTableAdapters.ClientTableAdapter();
-			this.personTableAdapter = new AutoDatabase.AutoShopDataSetTableAdapters.PersonTableAdapter();
-			this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-			this.textBox8 = new System.Windows.Forms.TextBox();
-			this.textBox5 = new System.Windows.Forms.TextBox();
-			this.textBox6 = new System.Windows.Forms.TextBox();
-			this.listBoxEmployees = new System.Windows.Forms.ListBox();
-			this.buttonAddEmployeeToJob = new System.Windows.Forms.Button();
-			this.listBoxJobEmployees = new System.Windows.Forms.ListBox();
-			this.textBox3 = new System.Windows.Forms.TextBox();
-			this.textBox4 = new System.Windows.Forms.TextBox();
-			this.textBox7 = new System.Windows.Forms.TextBox();
-			this.textBox9 = new System.Windows.Forms.TextBox();
-			this.textBox17 = new System.Windows.Forms.TextBox();
-			this.textBox18 = new System.Windows.Forms.TextBox();
 			this.tabControl.SuspendLayout();
 			this.RegistrateClientTab.SuspendLayout();
 			this.tabAddCar.SuspendLayout();
 			this.JobsTab.SuspendLayout();
 			this.EmployeesTab.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.autoShopDataSet)).BeginInit();
 			this.tabAddServices.SuspendLayout();
 			this.SystemLogTab.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -184,6 +176,7 @@
 			// textBoxClient1
 			// 
 			this.textBoxClient1.Location = new System.Drawing.Point(121, 153);
+			this.textBoxClient1.MaxLength = 50;
 			this.textBoxClient1.Name = "textBoxClient1";
 			this.textBoxClient1.Size = new System.Drawing.Size(224, 20);
 			this.textBoxClient1.TabIndex = 8;
@@ -191,6 +184,7 @@
 			// textBoxClient2
 			// 
 			this.textBoxClient2.Location = new System.Drawing.Point(121, 179);
+			this.textBoxClient2.MaxLength = 50;
 			this.textBoxClient2.Name = "textBoxClient2";
 			this.textBoxClient2.Size = new System.Drawing.Size(224, 20);
 			this.textBoxClient2.TabIndex = 7;
@@ -250,19 +244,24 @@
 			// textBoxTelephone
 			// 
 			this.textBoxTelephone.Location = new System.Drawing.Point(121, 231);
+			this.textBoxTelephone.MaxLength = 30;
 			this.textBoxTelephone.Name = "textBoxTelephone";
 			this.textBoxTelephone.Size = new System.Drawing.Size(224, 20);
 			this.textBoxTelephone.TabIndex = 1;
+			this.textBoxTelephone.Validated += new System.EventHandler(this.textBoxTelephone_Validated);
 			// 
 			// textBoxAddress
 			// 
 			this.textBoxAddress.Location = new System.Drawing.Point(121, 205);
+			this.textBoxAddress.MaxLength = 50;
 			this.textBoxAddress.Name = "textBoxAddress";
 			this.textBoxAddress.Size = new System.Drawing.Size(224, 20);
 			this.textBoxAddress.TabIndex = 0;
 			// 
 			// tabAddCar
 			// 
+			this.tabAddCar.Controls.Add(this.buttonPerson);
+			this.tabAddCar.Controls.Add(this.buttonCompany);
 			this.tabAddCar.Controls.Add(this.buttonCarLeft);
 			this.tabAddCar.Controls.Add(this.buttonCarArrived);
 			this.tabAddCar.Controls.Add(this.listBoxClientCars);
@@ -289,6 +288,26 @@
 			this.tabAddCar.TabIndex = 11;
 			this.tabAddCar.Text = "Prideti Automobili";
 			this.tabAddCar.UseVisualStyleBackColor = true;
+			// 
+			// buttonPerson
+			// 
+			this.buttonPerson.Location = new System.Drawing.Point(23, 6);
+			this.buttonPerson.Name = "buttonPerson";
+			this.buttonPerson.Size = new System.Drawing.Size(75, 23);
+			this.buttonPerson.TabIndex = 24;
+			this.buttonPerson.Text = "Asmuo";
+			this.buttonPerson.UseVisualStyleBackColor = true;
+			this.buttonPerson.Click += new System.EventHandler(this.buttonPerson_Click);
+			// 
+			// buttonCompany
+			// 
+			this.buttonCompany.Location = new System.Drawing.Point(163, 6);
+			this.buttonCompany.Name = "buttonCompany";
+			this.buttonCompany.Size = new System.Drawing.Size(75, 23);
+			this.buttonCompany.TabIndex = 23;
+			this.buttonCompany.Text = "Imone";
+			this.buttonCompany.UseVisualStyleBackColor = true;
+			this.buttonCompany.Click += new System.EventHandler(this.buttonCompany_Click);
 			// 
 			// buttonCarLeft
 			// 
@@ -417,13 +436,16 @@
 			// textBoxCarYear
 			// 
 			this.textBoxCarYear.Location = new System.Drawing.Point(337, 268);
+			this.textBoxCarYear.MaxLength = 50;
 			this.textBoxCarYear.Name = "textBoxCarYear";
 			this.textBoxCarYear.Size = new System.Drawing.Size(210, 20);
 			this.textBoxCarYear.TabIndex = 7;
+			this.textBoxCarYear.Validated += new System.EventHandler(this.textBoxCarYear_Validated);
 			// 
 			// textBoxCarEngine
 			// 
 			this.textBoxCarEngine.Location = new System.Drawing.Point(337, 242);
+			this.textBoxCarEngine.MaxLength = 50;
 			this.textBoxCarEngine.Name = "textBoxCarEngine";
 			this.textBoxCarEngine.Size = new System.Drawing.Size(210, 20);
 			this.textBoxCarEngine.TabIndex = 6;
@@ -431,13 +453,16 @@
 			// textBoxCarRun
 			// 
 			this.textBoxCarRun.Location = new System.Drawing.Point(337, 216);
+			this.textBoxCarRun.MaxLength = 50;
 			this.textBoxCarRun.Name = "textBoxCarRun";
 			this.textBoxCarRun.Size = new System.Drawing.Size(210, 20);
 			this.textBoxCarRun.TabIndex = 5;
+			this.textBoxCarRun.Validated += new System.EventHandler(this.textBoxCarRun_Validated);
 			// 
 			// textBoxCarModel
 			// 
 			this.textBoxCarModel.Location = new System.Drawing.Point(337, 190);
+			this.textBoxCarModel.MaxLength = 50;
 			this.textBoxCarModel.Name = "textBoxCarModel";
 			this.textBoxCarModel.Size = new System.Drawing.Size(210, 20);
 			this.textBoxCarModel.TabIndex = 4;
@@ -445,6 +470,7 @@
 			// textBoxCarMake
 			// 
 			this.textBoxCarMake.Location = new System.Drawing.Point(337, 164);
+			this.textBoxCarMake.MaxLength = 50;
 			this.textBoxCarMake.Name = "textBoxCarMake";
 			this.textBoxCarMake.Size = new System.Drawing.Size(210, 20);
 			this.textBoxCarMake.TabIndex = 3;
@@ -452,6 +478,7 @@
 			// textBoxCarPlate
 			// 
 			this.textBoxCarPlate.Location = new System.Drawing.Point(337, 138);
+			this.textBoxCarPlate.MaxLength = 50;
 			this.textBoxCarPlate.Name = "textBoxCarPlate";
 			this.textBoxCarPlate.Size = new System.Drawing.Size(210, 20);
 			this.textBoxCarPlate.TabIndex = 2;
@@ -459,6 +486,7 @@
 			// textBoxCarVIN
 			// 
 			this.textBoxCarVIN.Location = new System.Drawing.Point(337, 112);
+			this.textBoxCarVIN.MaxLength = 50;
 			this.textBoxCarVIN.Name = "textBoxCarVIN";
 			this.textBoxCarVIN.Size = new System.Drawing.Size(210, 20);
 			this.textBoxCarVIN.TabIndex = 1;
@@ -481,6 +509,32 @@
 			this.JobsTab.TabIndex = 9;
 			this.JobsTab.Text = "Darbai";
 			this.JobsTab.UseVisualStyleBackColor = true;
+			// 
+			// listBoxJobEmployees
+			// 
+			this.listBoxJobEmployees.FormattingEnabled = true;
+			this.listBoxJobEmployees.Location = new System.Drawing.Point(477, 21);
+			this.listBoxJobEmployees.Name = "listBoxJobEmployees";
+			this.listBoxJobEmployees.Size = new System.Drawing.Size(206, 199);
+			this.listBoxJobEmployees.TabIndex = 10;
+			// 
+			// buttonAddEmployeeToJob
+			// 
+			this.buttonAddEmployeeToJob.Location = new System.Drawing.Point(814, 249);
+			this.buttonAddEmployeeToJob.Name = "buttonAddEmployeeToJob";
+			this.buttonAddEmployeeToJob.Size = new System.Drawing.Size(90, 40);
+			this.buttonAddEmployeeToJob.TabIndex = 9;
+			this.buttonAddEmployeeToJob.Text = "Prideti Darbuotoja";
+			this.buttonAddEmployeeToJob.UseVisualStyleBackColor = true;
+			this.buttonAddEmployeeToJob.Click += new System.EventHandler(this.buttonAddEmployeeToJob_Click);
+			// 
+			// listBoxEmployees
+			// 
+			this.listBoxEmployees.FormattingEnabled = true;
+			this.listBoxEmployees.Location = new System.Drawing.Point(924, 249);
+			this.listBoxEmployees.Name = "listBoxEmployees";
+			this.listBoxEmployees.Size = new System.Drawing.Size(206, 212);
+			this.listBoxEmployees.TabIndex = 8;
 			// 
 			// buttonDeleteJob
 			// 
@@ -563,15 +617,71 @@
 			this.EmployeesTab.Text = "Darbuotojai";
 			this.EmployeesTab.UseVisualStyleBackColor = true;
 			// 
-			// employeeBindingSource
+			// textBox18
 			// 
-			this.employeeBindingSource.DataMember = "Employee";
-			this.employeeBindingSource.DataSource = this.autoShopDataSet;
+			this.textBox18.BackColor = System.Drawing.SystemColors.Window;
+			this.textBox18.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox18.Location = new System.Drawing.Point(385, 89);
+			this.textBox18.Name = "textBox18";
+			this.textBox18.ReadOnly = true;
+			this.textBox18.Size = new System.Drawing.Size(35, 13);
+			this.textBox18.TabIndex = 16;
+			this.textBox18.Text = "Id";
 			// 
-			// autoShopDataSet
+			// textBox17
 			// 
-			this.autoShopDataSet.DataSetName = "AutoShopDataSet";
-			this.autoShopDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+			this.textBox17.BackColor = System.Drawing.SystemColors.Window;
+			this.textBox17.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox17.Location = new System.Drawing.Point(36, 335);
+			this.textBox17.Name = "textBox17";
+			this.textBox17.ReadOnly = true;
+			this.textBox17.Size = new System.Drawing.Size(67, 13);
+			this.textBox17.TabIndex = 15;
+			this.textBox17.Text = "Pavarde";
+			// 
+			// textBox9
+			// 
+			this.textBox9.BackColor = System.Drawing.SystemColors.Window;
+			this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox9.Location = new System.Drawing.Point(36, 312);
+			this.textBox9.Name = "textBox9";
+			this.textBox9.ReadOnly = true;
+			this.textBox9.Size = new System.Drawing.Size(67, 13);
+			this.textBox9.TabIndex = 14;
+			this.textBox9.Text = "Vardas";
+			// 
+			// textBox3
+			// 
+			this.textBox3.BackColor = System.Drawing.SystemColors.Window;
+			this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox3.Location = new System.Drawing.Point(36, 86);
+			this.textBox3.Name = "textBox3";
+			this.textBox3.ReadOnly = true;
+			this.textBox3.Size = new System.Drawing.Size(67, 13);
+			this.textBox3.TabIndex = 13;
+			this.textBox3.Text = "Vardas";
+			// 
+			// textBox4
+			// 
+			this.textBox4.BackColor = System.Drawing.SystemColors.Window;
+			this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox4.Location = new System.Drawing.Point(36, 112);
+			this.textBox4.Name = "textBox4";
+			this.textBox4.ReadOnly = true;
+			this.textBox4.Size = new System.Drawing.Size(67, 13);
+			this.textBox4.TabIndex = 12;
+			this.textBox4.Text = "Pavarde";
+			// 
+			// textBox7
+			// 
+			this.textBox7.BackColor = System.Drawing.SystemColors.Window;
+			this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox7.Location = new System.Drawing.Point(36, 286);
+			this.textBox7.Name = "textBox7";
+			this.textBox7.ReadOnly = true;
+			this.textBox7.Size = new System.Drawing.Size(67, 13);
+			this.textBox7.TabIndex = 11;
+			this.textBox7.Text = "Id";
 			// 
 			// buttonDeleteEmployee
 			// 
@@ -662,6 +772,39 @@
 			this.tabAddServices.Text = "Serviso paslaugos";
 			this.tabAddServices.UseVisualStyleBackColor = true;
 			// 
+			// textBox5
+			// 
+			this.textBox5.BackColor = System.Drawing.SystemColors.Window;
+			this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox5.Location = new System.Drawing.Point(158, 75);
+			this.textBox5.Name = "textBox5";
+			this.textBox5.ReadOnly = true;
+			this.textBox5.Size = new System.Drawing.Size(95, 13);
+			this.textBox5.TabIndex = 20;
+			this.textBox5.Text = "Pavadinimas";
+			// 
+			// textBox6
+			// 
+			this.textBox6.BackColor = System.Drawing.SystemColors.Window;
+			this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox6.Location = new System.Drawing.Point(158, 101);
+			this.textBox6.Name = "textBox6";
+			this.textBox6.ReadOnly = true;
+			this.textBox6.Size = new System.Drawing.Size(95, 13);
+			this.textBox6.TabIndex = 19;
+			this.textBox6.Text = "Valandine kaina";
+			// 
+			// textBox8
+			// 
+			this.textBox8.BackColor = System.Drawing.SystemColors.Window;
+			this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox8.Location = new System.Drawing.Point(158, 127);
+			this.textBox8.Name = "textBox8";
+			this.textBox8.ReadOnly = true;
+			this.textBox8.Size = new System.Drawing.Size(95, 13);
+			this.textBox8.TabIndex = 17;
+			this.textBox8.Text = "Trukme valandomis";
+			// 
 			// buttonAddService
 			// 
 			this.buttonAddService.Location = new System.Drawing.Point(279, 165);
@@ -724,156 +867,9 @@
 			this.richTextBox1.Text = "2016-11-09  16:03 Vartotojas Darbuotojas1 prisijungė į sistemą\n2016-11-09  16:04 " +
     "Užregistruotas naujas klientas Vardenis Pavardenis, Valst. Nr. AAA000\n\n";
 			// 
-			// carTableAdapter
-			// 
-			this.carTableAdapter.ClearBeforeFill = true;
-			// 
-			// employeeTableAdapter
-			// 
-			this.employeeTableAdapter.ClearBeforeFill = true;
-			// 
-			// clientTableAdapter
-			// 
-			this.clientTableAdapter.ClearBeforeFill = true;
-			// 
-			// personTableAdapter
-			// 
-			this.personTableAdapter.ClearBeforeFill = true;
-			// 
-			// clientBindingSource
-			// 
-			this.clientBindingSource.DataMember = "Client";
-			this.clientBindingSource.DataSource = this.autoShopDataSet;
-			// 
 			// errorProvider
 			// 
 			this.errorProvider.ContainerControl = this;
-			// 
-			// textBox8
-			// 
-			this.textBox8.BackColor = System.Drawing.SystemColors.Window;
-			this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox8.Location = new System.Drawing.Point(158, 127);
-			this.textBox8.Name = "textBox8";
-			this.textBox8.ReadOnly = true;
-			this.textBox8.Size = new System.Drawing.Size(95, 13);
-			this.textBox8.TabIndex = 17;
-			this.textBox8.Text = "Trukme valandomis";
-			// 
-			// textBox5
-			// 
-			this.textBox5.BackColor = System.Drawing.SystemColors.Window;
-			this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox5.Location = new System.Drawing.Point(158, 75);
-			this.textBox5.Name = "textBox5";
-			this.textBox5.ReadOnly = true;
-			this.textBox5.Size = new System.Drawing.Size(95, 13);
-			this.textBox5.TabIndex = 20;
-			this.textBox5.Text = "Pavadinimas";
-			// 
-			// textBox6
-			// 
-			this.textBox6.BackColor = System.Drawing.SystemColors.Window;
-			this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox6.Location = new System.Drawing.Point(158, 101);
-			this.textBox6.Name = "textBox6";
-			this.textBox6.ReadOnly = true;
-			this.textBox6.Size = new System.Drawing.Size(95, 13);
-			this.textBox6.TabIndex = 19;
-			this.textBox6.Text = "Valandine kaina";
-			// 
-			// listBoxEmployees
-			// 
-			this.listBoxEmployees.FormattingEnabled = true;
-			this.listBoxEmployees.Location = new System.Drawing.Point(924, 249);
-			this.listBoxEmployees.Name = "listBoxEmployees";
-			this.listBoxEmployees.Size = new System.Drawing.Size(206, 212);
-			this.listBoxEmployees.TabIndex = 8;
-			// 
-			// buttonAddEmployeeToJob
-			// 
-			this.buttonAddEmployeeToJob.Location = new System.Drawing.Point(814, 249);
-			this.buttonAddEmployeeToJob.Name = "buttonAddEmployeeToJob";
-			this.buttonAddEmployeeToJob.Size = new System.Drawing.Size(90, 40);
-			this.buttonAddEmployeeToJob.TabIndex = 9;
-			this.buttonAddEmployeeToJob.Text = "Prideti Darbuotoja";
-			this.buttonAddEmployeeToJob.UseVisualStyleBackColor = true;
-			this.buttonAddEmployeeToJob.Click += new System.EventHandler(this.buttonAddEmployeeToJob_Click);
-			// 
-			// listBoxJobEmployees
-			// 
-			this.listBoxJobEmployees.FormattingEnabled = true;
-			this.listBoxJobEmployees.Location = new System.Drawing.Point(477, 21);
-			this.listBoxJobEmployees.Name = "listBoxJobEmployees";
-			this.listBoxJobEmployees.Size = new System.Drawing.Size(206, 199);
-			this.listBoxJobEmployees.TabIndex = 10;
-			// 
-			// textBox3
-			// 
-			this.textBox3.BackColor = System.Drawing.SystemColors.Window;
-			this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox3.Location = new System.Drawing.Point(36, 86);
-			this.textBox3.Name = "textBox3";
-			this.textBox3.ReadOnly = true;
-			this.textBox3.Size = new System.Drawing.Size(67, 13);
-			this.textBox3.TabIndex = 13;
-			this.textBox3.Text = "Vardas";
-			// 
-			// textBox4
-			// 
-			this.textBox4.BackColor = System.Drawing.SystemColors.Window;
-			this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox4.Location = new System.Drawing.Point(36, 112);
-			this.textBox4.Name = "textBox4";
-			this.textBox4.ReadOnly = true;
-			this.textBox4.Size = new System.Drawing.Size(67, 13);
-			this.textBox4.TabIndex = 12;
-			this.textBox4.Text = "Pavarde";
-			// 
-			// textBox7
-			// 
-			this.textBox7.BackColor = System.Drawing.SystemColors.Window;
-			this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox7.Location = new System.Drawing.Point(36, 286);
-			this.textBox7.Name = "textBox7";
-			this.textBox7.ReadOnly = true;
-			this.textBox7.Size = new System.Drawing.Size(67, 13);
-			this.textBox7.TabIndex = 11;
-			this.textBox7.Text = "Id";
-			this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
-			// 
-			// textBox9
-			// 
-			this.textBox9.BackColor = System.Drawing.SystemColors.Window;
-			this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox9.Location = new System.Drawing.Point(36, 312);
-			this.textBox9.Name = "textBox9";
-			this.textBox9.ReadOnly = true;
-			this.textBox9.Size = new System.Drawing.Size(67, 13);
-			this.textBox9.TabIndex = 14;
-			this.textBox9.Text = "Vardas";
-			// 
-			// textBox17
-			// 
-			this.textBox17.BackColor = System.Drawing.SystemColors.Window;
-			this.textBox17.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox17.Location = new System.Drawing.Point(36, 335);
-			this.textBox17.Name = "textBox17";
-			this.textBox17.ReadOnly = true;
-			this.textBox17.Size = new System.Drawing.Size(67, 13);
-			this.textBox17.TabIndex = 15;
-			this.textBox17.Text = "Pavarde";
-			// 
-			// textBox18
-			// 
-			this.textBox18.BackColor = System.Drawing.SystemColors.Window;
-			this.textBox18.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox18.Location = new System.Drawing.Point(385, 89);
-			this.textBox18.Name = "textBox18";
-			this.textBox18.ReadOnly = true;
-			this.textBox18.Size = new System.Drawing.Size(35, 13);
-			this.textBox18.TabIndex = 16;
-			this.textBox18.Text = "Id";
 			// 
 			// MainForm
 			// 
@@ -892,12 +888,9 @@
 			this.JobsTab.ResumeLayout(false);
 			this.EmployeesTab.ResumeLayout(false);
 			this.EmployeesTab.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.autoShopDataSet)).EndInit();
 			this.tabAddServices.ResumeLayout(false);
 			this.tabAddServices.PerformLayout();
 			this.SystemLogTab.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
 			this.ResumeLayout(false);
 
@@ -924,10 +917,6 @@
 		private System.Windows.Forms.TextBox textBoxUpdateEmployeeId;
 		private System.Windows.Forms.Button buttonDeleteEmployee;
 		private System.Windows.Forms.TextBox textBoxDeleteEmployeeId;
-		private AutoShopDataSet autoShopDataSet;
-		private AutoShopDataSetTableAdapters.CarTableAdapter carTableAdapter;
-		private System.Windows.Forms.BindingSource employeeBindingSource;
-		private AutoShopDataSetTableAdapters.EmployeeTableAdapter employeeTableAdapter;
 		private System.Windows.Forms.TextBox textBox2;
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.Button buttonSelectPerson;
@@ -936,9 +925,6 @@
 		private System.Windows.Forms.TextBox textClient2;
 		private System.Windows.Forms.TextBox textBoxClient1;
 		private System.Windows.Forms.TextBox textBoxClient2;
-		private AutoShopDataSetTableAdapters.ClientTableAdapter clientTableAdapter;
-		private AutoShopDataSetTableAdapters.PersonTableAdapter personTableAdapter;
-		private System.Windows.Forms.BindingSource clientBindingSource;
 		private System.Windows.Forms.TabPage tabAddCar;
 		private System.Windows.Forms.TextBox textBox10;
 		private System.Windows.Forms.TextBox textBox11;
@@ -983,6 +969,8 @@
 		private System.Windows.Forms.TextBox textBox4;
 		private System.Windows.Forms.TextBox textBox7;
 		private System.Windows.Forms.TextBox textBox18;
+		private System.Windows.Forms.Button buttonPerson;
+		private System.Windows.Forms.Button buttonCompany;
 	}
 }
 

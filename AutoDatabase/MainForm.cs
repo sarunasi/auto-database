@@ -227,6 +227,15 @@ namespace AutoDatabase
 
 		private void buttonAddNewCar_Click(object sender, EventArgs e)
 		{
+			List<Control> textBoxes = new List<Control>();
+			textBoxes.Add(textBoxCarEngine);
+			textBoxes.Add(textBoxCarMake);
+			textBoxes.Add(textBoxCarModel);
+			textBoxes.Add(textBoxCarPlate);
+			textBoxes.Add(textBoxCarRun);
+			textBoxes.Add(textBoxCarVIN);
+			textBoxes.Add(textBoxCarYear);
+
 			var car = new Car
 			{
 				VIN = textBoxCarVIN.Text,
@@ -238,8 +247,6 @@ namespace AutoDatabase
 				Year = int.Parse(textBoxCarYear.Text)
 			};
 
-			
-
 			car.Client_Id = (int)listBoxClients.SelectedValue;
 
 			using (var context = new AutoShopEntities())
@@ -248,13 +255,7 @@ namespace AutoDatabase
 				context.SaveChanges();
 			}
 
-			textBoxCarEngine.Text = "";
-			textBoxCarMake.Text = "";
-			textBoxCarModel.Text = "";
-			textBoxCarPlate.Text = "";
-			textBoxCarRun.Text = "";
-			textBoxCarVIN.Text = "";
-			textBoxCarYear.Text = "";
+			textBoxes.ForEach(t => t.Text = "");
 
 			populateListBoxArrivedCars();
 			populateListBoxClientCars();
@@ -291,10 +292,13 @@ namespace AutoDatabase
 		{
 			using (var context = new AutoShopEntities())
 			{
-				var job = context.Jobs.FirstOrDefault(x => x.Id == (int)listBoxCarJobs.SelectedValue);
-				job.Finished = true;
+				if (listBoxCarJobs.SelectedValue != null)
+				{
+					var job = context.Jobs.FirstOrDefault(x => x.Id == (int)listBoxCarJobs.SelectedValue);
+					job.Finished = true;
 
-				context.SaveChanges();
+					context.SaveChanges();
+				}
 			}
 			populateListBoxJobs((string)listBoxArrivedCars.SelectedValue);
 		}
@@ -324,10 +328,13 @@ namespace AutoDatabase
 		{
 			using (var context = new AutoShopEntities())
 			{
-				var car = context.Cars.FirstOrDefault(x => x.VIN == (string)listBoxClientCars.SelectedValue);
-				car.Arrived = true;
+				if (listBoxClientCars.SelectedValue != null)
+				{
+					var car = context.Cars.FirstOrDefault(x => x.VIN == (string)listBoxClientCars.SelectedValue);
+					car.Arrived = true;
 
-				context.SaveChanges();
+					context.SaveChanges();
+				}
 			}
 
 			populateListBoxArrivedCars();
@@ -338,25 +345,26 @@ namespace AutoDatabase
 		{
 			using (var context = new AutoShopEntities())
 			{
-				var car = context.Cars.FirstOrDefault(x => x.VIN == (string)listBoxClientCars.SelectedValue);
-
-				if (car.Jobs.Any(job => job.Finished == false))
+				if (listBoxClientCars.SelectedValue != null)
 				{
-					MessageBox.Show("Automobilis turi neuzbaigtu darbu");
-				}
-				else
-				{
-					car.Arrived = false;
+					var car = context.Cars.FirstOrDefault(x => x.VIN == (string)listBoxClientCars.SelectedValue);
 
-					foreach(Job job in car.Jobs)
+					if (car.Jobs.Any(job => job.Finished == false))
 					{
-						job.Employees.Clear();
-
-						
+						MessageBox.Show("Automobilis turi neuzbaigtu darbu");
 					}
-					
-					context.Jobs.RemoveRange(car.Jobs);
-					context.SaveChanges();
+					else
+					{
+						car.Arrived = false;
+
+						foreach (Job job in car.Jobs)
+						{
+							job.Employees.Clear();
+						}
+
+						context.Jobs.RemoveRange(car.Jobs);
+						context.SaveChanges();
+					}
 				}
 				
 			}
@@ -386,12 +394,14 @@ namespace AutoDatabase
 		{
 			using (var context = new AutoShopEntities())
 			{
-				var job = context.Jobs.FirstOrDefault(x => x.Id == (int)listBoxCarJobs.SelectedValue);
+				if (listBoxCarJobs.SelectedValue != null)
+				{
+					var job = context.Jobs.FirstOrDefault(x => x.Id == (int)listBoxCarJobs.SelectedValue);
 
-				context.Jobs.Remove(job);
-				context.SaveChanges();
+					context.Jobs.Remove(job);
+					context.SaveChanges();
+				}
 			}
-
 			populateListBoxArrivedCars();
 		}
 

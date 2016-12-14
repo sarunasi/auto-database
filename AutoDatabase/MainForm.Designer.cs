@@ -135,6 +135,7 @@
 			this.tabControl.SelectedIndex = 0;
 			this.tabControl.Size = new System.Drawing.Size(1174, 507);
 			this.tabControl.TabIndex = 0;
+			this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
 			// 
 			// RegistrateClientTab
 			// 
@@ -948,7 +949,6 @@
 			this.Controls.Add(this.tabControl);
 			this.Name = "MainForm";
 			this.Text = "Mechanikas";
-			this.Load += new System.EventHandler(this.MainForm_Load);
 			this.tabControl.ResumeLayout(false);
 			this.RegistrateClientTab.ResumeLayout(false);
 			this.RegistrateClientTab.PerformLayout();

@@ -101,6 +101,7 @@
     <Compile Include="Company.cs">
       <DependentUpon>AutoModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataController.cs" />
     <Compile Include="Employee.cs">
       <DependentUpon>AutoModel.tt</DependentUpon>
     </Compile>

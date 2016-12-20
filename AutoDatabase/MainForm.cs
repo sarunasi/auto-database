@@ -40,7 +40,8 @@ namespace AutoDatabase
             {
                 if (comboBoxData.Text == "Darbuotojai") {
                     var result = (from emp in context.Employees
-                                 select new { Name = emp.Name + " " + emp.Surname }).ToList();
+                                  where emp.Surname.Contains(textBoxSearch.Text) || emp.Name.Contains(textBoxSearch.Text)
+                                  select new { Name = emp.Name + " " + emp.Surname }).ToList();
                     listBoxDuomenys.DataSource = result;
                     listBoxDuomenys.DisplayMember = "Name";
                 }

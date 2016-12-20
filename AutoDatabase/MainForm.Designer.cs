@@ -108,8 +108,6 @@
 			this.SystemLogTab = new System.Windows.Forms.TabPage();
 			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
 			this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-			this.listBoxTopClients = new System.Windows.Forms.ListBox();
-			this.label7 = new System.Windows.Forms.Label();
 			this.tabControl.SuspendLayout();
 			this.RegistrateClientTab.SuspendLayout();
 			this.tabAddCar.SuspendLayout();
@@ -141,8 +139,6 @@
 			// 
 			// RegistrateClientTab
 			// 
-			this.RegistrateClientTab.Controls.Add(this.label7);
-			this.RegistrateClientTab.Controls.Add(this.listBoxTopClients);
 			this.RegistrateClientTab.Controls.Add(this.textClient1);
 			this.RegistrateClientTab.Controls.Add(this.textClient2);
 			this.RegistrateClientTab.Controls.Add(this.textBoxClient1);
@@ -945,23 +941,6 @@
 			// 
 			this.errorProvider.ContainerControl = this;
 			// 
-			// listBoxTopClients
-			// 
-			this.listBoxTopClients.FormattingEnabled = true;
-			this.listBoxTopClients.Location = new System.Drawing.Point(563, 44);
-			this.listBoxTopClients.Name = "listBoxTopClients";
-			this.listBoxTopClients.Size = new System.Drawing.Size(215, 381);
-			this.listBoxTopClients.TabIndex = 20;
-			// 
-			// label7
-			// 
-			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(636, 28);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(74, 13);
-			this.label7.TabIndex = 21;
-			this.label7.Text = "TOP 5 klientai";
-			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1068,8 +1047,6 @@
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label6;
-		private System.Windows.Forms.Label label7;
-		private System.Windows.Forms.ListBox listBoxTopClients;
 	}
 }
 

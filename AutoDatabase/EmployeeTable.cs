@@ -25,7 +25,7 @@ namespace AutoDatabase
 			using (connection)
 			{
 				dataAdapter = new SqlDataAdapter("SELECT * FROM Employee", connection);
-				dataAdapter.Fill(dataSet, TableName);
+				//dataAdapter.Fill(dataSet, TableName);
 				
 			}
 

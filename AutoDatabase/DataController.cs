@@ -39,7 +39,7 @@ namespace AutoDatabase
 							   orderby c.Client.Cars.Count() descending
 							   select new { Id = c.Id, Row = c.Name + "    " + c.Surname + "  " + c.Client.Cars.Count() }).ToList().Take(5);
 
-				listBoxTopClients.DataSource = results;
+				listBoxTopClients.DataSource = results.ToList();
 				listBoxTopClients.DisplayMember = "Row";
 				listBoxTopClients.ValueMember = "Id";
 			}

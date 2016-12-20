@@ -34,7 +34,18 @@ namespace AutoDatabase
 
 		}
 
-
+        private void showData()
+        {
+            using (var context = new AutoShopEntities())
+            {
+                if (comboBoxData.Text == "Darbuotojai") {
+                    var result = (from emp in context.Employees
+                                 select new { Name = emp.Name + " " + emp.Surname }).ToList();
+                    listBoxDuomenys.DataSource = result;
+                    listBoxDuomenys.DisplayMember = "Name";
+                }
+            }
+        }
 		private void buttonAddEmployee_Click(object sender, EventArgs e)
 		{
 			employees.Insert(textBoxInsertEmployeeName.Text, textBoxInsertEmployeeSurname.Text);
@@ -257,5 +268,10 @@ namespace AutoDatabase
 		{
 
 		}
-	}
+
+        private void comboBoxData_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            showData();
+        }
+    }
 }

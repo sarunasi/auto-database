@@ -9,7 +9,6 @@ namespace AutoDatabase
 {
 	class DataController
 	{
-        //veikia?
 		public void PopulateListBoxJobEmployees(ListBox listBoxJobEmployees, ListBox listBoxCarJobs)
 		{
 			using (var context = new AutoShopEntities())

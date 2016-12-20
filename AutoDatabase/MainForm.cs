@@ -31,8 +31,6 @@ namespace AutoDatabase
 			data.PopulateListBoxServices(listBoxServices);
 			data.PopulateListBoxEmployees(listBoxEmployees);
 			data.PopulateListBoxJobEmployees(listBoxJobEmployees, listBoxCarJobs);
-			data.PopulateTopClients(listBoxTopClients);
-
 
 		}
 

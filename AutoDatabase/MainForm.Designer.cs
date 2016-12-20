@@ -44,27 +44,9 @@
 			this.textBoxAddress = new System.Windows.Forms.TextBox();
 			this.tabAddCar = new System.Windows.Forms.TabPage();
 			this.label6 = new System.Windows.Forms.Label();
-			this.buttonPerson = new System.Windows.Forms.Button();
-			this.buttonCompany = new System.Windows.Forms.Button();
 			this.buttonCarLeft = new System.Windows.Forms.Button();
 			this.buttonCarArrived = new System.Windows.Forms.Button();
 			this.listBoxClientCars = new System.Windows.Forms.ListBox();
-			this.listBoxClients = new System.Windows.Forms.ListBox();
-			this.buttonAddNewCar = new System.Windows.Forms.Button();
-			this.textBox16 = new System.Windows.Forms.TextBox();
-			this.textBox15 = new System.Windows.Forms.TextBox();
-			this.textBox14 = new System.Windows.Forms.TextBox();
-			this.textBox10 = new System.Windows.Forms.TextBox();
-			this.textBox11 = new System.Windows.Forms.TextBox();
-			this.textBox12 = new System.Windows.Forms.TextBox();
-			this.textBox13 = new System.Windows.Forms.TextBox();
-			this.textBoxCarYear = new System.Windows.Forms.TextBox();
-			this.textBoxCarEngine = new System.Windows.Forms.TextBox();
-			this.textBoxCarRun = new System.Windows.Forms.TextBox();
-			this.textBoxCarModel = new System.Windows.Forms.TextBox();
-			this.textBoxCarMake = new System.Windows.Forms.TextBox();
-			this.textBoxCarPlate = new System.Windows.Forms.TextBox();
-			this.textBoxCarVIN = new System.Windows.Forms.TextBox();
 			this.JobsTab = new System.Windows.Forms.TabPage();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
@@ -108,6 +90,24 @@
 			this.SystemLogTab = new System.Windows.Forms.TabPage();
 			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
 			this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+			this.buttonPerson = new System.Windows.Forms.Button();
+			this.buttonCompany = new System.Windows.Forms.Button();
+			this.listBoxClients = new System.Windows.Forms.ListBox();
+			this.buttonAddNewCar = new System.Windows.Forms.Button();
+			this.textBox16 = new System.Windows.Forms.TextBox();
+			this.textBox15 = new System.Windows.Forms.TextBox();
+			this.textBox14 = new System.Windows.Forms.TextBox();
+			this.textBox10 = new System.Windows.Forms.TextBox();
+			this.textBox11 = new System.Windows.Forms.TextBox();
+			this.textBox12 = new System.Windows.Forms.TextBox();
+			this.textBox13 = new System.Windows.Forms.TextBox();
+			this.textBoxCarYear = new System.Windows.Forms.TextBox();
+			this.textBoxCarEngine = new System.Windows.Forms.TextBox();
+			this.textBoxCarRun = new System.Windows.Forms.TextBox();
+			this.textBoxCarModel = new System.Windows.Forms.TextBox();
+			this.textBoxCarMake = new System.Windows.Forms.TextBox();
+			this.textBoxCarPlate = new System.Windows.Forms.TextBox();
+			this.textBoxCarVIN = new System.Windows.Forms.TextBox();
 			this.tabControl.SuspendLayout();
 			this.RegistrateClientTab.SuspendLayout();
 			this.tabAddCar.SuspendLayout();
@@ -139,6 +139,24 @@
 			// 
 			// RegistrateClientTab
 			// 
+			this.RegistrateClientTab.Controls.Add(this.buttonPerson);
+			this.RegistrateClientTab.Controls.Add(this.buttonCompany);
+			this.RegistrateClientTab.Controls.Add(this.listBoxClients);
+			this.RegistrateClientTab.Controls.Add(this.buttonAddNewCar);
+			this.RegistrateClientTab.Controls.Add(this.textBox16);
+			this.RegistrateClientTab.Controls.Add(this.textBox15);
+			this.RegistrateClientTab.Controls.Add(this.textBox14);
+			this.RegistrateClientTab.Controls.Add(this.textBox10);
+			this.RegistrateClientTab.Controls.Add(this.textBox11);
+			this.RegistrateClientTab.Controls.Add(this.textBox12);
+			this.RegistrateClientTab.Controls.Add(this.textBox13);
+			this.RegistrateClientTab.Controls.Add(this.textBoxCarYear);
+			this.RegistrateClientTab.Controls.Add(this.textBoxCarEngine);
+			this.RegistrateClientTab.Controls.Add(this.textBoxCarRun);
+			this.RegistrateClientTab.Controls.Add(this.textBoxCarModel);
+			this.RegistrateClientTab.Controls.Add(this.textBoxCarMake);
+			this.RegistrateClientTab.Controls.Add(this.textBoxCarPlate);
+			this.RegistrateClientTab.Controls.Add(this.textBoxCarVIN);
 			this.RegistrateClientTab.Controls.Add(this.textClient1);
 			this.RegistrateClientTab.Controls.Add(this.textClient2);
 			this.RegistrateClientTab.Controls.Add(this.textBoxClient1);
@@ -271,27 +289,9 @@
 			// tabAddCar
 			// 
 			this.tabAddCar.Controls.Add(this.label6);
-			this.tabAddCar.Controls.Add(this.buttonPerson);
-			this.tabAddCar.Controls.Add(this.buttonCompany);
 			this.tabAddCar.Controls.Add(this.buttonCarLeft);
 			this.tabAddCar.Controls.Add(this.buttonCarArrived);
 			this.tabAddCar.Controls.Add(this.listBoxClientCars);
-			this.tabAddCar.Controls.Add(this.listBoxClients);
-			this.tabAddCar.Controls.Add(this.buttonAddNewCar);
-			this.tabAddCar.Controls.Add(this.textBox16);
-			this.tabAddCar.Controls.Add(this.textBox15);
-			this.tabAddCar.Controls.Add(this.textBox14);
-			this.tabAddCar.Controls.Add(this.textBox10);
-			this.tabAddCar.Controls.Add(this.textBox11);
-			this.tabAddCar.Controls.Add(this.textBox12);
-			this.tabAddCar.Controls.Add(this.textBox13);
-			this.tabAddCar.Controls.Add(this.textBoxCarYear);
-			this.tabAddCar.Controls.Add(this.textBoxCarEngine);
-			this.tabAddCar.Controls.Add(this.textBoxCarRun);
-			this.tabAddCar.Controls.Add(this.textBoxCarModel);
-			this.tabAddCar.Controls.Add(this.textBoxCarMake);
-			this.tabAddCar.Controls.Add(this.textBoxCarPlate);
-			this.tabAddCar.Controls.Add(this.textBoxCarVIN);
 			this.tabAddCar.Location = new System.Drawing.Point(4, 22);
 			this.tabAddCar.Name = "tabAddCar";
 			this.tabAddCar.Padding = new System.Windows.Forms.Padding(3);
@@ -308,26 +308,6 @@
 			this.label6.Size = new System.Drawing.Size(97, 13);
 			this.label6.TabIndex = 25;
 			this.label6.Text = "Kliento automobiliai";
-			// 
-			// buttonPerson
-			// 
-			this.buttonPerson.Location = new System.Drawing.Point(23, 6);
-			this.buttonPerson.Name = "buttonPerson";
-			this.buttonPerson.Size = new System.Drawing.Size(75, 23);
-			this.buttonPerson.TabIndex = 24;
-			this.buttonPerson.Text = "Asmuo";
-			this.buttonPerson.UseVisualStyleBackColor = true;
-			this.buttonPerson.Click += new System.EventHandler(this.buttonPerson_Click);
-			// 
-			// buttonCompany
-			// 
-			this.buttonCompany.Location = new System.Drawing.Point(163, 6);
-			this.buttonCompany.Name = "buttonCompany";
-			this.buttonCompany.Size = new System.Drawing.Size(75, 23);
-			this.buttonCompany.TabIndex = 23;
-			this.buttonCompany.Text = "Imone";
-			this.buttonCompany.UseVisualStyleBackColor = true;
-			this.buttonCompany.Click += new System.EventHandler(this.buttonCompany_Click);
 			// 
 			// buttonCarLeft
 			// 
@@ -356,160 +336,6 @@
 			this.listBoxClientCars.Name = "listBoxClientCars";
 			this.listBoxClientCars.Size = new System.Drawing.Size(215, 381);
 			this.listBoxClientCars.TabIndex = 20;
-			// 
-			// listBoxClients
-			// 
-			this.listBoxClients.FormattingEnabled = true;
-			this.listBoxClients.Location = new System.Drawing.Point(23, 30);
-			this.listBoxClients.Name = "listBoxClients";
-			this.listBoxClients.Size = new System.Drawing.Size(215, 381);
-			this.listBoxClients.TabIndex = 19;
-			this.listBoxClients.SelectedIndexChanged += new System.EventHandler(this.listBoxClients_SelectedIndexChanged);
-			// 
-			// buttonAddNewCar
-			// 
-			this.buttonAddNewCar.Location = new System.Drawing.Point(374, 307);
-			this.buttonAddNewCar.Name = "buttonAddNewCar";
-			this.buttonAddNewCar.Size = new System.Drawing.Size(141, 38);
-			this.buttonAddNewCar.TabIndex = 18;
-			this.buttonAddNewCar.Text = "Prideti automobili";
-			this.buttonAddNewCar.UseVisualStyleBackColor = true;
-			this.buttonAddNewCar.Click += new System.EventHandler(this.buttonAddNewCar_Click);
-			// 
-			// textBox16
-			// 
-			this.textBox16.BackColor = System.Drawing.SystemColors.Window;
-			this.textBox16.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox16.Location = new System.Drawing.Point(264, 271);
-			this.textBox16.Name = "textBox16";
-			this.textBox16.ReadOnly = true;
-			this.textBox16.Size = new System.Drawing.Size(67, 13);
-			this.textBox16.TabIndex = 17;
-			this.textBox16.Text = "Metai";
-			// 
-			// textBox15
-			// 
-			this.textBox15.BackColor = System.Drawing.SystemColors.Window;
-			this.textBox15.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox15.Location = new System.Drawing.Point(264, 245);
-			this.textBox15.Name = "textBox15";
-			this.textBox15.ReadOnly = true;
-			this.textBox15.Size = new System.Drawing.Size(67, 13);
-			this.textBox15.TabIndex = 16;
-			this.textBox15.Text = "Variklis";
-			// 
-			// textBox14
-			// 
-			this.textBox14.BackColor = System.Drawing.SystemColors.Window;
-			this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox14.Location = new System.Drawing.Point(264, 219);
-			this.textBox14.Name = "textBox14";
-			this.textBox14.ReadOnly = true;
-			this.textBox14.Size = new System.Drawing.Size(67, 13);
-			this.textBox14.TabIndex = 15;
-			this.textBox14.Text = "Rida";
-			// 
-			// textBox10
-			// 
-			this.textBox10.BackColor = System.Drawing.SystemColors.Window;
-			this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox10.Location = new System.Drawing.Point(264, 115);
-			this.textBox10.Name = "textBox10";
-			this.textBox10.ReadOnly = true;
-			this.textBox10.Size = new System.Drawing.Size(67, 13);
-			this.textBox10.TabIndex = 14;
-			this.textBox10.Text = "VIN";
-			// 
-			// textBox11
-			// 
-			this.textBox11.BackColor = System.Drawing.SystemColors.Window;
-			this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox11.Location = new System.Drawing.Point(264, 141);
-			this.textBox11.Name = "textBox11";
-			this.textBox11.ReadOnly = true;
-			this.textBox11.Size = new System.Drawing.Size(67, 13);
-			this.textBox11.TabIndex = 13;
-			this.textBox11.Text = "Valstybinis nr";
-			// 
-			// textBox12
-			// 
-			this.textBox12.BackColor = System.Drawing.SystemColors.Window;
-			this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox12.Location = new System.Drawing.Point(264, 193);
-			this.textBox12.Name = "textBox12";
-			this.textBox12.ReadOnly = true;
-			this.textBox12.Size = new System.Drawing.Size(67, 13);
-			this.textBox12.TabIndex = 12;
-			this.textBox12.Text = "Modelis";
-			// 
-			// textBox13
-			// 
-			this.textBox13.BackColor = System.Drawing.SystemColors.Window;
-			this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox13.Location = new System.Drawing.Point(264, 167);
-			this.textBox13.Name = "textBox13";
-			this.textBox13.ReadOnly = true;
-			this.textBox13.Size = new System.Drawing.Size(67, 13);
-			this.textBox13.TabIndex = 11;
-			this.textBox13.Text = "Marke";
-			// 
-			// textBoxCarYear
-			// 
-			this.textBoxCarYear.Location = new System.Drawing.Point(337, 268);
-			this.textBoxCarYear.MaxLength = 50;
-			this.textBoxCarYear.Name = "textBoxCarYear";
-			this.textBoxCarYear.Size = new System.Drawing.Size(210, 20);
-			this.textBoxCarYear.TabIndex = 7;
-			this.textBoxCarYear.Validated += new System.EventHandler(this.textBoxCarYear_Validated);
-			// 
-			// textBoxCarEngine
-			// 
-			this.textBoxCarEngine.Location = new System.Drawing.Point(337, 242);
-			this.textBoxCarEngine.MaxLength = 50;
-			this.textBoxCarEngine.Name = "textBoxCarEngine";
-			this.textBoxCarEngine.Size = new System.Drawing.Size(210, 20);
-			this.textBoxCarEngine.TabIndex = 6;
-			// 
-			// textBoxCarRun
-			// 
-			this.textBoxCarRun.Location = new System.Drawing.Point(337, 216);
-			this.textBoxCarRun.MaxLength = 50;
-			this.textBoxCarRun.Name = "textBoxCarRun";
-			this.textBoxCarRun.Size = new System.Drawing.Size(210, 20);
-			this.textBoxCarRun.TabIndex = 5;
-			this.textBoxCarRun.Validated += new System.EventHandler(this.textBoxCarRun_Validated);
-			// 
-			// textBoxCarModel
-			// 
-			this.textBoxCarModel.Location = new System.Drawing.Point(337, 190);
-			this.textBoxCarModel.MaxLength = 50;
-			this.textBoxCarModel.Name = "textBoxCarModel";
-			this.textBoxCarModel.Size = new System.Drawing.Size(210, 20);
-			this.textBoxCarModel.TabIndex = 4;
-			// 
-			// textBoxCarMake
-			// 
-			this.textBoxCarMake.Location = new System.Drawing.Point(337, 164);
-			this.textBoxCarMake.MaxLength = 50;
-			this.textBoxCarMake.Name = "textBoxCarMake";
-			this.textBoxCarMake.Size = new System.Drawing.Size(210, 20);
-			this.textBoxCarMake.TabIndex = 3;
-			// 
-			// textBoxCarPlate
-			// 
-			this.textBoxCarPlate.Location = new System.Drawing.Point(337, 138);
-			this.textBoxCarPlate.MaxLength = 50;
-			this.textBoxCarPlate.Name = "textBoxCarPlate";
-			this.textBoxCarPlate.Size = new System.Drawing.Size(210, 20);
-			this.textBoxCarPlate.TabIndex = 2;
-			// 
-			// textBoxCarVIN
-			// 
-			this.textBoxCarVIN.Location = new System.Drawing.Point(337, 112);
-			this.textBoxCarVIN.MaxLength = 50;
-			this.textBoxCarVIN.Name = "textBoxCarVIN";
-			this.textBoxCarVIN.Size = new System.Drawing.Size(210, 20);
-			this.textBoxCarVIN.TabIndex = 1;
 			// 
 			// JobsTab
 			// 
@@ -941,6 +767,174 @@
 			// 
 			this.errorProvider.ContainerControl = this;
 			// 
+			// buttonPerson
+			// 
+			this.buttonPerson.Location = new System.Drawing.Point(441, 40);
+			this.buttonPerson.Name = "buttonPerson";
+			this.buttonPerson.Size = new System.Drawing.Size(75, 23);
+			this.buttonPerson.TabIndex = 42;
+			this.buttonPerson.Text = "Asmuo";
+			this.buttonPerson.UseVisualStyleBackColor = true;
+			// 
+			// buttonCompany
+			// 
+			this.buttonCompany.Location = new System.Drawing.Point(581, 40);
+			this.buttonCompany.Name = "buttonCompany";
+			this.buttonCompany.Size = new System.Drawing.Size(75, 23);
+			this.buttonCompany.TabIndex = 41;
+			this.buttonCompany.Text = "Imone";
+			this.buttonCompany.UseVisualStyleBackColor = true;
+			// 
+			// listBoxClients
+			// 
+			this.listBoxClients.FormattingEnabled = true;
+			this.listBoxClients.Location = new System.Drawing.Point(441, 64);
+			this.listBoxClients.Name = "listBoxClients";
+			this.listBoxClients.Size = new System.Drawing.Size(215, 381);
+			this.listBoxClients.TabIndex = 40;
+			// 
+			// buttonAddNewCar
+			// 
+			this.buttonAddNewCar.Location = new System.Drawing.Point(792, 341);
+			this.buttonAddNewCar.Name = "buttonAddNewCar";
+			this.buttonAddNewCar.Size = new System.Drawing.Size(141, 38);
+			this.buttonAddNewCar.TabIndex = 39;
+			this.buttonAddNewCar.Text = "Prideti automobili";
+			this.buttonAddNewCar.UseVisualStyleBackColor = true;
+			// 
+			// textBox16
+			// 
+			this.textBox16.BackColor = System.Drawing.SystemColors.Window;
+			this.textBox16.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox16.Location = new System.Drawing.Point(682, 305);
+			this.textBox16.Name = "textBox16";
+			this.textBox16.ReadOnly = true;
+			this.textBox16.Size = new System.Drawing.Size(67, 13);
+			this.textBox16.TabIndex = 38;
+			this.textBox16.Text = "Metai";
+			// 
+			// textBox15
+			// 
+			this.textBox15.BackColor = System.Drawing.SystemColors.Window;
+			this.textBox15.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox15.Location = new System.Drawing.Point(682, 279);
+			this.textBox15.Name = "textBox15";
+			this.textBox15.ReadOnly = true;
+			this.textBox15.Size = new System.Drawing.Size(67, 13);
+			this.textBox15.TabIndex = 37;
+			this.textBox15.Text = "Variklis";
+			// 
+			// textBox14
+			// 
+			this.textBox14.BackColor = System.Drawing.SystemColors.Window;
+			this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox14.Location = new System.Drawing.Point(682, 253);
+			this.textBox14.Name = "textBox14";
+			this.textBox14.ReadOnly = true;
+			this.textBox14.Size = new System.Drawing.Size(67, 13);
+			this.textBox14.TabIndex = 36;
+			this.textBox14.Text = "Rida";
+			// 
+			// textBox10
+			// 
+			this.textBox10.BackColor = System.Drawing.SystemColors.Window;
+			this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox10.Location = new System.Drawing.Point(682, 149);
+			this.textBox10.Name = "textBox10";
+			this.textBox10.ReadOnly = true;
+			this.textBox10.Size = new System.Drawing.Size(67, 13);
+			this.textBox10.TabIndex = 35;
+			this.textBox10.Text = "VIN";
+			// 
+			// textBox11
+			// 
+			this.textBox11.BackColor = System.Drawing.SystemColors.Window;
+			this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox11.Location = new System.Drawing.Point(682, 175);
+			this.textBox11.Name = "textBox11";
+			this.textBox11.ReadOnly = true;
+			this.textBox11.Size = new System.Drawing.Size(67, 13);
+			this.textBox11.TabIndex = 34;
+			this.textBox11.Text = "Valstybinis nr";
+			// 
+			// textBox12
+			// 
+			this.textBox12.BackColor = System.Drawing.SystemColors.Window;
+			this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox12.Location = new System.Drawing.Point(682, 227);
+			this.textBox12.Name = "textBox12";
+			this.textBox12.ReadOnly = true;
+			this.textBox12.Size = new System.Drawing.Size(67, 13);
+			this.textBox12.TabIndex = 33;
+			this.textBox12.Text = "Modelis";
+			// 
+			// textBox13
+			// 
+			this.textBox13.BackColor = System.Drawing.SystemColors.Window;
+			this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox13.Location = new System.Drawing.Point(682, 201);
+			this.textBox13.Name = "textBox13";
+			this.textBox13.ReadOnly = true;
+			this.textBox13.Size = new System.Drawing.Size(67, 13);
+			this.textBox13.TabIndex = 32;
+			this.textBox13.Text = "Marke";
+			// 
+			// textBoxCarYear
+			// 
+			this.textBoxCarYear.Location = new System.Drawing.Point(755, 302);
+			this.textBoxCarYear.MaxLength = 50;
+			this.textBoxCarYear.Name = "textBoxCarYear";
+			this.textBoxCarYear.Size = new System.Drawing.Size(210, 20);
+			this.textBoxCarYear.TabIndex = 31;
+			// 
+			// textBoxCarEngine
+			// 
+			this.textBoxCarEngine.Location = new System.Drawing.Point(755, 276);
+			this.textBoxCarEngine.MaxLength = 50;
+			this.textBoxCarEngine.Name = "textBoxCarEngine";
+			this.textBoxCarEngine.Size = new System.Drawing.Size(210, 20);
+			this.textBoxCarEngine.TabIndex = 30;
+			// 
+			// textBoxCarRun
+			// 
+			this.textBoxCarRun.Location = new System.Drawing.Point(755, 250);
+			this.textBoxCarRun.MaxLength = 50;
+			this.textBoxCarRun.Name = "textBoxCarRun";
+			this.textBoxCarRun.Size = new System.Drawing.Size(210, 20);
+			this.textBoxCarRun.TabIndex = 29;
+			// 
+			// textBoxCarModel
+			// 
+			this.textBoxCarModel.Location = new System.Drawing.Point(755, 224);
+			this.textBoxCarModel.MaxLength = 50;
+			this.textBoxCarModel.Name = "textBoxCarModel";
+			this.textBoxCarModel.Size = new System.Drawing.Size(210, 20);
+			this.textBoxCarModel.TabIndex = 28;
+			// 
+			// textBoxCarMake
+			// 
+			this.textBoxCarMake.Location = new System.Drawing.Point(755, 198);
+			this.textBoxCarMake.MaxLength = 50;
+			this.textBoxCarMake.Name = "textBoxCarMake";
+			this.textBoxCarMake.Size = new System.Drawing.Size(210, 20);
+			this.textBoxCarMake.TabIndex = 27;
+			// 
+			// textBoxCarPlate
+			// 
+			this.textBoxCarPlate.Location = new System.Drawing.Point(755, 172);
+			this.textBoxCarPlate.MaxLength = 50;
+			this.textBoxCarPlate.Name = "textBoxCarPlate";
+			this.textBoxCarPlate.Size = new System.Drawing.Size(210, 20);
+			this.textBoxCarPlate.TabIndex = 26;
+			// 
+			// textBoxCarVIN
+			// 
+			this.textBoxCarVIN.Location = new System.Drawing.Point(755, 146);
+			this.textBoxCarVIN.MaxLength = 50;
+			this.textBoxCarVIN.Name = "textBoxCarVIN";
+			this.textBoxCarVIN.Size = new System.Drawing.Size(210, 20);
+			this.textBoxCarVIN.TabIndex = 25;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -996,23 +990,7 @@
 		private System.Windows.Forms.TextBox textBoxClient1;
 		private System.Windows.Forms.TextBox textBoxClient2;
 		private System.Windows.Forms.TabPage tabAddCar;
-		private System.Windows.Forms.TextBox textBox10;
-		private System.Windows.Forms.TextBox textBox11;
-		private System.Windows.Forms.TextBox textBox12;
-		private System.Windows.Forms.TextBox textBox13;
-		private System.Windows.Forms.TextBox textBoxCarYear;
-		private System.Windows.Forms.TextBox textBoxCarEngine;
-		private System.Windows.Forms.TextBox textBoxCarRun;
-		private System.Windows.Forms.TextBox textBoxCarModel;
-		private System.Windows.Forms.TextBox textBoxCarMake;
-		private System.Windows.Forms.TextBox textBoxCarPlate;
-		private System.Windows.Forms.TextBox textBoxCarVIN;
-		private System.Windows.Forms.Button buttonAddNewCar;
-		private System.Windows.Forms.TextBox textBox16;
-		private System.Windows.Forms.TextBox textBox15;
-		private System.Windows.Forms.TextBox textBox14;
 		private System.Windows.Forms.ListBox listBoxArrivedCars;
-		private System.Windows.Forms.ListBox listBoxClients;
 		private System.Windows.Forms.ListBox listBoxCarJobs;
 		private System.Windows.Forms.Button buttonAddJobToCar;
 		private System.Windows.Forms.ListBox listBoxServices;
@@ -1039,14 +1017,30 @@
 		private System.Windows.Forms.TextBox textBox4;
 		private System.Windows.Forms.TextBox textBox7;
 		private System.Windows.Forms.TextBox textBox18;
-		private System.Windows.Forms.Button buttonPerson;
-		private System.Windows.Forms.Button buttonCompany;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.Button buttonPerson;
+		private System.Windows.Forms.Button buttonCompany;
+		private System.Windows.Forms.ListBox listBoxClients;
+		private System.Windows.Forms.Button buttonAddNewCar;
+		private System.Windows.Forms.TextBox textBox16;
+		private System.Windows.Forms.TextBox textBox15;
+		private System.Windows.Forms.TextBox textBox14;
+		private System.Windows.Forms.TextBox textBox10;
+		private System.Windows.Forms.TextBox textBox11;
+		private System.Windows.Forms.TextBox textBox12;
+		private System.Windows.Forms.TextBox textBox13;
+		private System.Windows.Forms.TextBox textBoxCarYear;
+		private System.Windows.Forms.TextBox textBoxCarEngine;
+		private System.Windows.Forms.TextBox textBoxCarRun;
+		private System.Windows.Forms.TextBox textBoxCarModel;
+		private System.Windows.Forms.TextBox textBoxCarMake;
+		private System.Windows.Forms.TextBox textBoxCarPlate;
+		private System.Windows.Forms.TextBox textBoxCarVIN;
 	}
 }
 

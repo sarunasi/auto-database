@@ -9,11 +9,6 @@ namespace AutoDatabase
 {
 	class DataController
 	{
-        /// <summary>
-        /// asdasdas
-        /// </summary>
-        /// <param name="listBoxJobEmployees"></param>
-        /// <param name="listBoxCarJobs"></param>
 		public void PopulateListBoxJobEmployees(ListBox listBoxJobEmployees, ListBox listBoxCarJobs)
 		{
 			using (var context = new AutoShopEntities())

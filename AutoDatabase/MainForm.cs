@@ -26,9 +26,9 @@ namespace AutoDatabase
 
 			data = new DataController();
 
-			data.PopulateListBoxClients(selectedClientPerson, listBoxClients);
-			data.PopulateListBoxArrivedCars(listBoxArrivedCars);
-			data.PopulateListBoxServices(listBoxServices);
+			//data.PopulateListBoxClients(selectedClientPerson, listBoxClients);
+			//data.PopulateListBoxArrivedCars(listBoxArrivedCars);
+			//data.PopulateListBoxServices(listBoxServices);
 			data.PopulateListBoxEmployees(listBoxEmployees);
             populateJobsListBox();
 

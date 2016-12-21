@@ -654,6 +654,7 @@
             this.buttonAddNew.TabIndex = 5;
             this.buttonAddNew.Text = "Pridėti naują...";
             this.buttonAddNew.UseVisualStyleBackColor = true;
+            this.buttonAddNew.Click += new System.EventHandler(this.buttonAddNew_Click);
             // 
             // buttonUpdateData
             // 

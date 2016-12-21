@@ -26,6 +26,32 @@ namespace AutoDatabase
 			}
 		}
 
+        public void addData(object element)
+        {
+            Type type = element.GetType();
+
+            using(var context = new AutoShopEntities())
+            {
+                if(type == typeof(Service))
+                {
+                    context.Services.Add((Service)element);
+                }
+                //TODO other types
+                context.SaveChanges();
+            }
+        }
+
+        public List<dynamic> getServices(String str)
+        {
+            using (var context = new AutoShopEntities())
+            {
+                var result = (from serv in context.Services
+                              where serv.Name.Contains(str)
+                              select new { Name =serv.Name + " Price: " + serv.Price, Id = serv.Id }).ToList<dynamic>();
+                return result;
+            }
+        }
+
         public List<dynamic> getEmployees(String str)
         {
             using (var context = new AutoShopEntities())

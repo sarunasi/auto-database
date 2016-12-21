@@ -45,6 +45,10 @@ namespace AutoDatabase
             {
                 listBoxDuomenys.DataSource = data.getClients(textBoxSearch.Text);
             }
+            if (comboBoxData.Text == "Paslaugos")
+            {
+                listBoxDuomenys.DataSource = data.getServices(textBoxSearch.Text);
+            }
             listBoxDuomenys.DisplayMember = "Name";
             listBoxDuomenys.ValueMember = "Id";
 
@@ -290,6 +294,16 @@ namespace AutoDatabase
                 }
             }
             showData();
+        }
+
+        private void buttonAddNew_Click(object sender, EventArgs e)
+        {
+            Service serv = new Service
+            {
+                Name = "Padangu keitimas",
+                Price = 20
+            };
+            data.addData(serv);
         }
     }
 }

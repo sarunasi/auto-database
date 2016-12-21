@@ -28,7 +28,7 @@ namespace AutoDatabase
 
 			//data.PopulateListBoxClients(selectedClientPerson, listBoxClients);
 			//data.PopulateListBoxArrivedCars(listBoxArrivedCars);
-			//data.PopulateListBoxServices(listBoxServices);
+			data.PopulateListBoxServices(listBoxServices);
 			data.PopulateListBoxEmployees(listBoxEmployees);
             populateJobsListBox();
 
@@ -43,7 +43,7 @@ namespace AutoDatabase
         {
             listBoxArrivedCars.DataSource = data.getCars("");
             listBoxArrivedCars.DisplayMember = "Name";
-            listBoxArrivedCars.ValueMember = "Id";
+            if (listBoxArrivedCars.ValueMember == "") listBoxArrivedCars.ValueMember = "Id";
         }
         private void populateJobEmployeesListBox()
         {

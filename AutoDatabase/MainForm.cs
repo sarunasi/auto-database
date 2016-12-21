@@ -36,6 +36,7 @@ namespace AutoDatabase
 
         private void showData()
         {
+            listBoxDuomenys.DataSource = null;
             using (var context = new AutoShopEntities())
             {
                 if (comboBoxData.Text == "Darbuotojai") {
@@ -263,11 +264,6 @@ namespace AutoDatabase
 		private void textBoxAddress_Validated(object sender, EventArgs e)
 		{
 			CheckEmptyError(textBoxAddress, buttonRegisterClient, "Adresas");
-		}
-
-		private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
-		{
-
 		}
 
         private void comboBoxData_SelectedIndexChanged(object sender, EventArgs e)

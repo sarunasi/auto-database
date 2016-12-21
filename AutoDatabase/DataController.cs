@@ -32,7 +32,7 @@ namespace AutoDatabase
             {  
                 var result = (from emp in context.Employees
                               where emp.Surname.Contains(str) || emp.Name.Contains(str)
-                              select new { Name = emp.Name + " " + emp.Surname }).ToList<dynamic>();
+                              select new { Name = emp.Name + " " + emp.Surname , Id = emp.Id}).ToList<dynamic>();
                 return result;
             }
         }
@@ -43,12 +43,111 @@ namespace AutoDatabase
             {
                 var result = (from cl in context.Clients
                               where cl.Person.Surname.Contains(str) || cl.Person.Name.Contains(str) || cl.Company.Name.Contains(str)
-                              select new { Name = cl.Person.Name + " " + cl.Person.Surname + cl.Company.Name}).ToList<dynamic>();
+                              select new { Name = cl.Person.Name + " " + cl.Person.Surname + cl.Company.Name, Id = cl.Id}).ToList<dynamic>();
                 return result;
             }
         }
 
-		public void PopulateTopClients(ListBox listBoxTopClients)
+        public Client findClient(int id)
+        {
+            using (var context = new AutoShopEntities())
+            {
+                Client result = context.Clients.FirstOrDefault(x => x.Id == id);
+                return result;
+            }
+        }
+
+        public Person findPerson(int id)
+        {
+            using (var context = new AutoShopEntities())
+            {
+                Person result = context.People.FirstOrDefault(x => x.Id == id);
+                return result;
+            }
+        }
+
+        public Company findCompany(int id)
+        {
+            using (var context = new AutoShopEntities())
+            {
+                Company result = context.Companies.FirstOrDefault(x => x.Id == id);
+                return result;
+            }
+        }
+
+        public void updateClient(int id, String address, String phone)
+        {
+            using (var context = new AutoShopEntities())
+            {
+                Client result = context.Clients.FirstOrDefault(x => x.Id == id);
+                result.Adress = address;
+                result.Telephone = phone;
+                context.SaveChanges();
+            }
+        }
+
+        public void updatePerson(int id, String name, String surname)
+        {
+            using (var context = new AutoShopEntities())
+            {
+                Person result = context.People.FirstOrDefault(x => x.Id == id);
+                result.Name = name;
+                result.Surname = surname;
+                context.SaveChanges();
+            }
+        }
+
+        public void updateCompany(int id, String name, String code)
+        {
+            using (var context = new AutoShopEntities())
+            {
+                Company result = context.Companies.FirstOrDefault(x => x.Id == id);
+                result.Name = name;
+                result.Code = code;
+                context.SaveChanges();
+            }
+        }
+
+        public void updateClientData(int id, String name, String surname, String code, String address, String phone)
+        {
+            updateClient(id, address, phone);
+            if (isPerson(id))
+            {
+                updatePerson(id, name, surname);
+            }
+            else if (isCompany(id))
+            {
+                updateCompany(id, name, code);
+            }
+        }
+
+        public bool isPerson(int id)
+        {
+            using (var context = new AutoShopEntities())
+            {
+                Person pers = context.People.FirstOrDefault(x => x.Id == id);
+                if (pers != null)
+                {
+                    return true;
+                }
+                else return false;
+            }
+        }
+
+
+        public bool isCompany(int id)
+        {
+            using (var context = new AutoShopEntities())
+            {
+                Company comp = context.Companies.FirstOrDefault(x => x.Id == id);
+                if (comp != null)
+                {
+                    return true;
+                }
+                else return false;
+            }
+        }
+        public void PopulateTopClients(ListBox listBoxTopClients)
 		{
 			using (var context = new AutoShopEntities())
 			{

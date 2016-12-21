@@ -123,6 +123,12 @@
     <Compile Include="Service.cs">
       <DependentUpon>AutoModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="UpdateClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateClientForm.Designer.cs">
+      <DependentUpon>UpdateClientForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,6 +141,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UpdateClientForm.resx">
+      <DependentUpon>UpdateClientForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="AutoModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>AutoModel.Designer.cs</LastGenOutput>

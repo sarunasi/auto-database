@@ -40,33 +40,15 @@ namespace AutoDatabase
             if (comboBoxData.Text == "Darbuotojai")
             {
                 listBoxDuomenys.DataSource = data.getEmployees(textBoxSearch.Text);
-                listBoxDuomenys.DisplayMember = "Name";
             }
             if (comboBoxData.Text == "Klientai")
             {
                 listBoxDuomenys.DataSource = data.getClients(textBoxSearch.Text);
-                listBoxDuomenys.DisplayMember = "Name";
             }
+            listBoxDuomenys.DisplayMember = "Name";
+            listBoxDuomenys.ValueMember = "Id";
 
         }
-		private void buttonAddEmployee_Click(object sender, EventArgs e)
-		{
-			employees.Insert(textBoxInsertEmployeeName.Text, textBoxInsertEmployeeSurname.Text);
-			data.PopulateListBoxEmployees(listBoxEmployees);
-
-		}
-
-		private void buttonUpdateEmployee_Click(object sender, EventArgs e)
-		{
-			employees.Update(textBoxUpdateEmployeeId.Text, textBoxUpdateEmployeeName.Text, textBoxUpdateEmployeeSurname.Text);
-			data.PopulateListBoxEmployees(listBoxEmployees);
-		}
-
-		private void buttonDeleteEmployee_Click(object sender, EventArgs e)
-		{
-			employees.Delete(textBoxDeleteEmployeeId.Text);
-			data.PopulateListBoxEmployees(listBoxEmployees);
-		}
 
 		private void buttonSelectPerson_Click(object sender, EventArgs e)
 		{
@@ -102,7 +84,7 @@ namespace AutoDatabase
 			textBoxTelephone.Text = "";
 
 			data.PopulateListBoxClients(selectedClientPerson, listBoxClients);
-
+            
 		}
 
 		private void listBoxCars_SelectedIndexChanged(object sender, EventArgs e)
@@ -130,7 +112,6 @@ namespace AutoDatabase
 			textBoxes.ForEach(t => t.Text = "");
 
 			data.PopulateListBoxArrivedCars(listBoxArrivedCars);
-			data.PopulateListBoxClientCars((int)listBoxClients.SelectedValue, listBoxClientCars);
 		}
 
 		private void buttonAddJobToCar_Click(object sender, EventArgs e)
@@ -152,30 +133,24 @@ namespace AutoDatabase
 		private void listBoxClients_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			listBoxClients.ValueMember = "Id";
-			data.PopulateListBoxClientCars((int)listBoxClients.SelectedValue, listBoxClientCars);
 
 		}
 
 
 		private void buttonCarArrived_Click(object sender, EventArgs e)
 		{
-
-			data.CarArrived(listBoxClientCars.SelectedValue);
 			data.PopulateListBoxArrivedCars(listBoxArrivedCars);
 
 		}
 
 		private void buttonCarLeft_Click(object sender, EventArgs e)
 		{
-
-			data.CarLeft(listBoxClientCars.SelectedValue);
 			data.PopulateListBoxArrivedCars(listBoxArrivedCars);
 
 		}
 
 		private void buttonAddService_Click(object sender, EventArgs e)
-		{
-			data.AddNewService(textBoxServiceName.Text, textBoxServicePrice.Text, textBoxServiceDefaultHours.Text);
+        { 
 			data.PopulateListBoxServices(listBoxServices);
 		}
 
@@ -270,10 +245,50 @@ namespace AutoDatabase
         private void comboBoxData_SelectedIndexChanged(object sender, EventArgs e)
         {
             showData();
+            if (comboBoxData.Text == "Klientai" || comboBoxData.Text == "Automobiliai" || comboBoxData.Text == "Darbuotojai" || comboBoxData.Text == "Taisymai")
+            {
+                buttonAddNew.Visible = false;
+            }
+            else {
+                buttonAddNew.Visible = true;
+            }
         }
 
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
+            showData();
+        }
+
+        private void textBoxSearchClient_TextChanged(object sender, EventArgs e)
+        {
+            listBoxClients.DataSource = data.getClients(textBoxSearchClient.Text);
+            listBoxClients.DisplayMember = "Name";
+        }
+
+        private void comboBoxClientType_TextChanged(object sender, EventArgs e)
+        {
+            if(comboBoxClientType.Text == "Fizinis asmuo")
+            {
+                textClient1.Text = "Vardas";
+                textClient2.Text = "Pavarde";
+            }
+            else if (comboBoxClientType.Text == "Įmonė")
+            {
+                textClient1.Text = "Pavadinimas";
+                textClient2.Text = "Kodas";
+            }
+        }
+
+        private void buttonUpdateData_Click(object sender, EventArgs e)
+        {
+            int id = (int)listBoxDuomenys.SelectedValue;
+            if (comboBoxData.Text == "Klientai")
+            {
+                using (var updateForm = new UpdateClientForm(id))
+                {
+                    updateForm.ShowDialog();
+                }
+            }
             showData();
         }
     }

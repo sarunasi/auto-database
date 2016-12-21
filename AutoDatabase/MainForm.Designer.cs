@@ -87,12 +87,19 @@
             this.SystemLogTab = new System.Windows.Forms.TabPage();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.tabGenerator = new System.Windows.Forms.TabPage();
+            this.listBoxGeneratorClients = new System.Windows.Forms.ListBox();
+            this.labelKlientaiGen = new System.Windows.Forms.Label();
+            this.buttonGenerateBill = new System.Windows.Forms.Button();
+            this.buttonGenerateGuarantee = new System.Windows.Forms.Button();
+            this.buttonGenerateOrder = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.RegistrateClientTab.SuspendLayout();
             this.JobsTab.SuspendLayout();
             this.dataControllerTab.SuspendLayout();
             this.SystemLogTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            this.tabGenerator.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -104,6 +111,7 @@
             this.tabControl.Controls.Add(this.JobsTab);
             this.tabControl.Controls.Add(this.dataControllerTab);
             this.tabControl.Controls.Add(this.SystemLogTab);
+            this.tabControl.Controls.Add(this.tabGenerator);
             this.tabControl.Location = new System.Drawing.Point(-1, 1);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -605,6 +613,7 @@
             this.buttonShowBusyness.TabIndex = 7;
             this.buttonShowBusyness.Text = "Rodyti užimtumą";
             this.buttonShowBusyness.UseVisualStyleBackColor = true;
+            this.buttonShowBusyness.Click += new System.EventHandler(this.buttonShowBusyness_Click);
             // 
             // buttonUpdateData
             // 
@@ -652,7 +661,7 @@
             this.listBoxDuomenys.Name = "listBoxDuomenys";
             this.listBoxDuomenys.Size = new System.Drawing.Size(295, 303);
             this.listBoxDuomenys.TabIndex = 2;
-            this.listBoxDuomenys.ValueMember = "Id";
+            this.listBoxDuomenys.ValueMember = "\"Id\"";
             // 
             // textBoxSearch
             // 
@@ -704,6 +713,67 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // tabGenerator
+            // 
+            this.tabGenerator.Controls.Add(this.buttonGenerateOrder);
+            this.tabGenerator.Controls.Add(this.buttonGenerateGuarantee);
+            this.tabGenerator.Controls.Add(this.buttonGenerateBill);
+            this.tabGenerator.Controls.Add(this.labelKlientaiGen);
+            this.tabGenerator.Controls.Add(this.listBoxGeneratorClients);
+            this.tabGenerator.Location = new System.Drawing.Point(4, 22);
+            this.tabGenerator.Name = "tabGenerator";
+            this.tabGenerator.Size = new System.Drawing.Size(800, 481);
+            this.tabGenerator.TabIndex = 11;
+            this.tabGenerator.Text = "Dokumentų generatorius";
+            this.tabGenerator.UseVisualStyleBackColor = true;
+            // 
+            // listBoxGeneratorClients
+            // 
+            this.listBoxGeneratorClients.FormattingEnabled = true;
+            this.listBoxGeneratorClients.Location = new System.Drawing.Point(33, 41);
+            this.listBoxGeneratorClients.Name = "listBoxGeneratorClients";
+            this.listBoxGeneratorClients.Size = new System.Drawing.Size(251, 290);
+            this.listBoxGeneratorClients.TabIndex = 0;
+            // 
+            // labelKlientaiGen
+            // 
+            this.labelKlientaiGen.AutoSize = true;
+            this.labelKlientaiGen.Location = new System.Drawing.Point(134, 23);
+            this.labelKlientaiGen.Name = "labelKlientaiGen";
+            this.labelKlientaiGen.Size = new System.Drawing.Size(41, 13);
+            this.labelKlientaiGen.TabIndex = 1;
+            this.labelKlientaiGen.Text = "Klientai";
+            // 
+            // buttonGenerateBill
+            // 
+            this.buttonGenerateBill.Location = new System.Drawing.Point(290, 41);
+            this.buttonGenerateBill.Name = "buttonGenerateBill";
+            this.buttonGenerateBill.Size = new System.Drawing.Size(209, 40);
+            this.buttonGenerateBill.TabIndex = 2;
+            this.buttonGenerateBill.Text = "Generuoti sąskaitą faktūrą";
+            this.buttonGenerateBill.UseVisualStyleBackColor = true;
+            this.buttonGenerateBill.Click += new System.EventHandler(this.buttonGenerateBill_Click);
+            // 
+            // buttonGenerateGuarantee
+            // 
+            this.buttonGenerateGuarantee.Location = new System.Drawing.Point(290, 87);
+            this.buttonGenerateGuarantee.Name = "buttonGenerateGuarantee";
+            this.buttonGenerateGuarantee.Size = new System.Drawing.Size(209, 37);
+            this.buttonGenerateGuarantee.TabIndex = 3;
+            this.buttonGenerateGuarantee.Text = "Generuoti garantiją";
+            this.buttonGenerateGuarantee.UseVisualStyleBackColor = true;
+            this.buttonGenerateGuarantee.Click += new System.EventHandler(this.buttonGenerateGuarantee_Click);
+            // 
+            // buttonGenerateOrder
+            // 
+            this.buttonGenerateOrder.Location = new System.Drawing.Point(290, 130);
+            this.buttonGenerateOrder.Name = "buttonGenerateOrder";
+            this.buttonGenerateOrder.Size = new System.Drawing.Size(209, 39);
+            this.buttonGenerateOrder.TabIndex = 4;
+            this.buttonGenerateOrder.Text = "Generuoti užsakymo dokumentą";
+            this.buttonGenerateOrder.UseVisualStyleBackColor = true;
+            this.buttonGenerateOrder.Click += new System.EventHandler(this.buttonGenerateOrder_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -721,6 +791,8 @@
             this.dataControllerTab.PerformLayout();
             this.SystemLogTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            this.tabGenerator.ResumeLayout(false);
+            this.tabGenerator.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -785,6 +857,12 @@
         private System.Windows.Forms.Label labelKlientai;
         private System.Windows.Forms.Label labelIeskotiKliento;
         private System.Windows.Forms.TextBox textBoxSearchClient;
+        private System.Windows.Forms.TabPage tabGenerator;
+        private System.Windows.Forms.Button buttonGenerateOrder;
+        private System.Windows.Forms.Button buttonGenerateGuarantee;
+        private System.Windows.Forms.Button buttonGenerateBill;
+        private System.Windows.Forms.Label labelKlientaiGen;
+        private System.Windows.Forms.ListBox listBoxGeneratorClients;
     }
 }
 

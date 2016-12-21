@@ -19,10 +19,10 @@ namespace AutoDatabase
         Company company = null;
 
         public bool isPerson = false;
-        public UpdateClientForm(int id)
+        public UpdateClientForm(object id)
         {
             InitializeComponent();
-            clientId = id;
+            clientId = (int)id;
         }
 
         private void UpdateClientForm_Load(object sender, EventArgs e)

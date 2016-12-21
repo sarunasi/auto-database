@@ -64,11 +64,12 @@ namespace AutoDatabase
                 context.SaveChanges();
             }
         }
-        public List<dynamic> getCars()
+        public List<dynamic> getCars(String str)
         {
             using (var context = new AutoShopEntities())
             {
                 var result = (from car in context.Cars
+                              where car.Model.Contains(str) || car.Make.Contains(str) || car.VIN.Contains(str) || car.NumberPlate.Contains(str)
                               select new { Name = car.Model + " " + car.Make + " " + car.NumberPlate, Id = car.VIN }).ToList<dynamic>();
                 return result;
             }
@@ -81,6 +82,17 @@ namespace AutoDatabase
                 var result = (from job in context.Jobs
                               where job.Car_VIN == vin
                               select new { Name = job.Service.Name + " Baigtas: "  +job.Finished.ToString(), Id = job.Id }).ToList<dynamic>();
+                return result;
+            }
+        }
+
+        public List<dynamic> getAllJobs(String str)
+        {
+            using (var context = new AutoShopEntities())
+            {
+                var result = (from job in context.Jobs
+                              where job.Service.Name.Contains(str)
+                              select new { Name = job.Service.Name + " Baigtas: " + job.Finished.ToString()+" " + job.Car.Make + " " + job.Car.Model, Id = job.Id }).ToList<dynamic>();
                 return result;
             }
         }

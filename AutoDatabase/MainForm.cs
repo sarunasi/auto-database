@@ -41,7 +41,7 @@ namespace AutoDatabase
 
         private void populateCarsListBox()
         {
-            listBoxArrivedCars.DataSource = data.getCars();
+            listBoxArrivedCars.DataSource = data.getCars("");
             listBoxArrivedCars.DisplayMember = "Name";
             listBoxArrivedCars.ValueMember = "Id";
         }
@@ -59,6 +59,8 @@ namespace AutoDatabase
         {
             listBoxClients.DataSource = data.getClients("");
             listBoxClients.DisplayMember = "Name";
+            listBoxGeneratorClients.DataSource = data.getClients("");
+            listBoxGeneratorClients.DisplayMember = "Name";
         }
 
         private void populateJobsListBox()
@@ -87,6 +89,14 @@ namespace AutoDatabase
             if (comboBoxData.Text == "Paslaugos")
             {
                 listBoxDuomenys.DataSource = data.getServices(textBoxSearch.Text);
+            }
+            if (comboBoxData.Text == "Automobiliai")
+            {
+                listBoxDuomenys.DataSource = data.getCars(textBoxSearch.Text);
+            }
+            if (comboBoxData.Text == "Taisymai")
+            {
+                listBoxDuomenys.DataSource = data.getAllJobs(textBoxSearch.Text);
             }
             listBoxDuomenys.DisplayMember = "Name";
             //listBoxDuomenys.ValueMember = "Id";
@@ -334,7 +344,7 @@ namespace AutoDatabase
 
         private void buttonUpdateData_Click(object sender, EventArgs e)
         {
-            int id = (int)listBoxDuomenys.SelectedValue;
+            object id = listBoxDuomenys.SelectedValue;
             if (comboBoxData.Text == "Klientai")
             {
                 using (var updateForm = new UpdateClientForm(id))
@@ -379,6 +389,26 @@ namespace AutoDatabase
             textBoxCarRun.Text = "";
             textBoxCarVIN.Text = "";
             textBoxCarYear.Text = "";
+        }
+
+        private void buttonGenerateBill_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Sąskaita faktūra sugeneruota!");
+        }
+
+        private void buttonGenerateGuarantee_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Garantija sugeneruota!");
+        }
+
+        private void buttonGenerateOrder_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Užsakymo dokumentas sugeneruotas!");
+        }
+
+        private void buttonShowBusyness_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Prototipas");
         }
     }
 }

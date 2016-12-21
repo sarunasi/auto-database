@@ -21,7 +21,7 @@ namespace AutoDatabase
 
         private void buttonAddService_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace (textBoxServicePrice.Text))
+            if (string.IsNullOrWhiteSpace (textBoxServicePrice.Text) || string.IsNullOrWhiteSpace (textBoxServiceName.Text))
                 return;
 
             int price;

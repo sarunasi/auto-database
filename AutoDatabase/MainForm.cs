@@ -37,16 +37,12 @@ namespace AutoDatabase
         private void showData()
         {
             listBoxDuomenys.DataSource = null;
-            using (var context = new AutoShopEntities())
+            if (comboBoxData.Text == "Darbuotojai")
             {
-                if (comboBoxData.Text == "Darbuotojai") {
-                    var result = (from emp in context.Employees
-                                  where emp.Surname.Contains(textBoxSearch.Text) || emp.Name.Contains(textBoxSearch.Text)
-                                  select new { Name = emp.Name + " " + emp.Surname }).ToList();
-                    listBoxDuomenys.DataSource = result;
-                    listBoxDuomenys.DisplayMember = "Name";
-                }
+                listBoxDuomenys.DataSource = data.getEmployees(textBoxSearch.Text);
+                listBoxDuomenys.DisplayMember = "Name";
             }
+
         }
 		private void buttonAddEmployee_Click(object sender, EventArgs e)
 		{

@@ -177,6 +177,7 @@
             this.buttonAddNewCar.TabIndex = 39;
             this.buttonAddNewCar.Text = "Prideti automobili";
             this.buttonAddNewCar.UseVisualStyleBackColor = true;
+
             // 
             // textBox16
             // 
@@ -572,11 +573,13 @@
             // 
             // listBoxDuomenys
             // 
+            this.listBoxDuomenys.DisplayMember = "Id";
             this.listBoxDuomenys.FormattingEnabled = true;
             this.listBoxDuomenys.Location = new System.Drawing.Point(106, 90);
             this.listBoxDuomenys.Name = "listBoxDuomenys";
             this.listBoxDuomenys.Size = new System.Drawing.Size(295, 303);
             this.listBoxDuomenys.TabIndex = 2;
+            this.listBoxDuomenys.ValueMember = "Id";
             // 
             // textBoxSearch
             // 

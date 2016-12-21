@@ -72,6 +72,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddServiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddServiceForm.Designer.cs">
+      <DependentUpon>AddServiceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AutoModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -129,6 +135,9 @@
     <Compile Include="UpdateClientForm.Designer.cs">
       <DependentUpon>UpdateClientForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddServiceForm.resx">
+      <DependentUpon>AddServiceForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -37,6 +37,7 @@ namespace AutoDatabase
         private void showData()
         {
             listBoxDuomenys.DataSource = null;
+            listBoxDuomenys.ValueMember = null;
             if (comboBoxData.Text == "Darbuotojai")
             {
                 listBoxDuomenys.DataSource = data.getEmployees(textBoxSearch.Text);
@@ -50,7 +51,7 @@ namespace AutoDatabase
                 listBoxDuomenys.DataSource = data.getServices(textBoxSearch.Text);
             }
             listBoxDuomenys.DisplayMember = "Name";
-            listBoxDuomenys.ValueMember = "Id";
+            //listBoxDuomenys.ValueMember = "Id";
 
         }
 
@@ -298,12 +299,12 @@ namespace AutoDatabase
 
         private void buttonAddNew_Click(object sender, EventArgs e)
         {
-            Service serv = new Service
+            using (var sf = new AddServiceForm())
             {
-                Name = "Padangu keitimas",
-                Price = 20
-            };
-            data.addData(serv);
+                sf.ShowDialog();
+            }
+            showData();
         }
+
     }
 }

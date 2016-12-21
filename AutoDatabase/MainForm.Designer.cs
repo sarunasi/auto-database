@@ -112,6 +112,11 @@
             this.SystemLogTab = new System.Windows.Forms.TabPage();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.labelIeskoti = new System.Windows.Forms.Label();
+            this.labelRodyti = new System.Windows.Forms.Label();
+            this.buttonAddNew = new System.Windows.Forms.Button();
+            this.buttonUpdateData = new System.Windows.Forms.Button();
+            this.buttonShowBusyness = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.RegistrateClientTab.SuspendLayout();
             this.tabAddCar.SuspendLayout();
@@ -918,6 +923,11 @@
             // 
             // dataControllerTab
             // 
+            this.dataControllerTab.Controls.Add(this.buttonShowBusyness);
+            this.dataControllerTab.Controls.Add(this.buttonUpdateData);
+            this.dataControllerTab.Controls.Add(this.buttonAddNew);
+            this.dataControllerTab.Controls.Add(this.labelRodyti);
+            this.dataControllerTab.Controls.Add(this.labelIeskoti);
             this.dataControllerTab.Controls.Add(this.listBoxDuomenys);
             this.dataControllerTab.Controls.Add(this.textBoxSearch);
             this.dataControllerTab.Controls.Add(this.comboBoxData);
@@ -939,10 +949,11 @@
             // 
             // textBoxSearch
             // 
-            this.textBoxSearch.Location = new System.Drawing.Point(106, 399);
+            this.textBoxSearch.Location = new System.Drawing.Point(150, 399);
             this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(295, 20);
+            this.textBoxSearch.Size = new System.Drawing.Size(251, 20);
             this.textBoxSearch.TabIndex = 1;
+            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
             // 
             // comboBoxData
             // 
@@ -955,9 +966,9 @@
             "Taisymai",
             "Dokumentai",
             "Detalės"});
-            this.comboBoxData.Location = new System.Drawing.Point(175, 42);
+            this.comboBoxData.Location = new System.Drawing.Point(149, 63);
             this.comboBoxData.Name = "comboBoxData";
-            this.comboBoxData.Size = new System.Drawing.Size(163, 21);
+            this.comboBoxData.Size = new System.Drawing.Size(252, 21);
             this.comboBoxData.TabIndex = 0;
             this.comboBoxData.SelectedIndexChanged += new System.EventHandler(this.comboBoxData_SelectedIndexChanged);
             // 
@@ -985,6 +996,51 @@
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
+            // 
+            // labelIeskoti
+            // 
+            this.labelIeskoti.AutoSize = true;
+            this.labelIeskoti.Location = new System.Drawing.Point(103, 402);
+            this.labelIeskoti.Name = "labelIeskoti";
+            this.labelIeskoti.Size = new System.Drawing.Size(41, 13);
+            this.labelIeskoti.TabIndex = 3;
+            this.labelIeskoti.Text = "Ieškoti:";
+            // 
+            // labelRodyti
+            // 
+            this.labelRodyti.AutoSize = true;
+            this.labelRodyti.Location = new System.Drawing.Point(103, 66);
+            this.labelRodyti.Name = "labelRodyti";
+            this.labelRodyti.Size = new System.Drawing.Size(40, 13);
+            this.labelRodyti.TabIndex = 4;
+            this.labelRodyti.Text = "Rodyti:";
+            // 
+            // buttonAddNew
+            // 
+            this.buttonAddNew.Location = new System.Drawing.Point(407, 90);
+            this.buttonAddNew.Name = "buttonAddNew";
+            this.buttonAddNew.Size = new System.Drawing.Size(114, 29);
+            this.buttonAddNew.TabIndex = 5;
+            this.buttonAddNew.Text = "Pridėti naują...";
+            this.buttonAddNew.UseVisualStyleBackColor = true;
+            // 
+            // buttonUpdateData
+            // 
+            this.buttonUpdateData.Location = new System.Drawing.Point(407, 125);
+            this.buttonUpdateData.Name = "buttonUpdateData";
+            this.buttonUpdateData.Size = new System.Drawing.Size(114, 29);
+            this.buttonUpdateData.TabIndex = 6;
+            this.buttonUpdateData.Text = "Atnaujinti duomenis";
+            this.buttonUpdateData.UseVisualStyleBackColor = true;
+            // 
+            // buttonShowBusyness
+            // 
+            this.buttonShowBusyness.Location = new System.Drawing.Point(596, 90);
+            this.buttonShowBusyness.Name = "buttonShowBusyness";
+            this.buttonShowBusyness.Size = new System.Drawing.Size(114, 29);
+            this.buttonShowBusyness.TabIndex = 7;
+            this.buttonShowBusyness.Text = "Rodyti užimtumą";
+            this.buttonShowBusyness.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -1098,6 +1154,11 @@
         private System.Windows.Forms.ComboBox comboBoxData;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.ListBox listBoxDuomenys;
+        private System.Windows.Forms.Label labelIeskoti;
+        private System.Windows.Forms.Label labelRodyti;
+        private System.Windows.Forms.Button buttonAddNew;
+        private System.Windows.Forms.Button buttonUpdateData;
+        private System.Windows.Forms.Button buttonShowBusyness;
     }
 }
 

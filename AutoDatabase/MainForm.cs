@@ -42,6 +42,11 @@ namespace AutoDatabase
                 listBoxDuomenys.DataSource = data.getEmployees(textBoxSearch.Text);
                 listBoxDuomenys.DisplayMember = "Name";
             }
+            if (comboBoxData.Text == "Klientai")
+            {
+                listBoxDuomenys.DataSource = data.getClients(textBoxSearch.Text);
+                listBoxDuomenys.DisplayMember = "Name";
+            }
 
         }
 		private void buttonAddEmployee_Click(object sender, EventArgs e)
@@ -263,6 +268,11 @@ namespace AutoDatabase
 		}
 
         private void comboBoxData_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            showData();
+        }
+
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
             showData();
         }

@@ -37,6 +37,17 @@ namespace AutoDatabase
             }
         }
 
+        public List<dynamic> getClients(String str)
+        {
+            using (var context = new AutoShopEntities())
+            {
+                var result = (from cl in context.Clients
+                              where cl.Person.Surname.Contains(str) || cl.Person.Name.Contains(str) || cl.Company.Name.Contains(str)
+                              select new { Name = cl.Person.Name + " " + cl.Person.Surname + cl.Company.Name}).ToList<dynamic>();
+                return result;
+            }
+        }
+
 		public void PopulateTopClients(ListBox listBoxTopClients)
 		{
 			using (var context = new AutoShopEntities())

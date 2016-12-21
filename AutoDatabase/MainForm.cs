@@ -26,8 +26,6 @@ namespace AutoDatabase
 
 			data = new DataController();
 
-			//data.PopulateListBoxClients(selectedClientPerson, listBoxClients);
-			//data.PopulateListBoxArrivedCars(listBoxArrivedCars);
 			data.PopulateListBoxServices(listBoxServices);
 			data.PopulateListBoxEmployees(listBoxEmployees);
             populateJobsListBox();
@@ -67,10 +65,8 @@ namespace AutoDatabase
         {
             if (listBoxArrivedCars.SelectedValue != null)
             {
-                //listBoxArrivedCars.ValueMember = "Id";
                 listBoxCarJobs.DataSource = data.getJobs(Convert.ToString(listBoxArrivedCars.SelectedValue));
                 listBoxCarJobs.DisplayMember = "Name";
-                //listBoxCarJobs.ValueMember = "Id";
             }
         }
 
@@ -99,8 +95,6 @@ namespace AutoDatabase
                 listBoxDuomenys.DataSource = data.getAllJobs(textBoxSearch.Text);
             }
             listBoxDuomenys.DisplayMember = "Name";
-            //listBoxDuomenys.ValueMember = "Id";
-
         }
 
 		private void buttonSelectPerson_Click(object sender, EventArgs e)
@@ -136,43 +130,14 @@ namespace AutoDatabase
 			textBoxAddress.Text = "";
 			textBoxTelephone.Text = "";
 
-			data.PopulateListBoxClients(selectedClientPerson, listBoxClients);
-            
+			data.PopulateListBoxClients(selectedClientPerson, listBoxClients);        
 		}
 
 		private void listBoxCars_SelectedIndexChanged(object sender, EventArgs e)
 		{
             populateJobsListBox();
-			//listBoxArrivedCars.ValueMember = "VIN";
-			//data.PopulateListBoxJobs((string)listBoxArrivedCars.SelectedValue, listBoxCarJobs);
 		}
-        /*
-		private void buttonAddNewCar_Click(object sender, EventArgs e)
-		{
-            listBoxClients.ValueMember = "Id";
-			data.PopulateListBoxArrivedCars(listBoxArrivedCars);
-            Car car = new Car
-            {
-                Engine = textBoxCarEngine.Text,
-                Make = textBoxCarMake.Text,
-                Model = textBoxCarModel.Text,
-                NumberPlate = textBoxCarPlate.Text,
-                Run = int.Parse(textBoxCarRun.Text),
-                VIN = textBoxCarVIN.Text,
-                Year = int.Parse(textBoxCarYear.Text),
-                Client_Id = (int)(listBoxClients.SelectedValue)
-            };
-            data.addData(car);
-            data.PopulateListBoxArrivedCars(listBoxArrivedCars);
-            textBoxCarEngine.Text = "";
-            textBoxCarMake.Text = "";
-            textBoxCarModel.Text = "";
-            textBoxCarPlate.Text = "";
-            textBoxCarRun.Text = "";
-            textBoxCarVIN.Text = "";
-            textBoxCarYear.Text = "";
-        }
-        */
+
 		private void buttonAddJobToCar_Click(object sender, EventArgs e)
 		{
 			string carVin = (string)listBoxArrivedCars.SelectedValue;
@@ -180,9 +145,8 @@ namespace AutoDatabase
 
 			data.AddJobToCar(serviceId, carVin);
             populateJobsListBox();
-			//data.PopulateListBoxJobs((string)listBoxArrivedCars.SelectedValue, listBoxCarJobs);
 		}
-        //geras
+
 		private void buttonFinishJob_Click(object sender, EventArgs e)
 		{
 			data.FinishJob(listBoxCarJobs.SelectedValue);
@@ -192,7 +156,6 @@ namespace AutoDatabase
 		private void listBoxClients_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			listBoxClients.ValueMember = "Id";
-
 		}
 
 
@@ -223,14 +186,11 @@ namespace AutoDatabase
 		private void buttonAddEmployeeToJob_Click(object sender, EventArgs e)
 		{
 			data.AddEmployeeToJob(listBoxEmployees.SelectedValue, listBoxCarJobs.SelectedValue);
-            //data.PopulateListBoxJobEmployees(listBoxJobEmployees, listBoxCarJobs);
             populateJobEmployeesListBox();
         }
 
 		private void listBoxCarJobs_SelectedIndexChanged(object sender, EventArgs e)
 		{
-            //data.PopulateListBoxJobEmployees(listBoxJobEmployees, listBoxCarJobs);
-            //populateJobsListBox();
             populateJobEmployeesListBox();
         }
 

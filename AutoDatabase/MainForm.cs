@@ -140,6 +140,9 @@ namespace AutoDatabase
 
 		private void buttonAddJobToCar_Click(object sender, EventArgs e)
 		{
+            if (listBoxArrivedCars.SelectedValue == null || listBoxServices.SelectedValue == null)
+                return;
+
 			string carVin = (string)listBoxArrivedCars.SelectedValue;
 			int serviceId = (int)listBoxServices.SelectedValue;
 
@@ -328,15 +331,26 @@ namespace AutoDatabase
         {
             listBoxClients.ValueMember = "Id";
             data.PopulateListBoxArrivedCars(listBoxArrivedCars);
+
+            if (string.IsNullOrWhiteSpace (textBoxCarEngine.Text) || string.IsNullOrWhiteSpace (textBoxCarMake.Text) ||
+                string.IsNullOrWhiteSpace (textBoxCarModel.Text) || string.IsNullOrWhiteSpace (textBoxCarPlate.Text) ||
+                string.IsNullOrWhiteSpace (textBoxCarRun.Text) || string.IsNullOrWhiteSpace (textBoxCarVIN.Text) ||
+                string.IsNullOrWhiteSpace (textBoxCarYear.Text) || listBoxClients.SelectedValue == null)
+                return;
+
+            int run, year;
+            int.TryParse (textBoxCarRun.Text, out run);
+            int.TryParse (textBoxCarYear.Text, out year);
+
             Car car = new Car
             {
                 Engine = textBoxCarEngine.Text,
                 Make = textBoxCarMake.Text,
                 Model = textBoxCarModel.Text,
                 NumberPlate = textBoxCarPlate.Text,
-                Run = int.Parse(textBoxCarRun.Text),
+                Run = run,
                 VIN = textBoxCarVIN.Text,
-                Year = int.Parse(textBoxCarYear.Text),
+                Year = year,
                 Client_Id = (int)(listBoxClients.SelectedValue),
                 Arrived = true
             };

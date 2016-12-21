@@ -21,10 +21,16 @@ namespace AutoDatabase
 
         private void buttonAddService_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace (textBoxServicePrice.Text))
+                return;
+
+            int price;
+            int.TryParse (textBoxServicePrice.Text, out price);
+
             Service serv = new Service
             {
                 Name = textBoxServiceName.Text,
-                Price = int.Parse(textBoxServicePrice.Text)
+                Price = price
             };
             data.addData(serv);
             this.Dispose();

@@ -9,6 +9,7 @@ namespace AutoDatabase
 {
 	class DataController
 	{
+        /*
 		public void PopulateListBoxJobEmployees(ListBox listBoxJobEmployees, ListBox listBoxCarJobs)
 		{
 			using (var context = new AutoShopEntities())
@@ -17,7 +18,7 @@ namespace AutoDatabase
 				{
 					var results = (from e in context.Employees
 								   where e.Jobs.Any(j => j.Id == (int)listBoxCarJobs.SelectedValue)
-								   select new { Id = e.Id, Row = e.Name + "    " + e.Surname }).ToList();
+								   select new { Id = e.Id, Row = e.Name + " " + e.Surname }).ToList();
 
 					listBoxJobEmployees.DataSource = results;
 					listBoxJobEmployees.DisplayMember = "Row";
@@ -25,7 +26,7 @@ namespace AutoDatabase
 				}
 			}
 		}
-
+        */
         public void addData(object element)
         {
             Type type = element.GetType();
@@ -36,8 +37,62 @@ namespace AutoDatabase
                 {
                     context.Services.Add((Service)element);
                 }
-                //TODO other types
+                if(type == typeof(Car))
+                {
+                    context.Cars.Add((Car)element);
+                }
+                if (type == typeof(Employee))
+                {
+                    context.Employees.Add((Employee)element);
+                }
+                if (type == typeof(Job))
+                {
+                    context.Jobs.Add((Job)element);
+                }
+                if (type == typeof(Client))
+                {
+                    context.Clients.Add((Client)element);
+                }
+                if (type == typeof(Company))
+                {
+                    context.Companies.Add((Company)element);
+                }
+                if (type == typeof(Person))
+                {
+                    context.People.Add((Person)element);
+                }
                 context.SaveChanges();
+            }
+        }
+        public List<dynamic> getCars()
+        {
+            using (var context = new AutoShopEntities())
+            {
+                var result = (from car in context.Cars
+                              select new { Name = car.Model + " " + car.Make + " " + car.NumberPlate, Id = car.VIN }).ToList<dynamic>();
+                return result;
+            }
+        }
+
+        public List<dynamic> getJobs(String vin)
+        {
+            using (var context = new AutoShopEntities())
+            {
+                var result = (from job in context.Jobs
+                              where job.Car_VIN == vin
+                              select new { Name = job.Service.Name + " " +job.Finished, Id = job.Id}).ToList<dynamic>();
+                return result;
+            }
+        }
+
+        public List<dynamic> getJobEmployees(int id)
+        {
+            using (var context = new AutoShopEntities())
+            {
+                var result = (from emp in context.Employees
+                              where emp.Jobs.Any(x => x.Id == id)
+                              select new { Name = emp.Name + " " + emp.Surname, Id = emp.Id }).ToList<dynamic>();
+                return result;
             }
         }
 

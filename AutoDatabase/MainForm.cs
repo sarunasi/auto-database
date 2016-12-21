@@ -30,9 +30,47 @@ namespace AutoDatabase
 			data.PopulateListBoxArrivedCars(listBoxArrivedCars);
 			data.PopulateListBoxServices(listBoxServices);
 			data.PopulateListBoxEmployees(listBoxEmployees);
-			data.PopulateListBoxJobEmployees(listBoxJobEmployees, listBoxCarJobs);
+            populateJobsListBox();
 
+            populateCarsListBox();
+
+            populateClientsListBox();
+            populateJobsListBox();
+            populateJobEmployeesListBox();
 		}
+
+        private void populateCarsListBox()
+        {
+            listBoxArrivedCars.DataSource = data.getCars();
+            listBoxArrivedCars.DisplayMember = "Name";
+            listBoxArrivedCars.ValueMember = "Id";
+        }
+        private void populateJobEmployeesListBox()
+        {
+            if (listBoxCarJobs.SelectedValue != null)
+            {
+                listBoxCarJobs.ValueMember = "Id";
+                listBoxJobEmployees.DataSource = data.getJobEmployees((int)listBoxCarJobs.SelectedValue);
+                listBoxJobEmployees.DisplayMember = "Name";
+            }
+        }
+
+        private void populateClientsListBox()
+        {
+            listBoxClients.DataSource = data.getClients("");
+            listBoxClients.DisplayMember = "Name";
+        }
+
+        private void populateJobsListBox()
+        {
+            if (listBoxArrivedCars.SelectedValue != null)
+            {
+                //listBoxArrivedCars.ValueMember = "Id";
+                listBoxCarJobs.DataSource = data.getJobs((String)listBoxArrivedCars.SelectedValue);
+                listBoxCarJobs.DisplayMember = "Name";
+                listBoxCarJobs.ValueMember = "Id";
+            }
+        }
 
         private void showData()
         {
@@ -95,44 +133,49 @@ namespace AutoDatabase
 		private void listBoxCars_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			listBoxArrivedCars.ValueMember = "VIN";
-			data.PopulateListBoxJobs((string)listBoxArrivedCars.SelectedValue, listBoxCarJobs);
+			//data.PopulateListBoxJobs((string)listBoxArrivedCars.SelectedValue, listBoxCarJobs);
 		}
-
+        /*
 		private void buttonAddNewCar_Click(object sender, EventArgs e)
 		{
-			List<Control> textBoxes = new List<Control>();
-			textBoxes.Add(textBoxCarEngine);
-			textBoxes.Add(textBoxCarMake);
-			textBoxes.Add(textBoxCarModel);
-			textBoxes.Add(textBoxCarPlate);
-			textBoxes.Add(textBoxCarRun);
-			textBoxes.Add(textBoxCarVIN);
-			textBoxes.Add(textBoxCarYear);
-
-			data.AddNewCar(textBoxCarVIN.Text, textBoxCarPlate.Text, textBoxCarMake.Text,
-				textBoxCarModel.Text, textBoxCarRun.Text, 
-				textBoxCarEngine.Text, textBoxCarYear.Text, (int)listBoxClients.SelectedValue);
-			
-
-			textBoxes.ForEach(t => t.Text = "");
-
+            listBoxClients.ValueMember = "Id";
 			data.PopulateListBoxArrivedCars(listBoxArrivedCars);
-		}
-
+            Car car = new Car
+            {
+                Engine = textBoxCarEngine.Text,
+                Make = textBoxCarMake.Text,
+                Model = textBoxCarModel.Text,
+                NumberPlate = textBoxCarPlate.Text,
+                Run = int.Parse(textBoxCarRun.Text),
+                VIN = textBoxCarVIN.Text,
+                Year = int.Parse(textBoxCarYear.Text),
+                Client_Id = (int)(listBoxClients.SelectedValue)
+            };
+            data.addData(car);
+            data.PopulateListBoxArrivedCars(listBoxArrivedCars);
+            textBoxCarEngine.Text = "";
+            textBoxCarMake.Text = "";
+            textBoxCarModel.Text = "";
+            textBoxCarPlate.Text = "";
+            textBoxCarRun.Text = "";
+            textBoxCarVIN.Text = "";
+            textBoxCarYear.Text = "";
+        }
+        */
 		private void buttonAddJobToCar_Click(object sender, EventArgs e)
 		{
 			string carVin = (string)listBoxArrivedCars.SelectedValue;
 			int serviceId = (int)listBoxServices.SelectedValue;
 
 			data.AddJobToCar(serviceId, carVin);
-
-			data.PopulateListBoxJobs((string)listBoxArrivedCars.SelectedValue, listBoxCarJobs);
+            populateJobsListBox();
+			//data.PopulateListBoxJobs((string)listBoxArrivedCars.SelectedValue, listBoxCarJobs);
 		}
-
+        //geras
 		private void buttonFinishJob_Click(object sender, EventArgs e)
 		{
 			data.FinishJob(listBoxCarJobs.SelectedValue);
-			data.PopulateListBoxJobs((string)listBoxArrivedCars.SelectedValue, listBoxCarJobs);
+            populateJobsListBox();
 		}
 
 		private void listBoxClients_SelectedIndexChanged(object sender, EventArgs e)
@@ -162,19 +205,23 @@ namespace AutoDatabase
 		private void buttonDeleteJob_Click(object sender, EventArgs e)
 		{
 			data.DeleteJob(listBoxCarJobs.SelectedValue);
-			data.PopulateListBoxArrivedCars(listBoxArrivedCars);
+            populateJobsListBox();
+            populateJobEmployeesListBox();
 		}
 
 		private void buttonAddEmployeeToJob_Click(object sender, EventArgs e)
 		{
 			data.AddEmployeeToJob(listBoxEmployees.SelectedValue, listBoxCarJobs.SelectedValue);
-			data.PopulateListBoxJobEmployees(listBoxJobEmployees, listBoxCarJobs);
-		}
+            //data.PopulateListBoxJobEmployees(listBoxJobEmployees, listBoxCarJobs);
+            populateJobEmployeesListBox();
+        }
 
 		private void listBoxCarJobs_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			data.PopulateListBoxJobEmployees(listBoxJobEmployees, listBoxCarJobs);
-		}
+            //data.PopulateListBoxJobEmployees(listBoxJobEmployees, listBoxCarJobs);
+            //populateJobsListBox();
+            populateJobEmployeesListBox();
+        }
 
 		private void buttonPerson_Click(object sender, EventArgs e)
 		{
@@ -306,5 +353,31 @@ namespace AutoDatabase
             showData();
         }
 
+        private void buttonAddNewCar_Click_1(object sender, EventArgs e)
+        {
+            listBoxClients.ValueMember = "Id";
+            data.PopulateListBoxArrivedCars(listBoxArrivedCars);
+            Car car = new Car
+            {
+                Engine = textBoxCarEngine.Text,
+                Make = textBoxCarMake.Text,
+                Model = textBoxCarModel.Text,
+                NumberPlate = textBoxCarPlate.Text,
+                Run = int.Parse(textBoxCarRun.Text),
+                VIN = textBoxCarVIN.Text,
+                Year = int.Parse(textBoxCarYear.Text),
+                Client_Id = (int)(listBoxClients.SelectedValue),
+                Arrived = true
+            };
+            data.addData(car);
+            data.PopulateListBoxArrivedCars(listBoxArrivedCars);
+            textBoxCarEngine.Text = "";
+            textBoxCarMake.Text = "";
+            textBoxCarModel.Text = "";
+            textBoxCarPlate.Text = "";
+            textBoxCarRun.Text = "";
+            textBoxCarVIN.Text = "";
+            textBoxCarYear.Text = "";
+        }
     }
 }

@@ -31,6 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.RegistrateClientTab = new System.Windows.Forms.TabPage();
+            this.labelIeskotiKliento = new System.Windows.Forms.Label();
+            this.textBoxSearchClient = new System.Windows.Forms.TextBox();
+            this.labelKlientai = new System.Windows.Forms.Label();
             this.comboBoxClientType = new System.Windows.Forms.ComboBox();
             this.listBoxClients = new System.Windows.Forms.ListBox();
             this.buttonAddNewCar = new System.Windows.Forms.Button();
@@ -73,20 +76,17 @@
             this.listBoxServices = new System.Windows.Forms.ListBox();
             this.listBoxArrivedCars = new System.Windows.Forms.ListBox();
             this.dataControllerTab = new System.Windows.Forms.TabPage();
+            this.buttonShowBusyness = new System.Windows.Forms.Button();
+            this.buttonUpdateData = new System.Windows.Forms.Button();
+            this.buttonAddNew = new System.Windows.Forms.Button();
+            this.labelRodyti = new System.Windows.Forms.Label();
+            this.labelIeskoti = new System.Windows.Forms.Label();
             this.listBoxDuomenys = new System.Windows.Forms.ListBox();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.comboBoxData = new System.Windows.Forms.ComboBox();
             this.SystemLogTab = new System.Windows.Forms.TabPage();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.labelIeskoti = new System.Windows.Forms.Label();
-            this.labelRodyti = new System.Windows.Forms.Label();
-            this.buttonAddNew = new System.Windows.Forms.Button();
-            this.buttonUpdateData = new System.Windows.Forms.Button();
-            this.buttonShowBusyness = new System.Windows.Forms.Button();
-            this.labelKlientai = new System.Windows.Forms.Label();
-            this.textBoxSearchClient = new System.Windows.Forms.TextBox();
-            this.labelIeskotiKliento = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.RegistrateClientTab.SuspendLayout();
             this.JobsTab.SuspendLayout();
@@ -149,13 +149,39 @@
             this.RegistrateClientTab.Text = "Registruoti klientą";
             this.RegistrateClientTab.UseVisualStyleBackColor = true;
             // 
+            // labelIeskotiKliento
+            // 
+            this.labelIeskotiKliento.AutoSize = true;
+            this.labelIeskotiKliento.Location = new System.Drawing.Point(248, 458);
+            this.labelIeskotiKliento.Name = "labelIeskotiKliento";
+            this.labelIeskotiKliento.Size = new System.Drawing.Size(41, 13);
+            this.labelIeskotiKliento.TabIndex = 46;
+            this.labelIeskotiKliento.Text = "Ieskoti:";
+            // 
+            // textBoxSearchClient
+            // 
+            this.textBoxSearchClient.Location = new System.Drawing.Point(295, 455);
+            this.textBoxSearchClient.Name = "textBoxSearchClient";
+            this.textBoxSearchClient.Size = new System.Drawing.Size(231, 20);
+            this.textBoxSearchClient.TabIndex = 45;
+            this.textBoxSearchClient.TextChanged += new System.EventHandler(this.textBoxSearchClient_TextChanged);
+            // 
+            // labelKlientai
+            // 
+            this.labelKlientai.AutoSize = true;
+            this.labelKlientai.Location = new System.Drawing.Point(248, 221);
+            this.labelKlientai.Name = "labelKlientai";
+            this.labelKlientai.Size = new System.Drawing.Size(44, 13);
+            this.labelKlientai.TabIndex = 44;
+            this.labelKlientai.Text = "Klientai:";
+            // 
             // comboBoxClientType
             // 
             this.comboBoxClientType.FormattingEnabled = true;
             this.comboBoxClientType.Items.AddRange(new object[] {
             "Įmonė",
             "Fizinis asmuo"});
-            this.comboBoxClientType.Location = new System.Drawing.Point(116, 26);
+            this.comboBoxClientType.Location = new System.Drawing.Point(141, 26);
             this.comboBoxClientType.Name = "comboBoxClientType";
             this.comboBoxClientType.Size = new System.Drawing.Size(121, 21);
             this.comboBoxClientType.TabIndex = 43;
@@ -164,26 +190,26 @@
             // listBoxClients
             // 
             this.listBoxClients.FormattingEnabled = true;
-            this.listBoxClients.Location = new System.Drawing.Point(40, 237);
+            this.listBoxClients.Location = new System.Drawing.Point(251, 237);
             this.listBoxClients.Name = "listBoxClients";
             this.listBoxClients.Size = new System.Drawing.Size(275, 212);
             this.listBoxClients.TabIndex = 40;
             // 
             // buttonAddNewCar
             // 
-            this.buttonAddNewCar.Location = new System.Drawing.Point(424, 183);
+            this.buttonAddNewCar.Location = new System.Drawing.Point(531, 176);
             this.buttonAddNewCar.Name = "buttonAddNewCar";
             this.buttonAddNewCar.Size = new System.Drawing.Size(141, 38);
             this.buttonAddNewCar.TabIndex = 39;
             this.buttonAddNewCar.Text = "Prideti automobili";
             this.buttonAddNewCar.UseVisualStyleBackColor = true;
-
+            this.buttonAddNewCar.Click += new System.EventHandler(this.buttonAddNewCar_Click_1);
             // 
             // textBox16
             // 
             this.textBox16.BackColor = System.Drawing.SystemColors.Window;
             this.textBox16.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox16.Location = new System.Drawing.Point(321, 160);
+            this.textBox16.Location = new System.Drawing.Point(409, 153);
             this.textBox16.Name = "textBox16";
             this.textBox16.ReadOnly = true;
             this.textBox16.Size = new System.Drawing.Size(67, 13);
@@ -194,7 +220,7 @@
             // 
             this.textBox15.BackColor = System.Drawing.SystemColors.Window;
             this.textBox15.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox15.Location = new System.Drawing.Point(321, 134);
+            this.textBox15.Location = new System.Drawing.Point(409, 127);
             this.textBox15.Name = "textBox15";
             this.textBox15.ReadOnly = true;
             this.textBox15.Size = new System.Drawing.Size(67, 13);
@@ -205,7 +231,7 @@
             // 
             this.textBox14.BackColor = System.Drawing.SystemColors.Window;
             this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox14.Location = new System.Drawing.Point(321, 108);
+            this.textBox14.Location = new System.Drawing.Point(409, 102);
             this.textBox14.Name = "textBox14";
             this.textBox14.ReadOnly = true;
             this.textBox14.Size = new System.Drawing.Size(67, 13);
@@ -216,7 +242,7 @@
             // 
             this.textBox10.BackColor = System.Drawing.SystemColors.Window;
             this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox10.Location = new System.Drawing.Point(321, 9);
+            this.textBox10.Location = new System.Drawing.Point(409, 11);
             this.textBox10.Name = "textBox10";
             this.textBox10.ReadOnly = true;
             this.textBox10.Size = new System.Drawing.Size(67, 13);
@@ -227,7 +253,7 @@
             // 
             this.textBox11.BackColor = System.Drawing.SystemColors.Window;
             this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox11.Location = new System.Drawing.Point(321, 34);
+            this.textBox11.Location = new System.Drawing.Point(409, 29);
             this.textBox11.Name = "textBox11";
             this.textBox11.ReadOnly = true;
             this.textBox11.Size = new System.Drawing.Size(67, 13);
@@ -238,7 +264,7 @@
             // 
             this.textBox12.BackColor = System.Drawing.SystemColors.Window;
             this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox12.Location = new System.Drawing.Point(321, 82);
+            this.textBox12.Location = new System.Drawing.Point(409, 78);
             this.textBox12.Name = "textBox12";
             this.textBox12.ReadOnly = true;
             this.textBox12.Size = new System.Drawing.Size(67, 13);
@@ -249,7 +275,7 @@
             // 
             this.textBox13.BackColor = System.Drawing.SystemColors.Window;
             this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox13.Location = new System.Drawing.Point(321, 60);
+            this.textBox13.Location = new System.Drawing.Point(409, 52);
             this.textBox13.Name = "textBox13";
             this.textBox13.ReadOnly = true;
             this.textBox13.Size = new System.Drawing.Size(67, 13);
@@ -258,7 +284,7 @@
             // 
             // textBoxCarYear
             // 
-            this.textBoxCarYear.Location = new System.Drawing.Point(394, 157);
+            this.textBoxCarYear.Location = new System.Drawing.Point(493, 150);
             this.textBoxCarYear.MaxLength = 50;
             this.textBoxCarYear.Name = "textBoxCarYear";
             this.textBoxCarYear.Size = new System.Drawing.Size(210, 20);
@@ -266,7 +292,7 @@
             // 
             // textBoxCarEngine
             // 
-            this.textBoxCarEngine.Location = new System.Drawing.Point(394, 131);
+            this.textBoxCarEngine.Location = new System.Drawing.Point(493, 124);
             this.textBoxCarEngine.MaxLength = 50;
             this.textBoxCarEngine.Name = "textBoxCarEngine";
             this.textBoxCarEngine.Size = new System.Drawing.Size(210, 20);
@@ -274,7 +300,7 @@
             // 
             // textBoxCarRun
             // 
-            this.textBoxCarRun.Location = new System.Drawing.Point(394, 105);
+            this.textBoxCarRun.Location = new System.Drawing.Point(493, 98);
             this.textBoxCarRun.MaxLength = 50;
             this.textBoxCarRun.Name = "textBoxCarRun";
             this.textBoxCarRun.Size = new System.Drawing.Size(210, 20);
@@ -282,7 +308,7 @@
             // 
             // textBoxCarModel
             // 
-            this.textBoxCarModel.Location = new System.Drawing.Point(394, 79);
+            this.textBoxCarModel.Location = new System.Drawing.Point(493, 75);
             this.textBoxCarModel.MaxLength = 50;
             this.textBoxCarModel.Name = "textBoxCarModel";
             this.textBoxCarModel.Size = new System.Drawing.Size(210, 20);
@@ -290,7 +316,7 @@
             // 
             // textBoxCarMake
             // 
-            this.textBoxCarMake.Location = new System.Drawing.Point(394, 56);
+            this.textBoxCarMake.Location = new System.Drawing.Point(493, 49);
             this.textBoxCarMake.MaxLength = 50;
             this.textBoxCarMake.Name = "textBoxCarMake";
             this.textBoxCarMake.Size = new System.Drawing.Size(210, 20);
@@ -298,7 +324,7 @@
             // 
             // textBoxCarPlate
             // 
-            this.textBoxCarPlate.Location = new System.Drawing.Point(394, 30);
+            this.textBoxCarPlate.Location = new System.Drawing.Point(493, 26);
             this.textBoxCarPlate.MaxLength = 50;
             this.textBoxCarPlate.Name = "textBoxCarPlate";
             this.textBoxCarPlate.Size = new System.Drawing.Size(210, 20);
@@ -306,7 +332,7 @@
             // 
             // textBoxCarVIN
             // 
-            this.textBoxCarVIN.Location = new System.Drawing.Point(394, 6);
+            this.textBoxCarVIN.Location = new System.Drawing.Point(493, 4);
             this.textBoxCarVIN.MaxLength = 50;
             this.textBoxCarVIN.Name = "textBoxCarVIN";
             this.textBoxCarVIN.Size = new System.Drawing.Size(210, 20);
@@ -336,7 +362,7 @@
             // 
             // textBoxClient1
             // 
-            this.textBoxClient1.Location = new System.Drawing.Point(68, 53);
+            this.textBoxClient1.Location = new System.Drawing.Point(91, 53);
             this.textBoxClient1.MaxLength = 50;
             this.textBoxClient1.Name = "textBoxClient1";
             this.textBoxClient1.Size = new System.Drawing.Size(224, 20);
@@ -345,7 +371,7 @@
             // 
             // textBoxClient2
             // 
-            this.textBoxClient2.Location = new System.Drawing.Point(68, 79);
+            this.textBoxClient2.Location = new System.Drawing.Point(91, 79);
             this.textBoxClient2.MaxLength = 50;
             this.textBoxClient2.Name = "textBoxClient2";
             this.textBoxClient2.Size = new System.Drawing.Size(224, 20);
@@ -376,7 +402,7 @@
             // 
             // buttonRegisterClient
             // 
-            this.buttonRegisterClient.Location = new System.Drawing.Point(116, 164);
+            this.buttonRegisterClient.Location = new System.Drawing.Point(139, 153);
             this.buttonRegisterClient.Name = "buttonRegisterClient";
             this.buttonRegisterClient.Size = new System.Drawing.Size(123, 35);
             this.buttonRegisterClient.TabIndex = 2;
@@ -386,7 +412,7 @@
             // 
             // textBoxTelephone
             // 
-            this.textBoxTelephone.Location = new System.Drawing.Point(68, 131);
+            this.textBoxTelephone.Location = new System.Drawing.Point(91, 127);
             this.textBoxTelephone.MaxLength = 30;
             this.textBoxTelephone.Name = "textBoxTelephone";
             this.textBoxTelephone.Size = new System.Drawing.Size(224, 20);
@@ -395,7 +421,7 @@
             // 
             // textBoxAddress
             // 
-            this.textBoxAddress.Location = new System.Drawing.Point(68, 105);
+            this.textBoxAddress.Location = new System.Drawing.Point(91, 102);
             this.textBoxAddress.MaxLength = 50;
             this.textBoxAddress.Name = "textBoxAddress";
             this.textBoxAddress.Size = new System.Drawing.Size(224, 20);
@@ -571,6 +597,53 @@
             this.dataControllerTab.Text = "Duomenų valdyklė";
             this.dataControllerTab.UseVisualStyleBackColor = true;
             // 
+            // buttonShowBusyness
+            // 
+            this.buttonShowBusyness.Location = new System.Drawing.Point(669, 6);
+            this.buttonShowBusyness.Name = "buttonShowBusyness";
+            this.buttonShowBusyness.Size = new System.Drawing.Size(125, 49);
+            this.buttonShowBusyness.TabIndex = 7;
+            this.buttonShowBusyness.Text = "Rodyti užimtumą";
+            this.buttonShowBusyness.UseVisualStyleBackColor = true;
+            // 
+            // buttonUpdateData
+            // 
+            this.buttonUpdateData.Location = new System.Drawing.Point(407, 125);
+            this.buttonUpdateData.Name = "buttonUpdateData";
+            this.buttonUpdateData.Size = new System.Drawing.Size(114, 29);
+            this.buttonUpdateData.TabIndex = 6;
+            this.buttonUpdateData.Text = "Atnaujinti duomenis";
+            this.buttonUpdateData.UseVisualStyleBackColor = true;
+            this.buttonUpdateData.Click += new System.EventHandler(this.buttonUpdateData_Click);
+            // 
+            // buttonAddNew
+            // 
+            this.buttonAddNew.Location = new System.Drawing.Point(407, 90);
+            this.buttonAddNew.Name = "buttonAddNew";
+            this.buttonAddNew.Size = new System.Drawing.Size(114, 29);
+            this.buttonAddNew.TabIndex = 5;
+            this.buttonAddNew.Text = "Pridėti naują...";
+            this.buttonAddNew.UseVisualStyleBackColor = true;
+            this.buttonAddNew.Click += new System.EventHandler(this.buttonAddNew_Click);
+            // 
+            // labelRodyti
+            // 
+            this.labelRodyti.AutoSize = true;
+            this.labelRodyti.Location = new System.Drawing.Point(103, 66);
+            this.labelRodyti.Name = "labelRodyti";
+            this.labelRodyti.Size = new System.Drawing.Size(40, 13);
+            this.labelRodyti.TabIndex = 4;
+            this.labelRodyti.Text = "Rodyti:";
+            // 
+            // labelIeskoti
+            // 
+            this.labelIeskoti.AutoSize = true;
+            this.labelIeskoti.Location = new System.Drawing.Point(103, 402);
+            this.labelIeskoti.Name = "labelIeskoti";
+            this.labelIeskoti.Size = new System.Drawing.Size(41, 13);
+            this.labelIeskoti.TabIndex = 3;
+            this.labelIeskoti.Text = "Ieškoti:";
+            // 
             // listBoxDuomenys
             // 
             this.listBoxDuomenys.DisplayMember = "Id";
@@ -630,79 +703,6 @@
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
-            // 
-            // labelIeskoti
-            // 
-            this.labelIeskoti.AutoSize = true;
-            this.labelIeskoti.Location = new System.Drawing.Point(103, 402);
-            this.labelIeskoti.Name = "labelIeskoti";
-            this.labelIeskoti.Size = new System.Drawing.Size(41, 13);
-            this.labelIeskoti.TabIndex = 3;
-            this.labelIeskoti.Text = "Ieškoti:";
-            // 
-            // labelRodyti
-            // 
-            this.labelRodyti.AutoSize = true;
-            this.labelRodyti.Location = new System.Drawing.Point(103, 66);
-            this.labelRodyti.Name = "labelRodyti";
-            this.labelRodyti.Size = new System.Drawing.Size(40, 13);
-            this.labelRodyti.TabIndex = 4;
-            this.labelRodyti.Text = "Rodyti:";
-            // 
-            // buttonAddNew
-            // 
-            this.buttonAddNew.Location = new System.Drawing.Point(407, 90);
-            this.buttonAddNew.Name = "buttonAddNew";
-            this.buttonAddNew.Size = new System.Drawing.Size(114, 29);
-            this.buttonAddNew.TabIndex = 5;
-            this.buttonAddNew.Text = "Pridėti naują...";
-            this.buttonAddNew.UseVisualStyleBackColor = true;
-            this.buttonAddNew.Click += new System.EventHandler(this.buttonAddNew_Click);
-            // 
-            // buttonUpdateData
-            // 
-            this.buttonUpdateData.Location = new System.Drawing.Point(407, 125);
-            this.buttonUpdateData.Name = "buttonUpdateData";
-            this.buttonUpdateData.Size = new System.Drawing.Size(114, 29);
-            this.buttonUpdateData.TabIndex = 6;
-            this.buttonUpdateData.Text = "Atnaujinti duomenis";
-            this.buttonUpdateData.UseVisualStyleBackColor = true;
-            this.buttonUpdateData.Click += new System.EventHandler(this.buttonUpdateData_Click);
-            // 
-            // buttonShowBusyness
-            // 
-            this.buttonShowBusyness.Location = new System.Drawing.Point(669, 6);
-            this.buttonShowBusyness.Name = "buttonShowBusyness";
-            this.buttonShowBusyness.Size = new System.Drawing.Size(125, 49);
-            this.buttonShowBusyness.TabIndex = 7;
-            this.buttonShowBusyness.Text = "Rodyti užimtumą";
-            this.buttonShowBusyness.UseVisualStyleBackColor = true;
-            // 
-            // labelKlientai
-            // 
-            this.labelKlientai.AutoSize = true;
-            this.labelKlientai.Location = new System.Drawing.Point(37, 221);
-            this.labelKlientai.Name = "labelKlientai";
-            this.labelKlientai.Size = new System.Drawing.Size(44, 13);
-            this.labelKlientai.TabIndex = 44;
-            this.labelKlientai.Text = "Klientai:";
-            // 
-            // textBoxSearchClient
-            // 
-            this.textBoxSearchClient.Location = new System.Drawing.Point(84, 455);
-            this.textBoxSearchClient.Name = "textBoxSearchClient";
-            this.textBoxSearchClient.Size = new System.Drawing.Size(231, 20);
-            this.textBoxSearchClient.TabIndex = 45;
-            this.textBoxSearchClient.TextChanged += new System.EventHandler(this.textBoxSearchClient_TextChanged);
-            // 
-            // labelIeskotiKliento
-            // 
-            this.labelIeskotiKliento.AutoSize = true;
-            this.labelIeskotiKliento.Location = new System.Drawing.Point(37, 458);
-            this.labelIeskotiKliento.Name = "labelIeskotiKliento";
-            this.labelIeskotiKliento.Size = new System.Drawing.Size(41, 13);
-            this.labelIeskotiKliento.TabIndex = 46;
-            this.labelIeskotiKliento.Text = "Ieskoti:";
             // 
             // MainForm
             // 

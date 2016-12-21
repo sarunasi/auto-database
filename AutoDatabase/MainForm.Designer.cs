@@ -197,11 +197,13 @@
             // 
             // listBoxClients
             // 
+            this.listBoxClients.DisplayMember = "\"Id\"";
             this.listBoxClients.FormattingEnabled = true;
             this.listBoxClients.Location = new System.Drawing.Point(251, 237);
             this.listBoxClients.Name = "listBoxClients";
             this.listBoxClients.Size = new System.Drawing.Size(275, 212);
             this.listBoxClients.TabIndex = 40;
+            this.listBoxClients.ValueMember = "Id";
             // 
             // buttonAddNewCar
             // 
@@ -507,11 +509,13 @@
             // 
             // listBoxJobEmployees
             // 
+            this.listBoxJobEmployees.DisplayMember = "Id";
             this.listBoxJobEmployees.FormattingEnabled = true;
             this.listBoxJobEmployees.Location = new System.Drawing.Point(248, 276);
             this.listBoxJobEmployees.Name = "listBoxJobEmployees";
             this.listBoxJobEmployees.Size = new System.Drawing.Size(203, 199);
             this.listBoxJobEmployees.TabIndex = 10;
+            this.listBoxJobEmployees.ValueMember = "Id";
             // 
             // buttonAddEmployeeToJob
             // 
@@ -525,11 +529,13 @@
             // 
             // listBoxEmployees
             // 
+            this.listBoxEmployees.DisplayMember = "Id";
             this.listBoxEmployees.FormattingEnabled = true;
             this.listBoxEmployees.Location = new System.Drawing.Point(245, 21);
             this.listBoxEmployees.Name = "listBoxEmployees";
             this.listBoxEmployees.Size = new System.Drawing.Size(206, 225);
             this.listBoxEmployees.TabIndex = 8;
+            this.listBoxEmployees.ValueMember = "Id";
             // 
             // buttonDeleteJob
             // 
@@ -553,11 +559,13 @@
             // 
             // listBoxCarJobs
             // 
+            this.listBoxCarJobs.DisplayMember = "Id";
             this.listBoxCarJobs.FormattingEnabled = true;
             this.listBoxCarJobs.Location = new System.Drawing.Point(25, 276);
             this.listBoxCarJobs.Name = "listBoxCarJobs";
             this.listBoxCarJobs.Size = new System.Drawing.Size(206, 199);
             this.listBoxCarJobs.TabIndex = 5;
+            this.listBoxCarJobs.ValueMember = "Id";
             this.listBoxCarJobs.SelectedIndexChanged += new System.EventHandler(this.listBoxCarJobs_SelectedIndexChanged);
             // 
             // buttonAddJobToCar
@@ -572,19 +580,23 @@
             // 
             // listBoxServices
             // 
+            this.listBoxServices.DisplayMember = "Id";
             this.listBoxServices.FormattingEnabled = true;
             this.listBoxServices.Location = new System.Drawing.Point(470, 276);
             this.listBoxServices.Name = "listBoxServices";
             this.listBoxServices.Size = new System.Drawing.Size(206, 199);
             this.listBoxServices.TabIndex = 2;
+            this.listBoxServices.ValueMember = "Id";
             // 
             // listBoxArrivedCars
             // 
+            this.listBoxArrivedCars.DisplayMember = "\"Id\"";
             this.listBoxArrivedCars.FormattingEnabled = true;
             this.listBoxArrivedCars.Location = new System.Drawing.Point(25, 21);
             this.listBoxArrivedCars.Name = "listBoxArrivedCars";
             this.listBoxArrivedCars.Size = new System.Drawing.Size(206, 225);
             this.listBoxArrivedCars.TabIndex = 1;
+            this.listBoxArrivedCars.ValueMember = "Id";
             this.listBoxArrivedCars.SelectedIndexChanged += new System.EventHandler(this.listBoxCars_SelectedIndexChanged);
             // 
             // dataControllerTab
@@ -661,7 +673,7 @@
             this.listBoxDuomenys.Name = "listBoxDuomenys";
             this.listBoxDuomenys.Size = new System.Drawing.Size(295, 303);
             this.listBoxDuomenys.TabIndex = 2;
-            this.listBoxDuomenys.ValueMember = "\"Id\"";
+            this.listBoxDuomenys.ValueMember = "Id";
             // 
             // textBoxSearch
             // 
@@ -729,11 +741,13 @@
             // 
             // listBoxGeneratorClients
             // 
+            this.listBoxGeneratorClients.DisplayMember = "Id";
             this.listBoxGeneratorClients.FormattingEnabled = true;
             this.listBoxGeneratorClients.Location = new System.Drawing.Point(33, 41);
             this.listBoxGeneratorClients.Name = "listBoxGeneratorClients";
             this.listBoxGeneratorClients.Size = new System.Drawing.Size(251, 290);
             this.listBoxGeneratorClients.TabIndex = 0;
+            this.listBoxGeneratorClients.ValueMember = "Id";
             // 
             // labelKlientaiGen
             // 

@@ -47,7 +47,7 @@ namespace AutoDatabase
         {
             if (listBoxCarJobs.SelectedValue != null)
             {
-                listBoxCarJobs.ValueMember = "Id";
+                //listBoxCarJobs.ValueMember = "Id";
                 listBoxJobEmployees.DataSource = data.getJobEmployees((int)listBoxCarJobs.SelectedValue);
                 listBoxJobEmployees.DisplayMember = "Name";
             }
@@ -73,7 +73,7 @@ namespace AutoDatabase
         private void showData()
         {
             listBoxDuomenys.DataSource = null;
-            listBoxDuomenys.ValueMember = null;
+            //listBoxDuomenys.ValueMember = null;
             if (comboBoxData.Text == "Darbuotojai")
             {
                 listBoxDuomenys.DataSource = data.getEmployees(textBoxSearch.Text);

@@ -80,7 +80,7 @@ namespace AutoDatabase
             {
                 var result = (from job in context.Jobs
                               where job.Car_VIN == vin
-                              select new { Name = job.Service.Name + " " +job.Finished, Id = job.Id}).ToList<dynamic>();
+                              select new { Name = job.Service.Name + " Baigtas: "  +job.Finished.ToString(), Id = job.Id }).ToList<dynamic>();
                 return result;
             }
         }
@@ -474,7 +474,18 @@ namespace AutoDatabase
 
 		public void DeleteJob(object jobId)
 		{
-			using (var context = new AutoShopEntities())
+            using (var context = new AutoShopEntities())
+            {
+                if (jobId != null)
+                {
+                    var job = context.Jobs.FirstOrDefault(x => x.Id == (int)jobId);
+                    job.Employees.Clear();
+                    context.Jobs.Remove(job);
+                    context.SaveChanges();
+                }
+            }
+            /*
+            using (var context = new AutoShopEntities())
 			{
 				if (jobId != null)
 				{
@@ -484,6 +495,7 @@ namespace AutoDatabase
 					context.SaveChanges();
 				}
 			}
+            */
 		}
 
 		public void AddEmployeeToJob(object employeeId, object jobId)

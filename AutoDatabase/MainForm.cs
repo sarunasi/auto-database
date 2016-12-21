@@ -66,9 +66,9 @@ namespace AutoDatabase
             if (listBoxArrivedCars.SelectedValue != null)
             {
                 //listBoxArrivedCars.ValueMember = "Id";
-                listBoxCarJobs.DataSource = data.getJobs((String)listBoxArrivedCars.SelectedValue);
+                listBoxCarJobs.DataSource = data.getJobs(Convert.ToString(listBoxArrivedCars.SelectedValue));
                 listBoxCarJobs.DisplayMember = "Name";
-                listBoxCarJobs.ValueMember = "Id";
+                //listBoxCarJobs.ValueMember = "Id";
             }
         }
 
@@ -132,7 +132,8 @@ namespace AutoDatabase
 
 		private void listBoxCars_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			listBoxArrivedCars.ValueMember = "VIN";
+            populateJobsListBox();
+			//listBoxArrivedCars.ValueMember = "VIN";
 			//data.PopulateListBoxJobs((string)listBoxArrivedCars.SelectedValue, listBoxCarJobs);
 		}
         /*
